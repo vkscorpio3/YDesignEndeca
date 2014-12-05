@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE DIMENSIONS SYSTEM "dimensions.dtd">
+<DIMENSIONS VERSION="1.0.0">
+
+  <DIMENSION NAME="Brand" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="1"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="1"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Brand</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="ShipsToCanada" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">ShipsToCanada</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Exclusive" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="6"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="6"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Exclusive</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="New" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="7"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="7"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">New</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Category_id" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000485"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000485"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Category_id</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Collection" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000486"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000486"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Collection</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Color" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000487"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000487"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Color</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Customer_ratings" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000488"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000488"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Customer_ratings</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Designer" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000489"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000489"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Designer</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Gift_wrap" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000490"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000490"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Gift_wrap</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Lamp_type" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000491"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000491"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Lamp_type</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Other_features" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000492"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000492"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Other_features</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Seat_features" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000493"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000493"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Seat_features</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Store_id" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000494"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000494"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Store_id</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Table_features" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000495"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000495"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Table_features</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Warehouse_sale" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000496"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000496"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Warehouse_sale</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="BrandForCategories" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000497"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000497"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">BrandForCategories</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Is_free_shipping" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000498"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000498"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Is_free_shipping</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Is_new" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000499"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000499"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Is_new</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Is_on_sale" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000500"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000500"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Is_on_sale</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Quick_ship" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="2000502"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="2000502"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Quick_ship</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Price Range" SRC_TYPE="INTERNAL">
+    <DIMENSION_ID ID="4000010"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="4000010"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Price Range</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000012"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$501 - $1000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="501"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="1000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000013"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$1001 - $1500</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="1001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="1500"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000011"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">0 - $500</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="0"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="500"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000014"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$1501 - $2000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="1501"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="2000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000015"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$2001 - $2500</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="2001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="2500"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000016"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$2501 - $3000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="2501"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="3000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000017"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$3001 - $3500</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="3001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="3500"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000018"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$3501 - $4000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="3501"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="4000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000019"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$4001 - $4500</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="4001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="4500"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000020"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$4501 - $5000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="4501"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="5000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000021"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$5001 - $6000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="5001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="6000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000022"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$6001 - $7000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="6001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="7000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000023"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$8001 - $9000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="8001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="9000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000024"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$9001 - $10000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="9001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="10000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000025"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$10001 - $11000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="10001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="11000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000026"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$11001 - $12000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="11001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="12000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000027"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$12001 - $13000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="12001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="13000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000028"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$13001 - $14000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="13001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="14000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000029"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$14001 - $15000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="14001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="15000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000030"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$15001 - $16000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="15001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="16000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000031"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$17001 - $18000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="17001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="18000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000032"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$19001 - $20000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="19001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="20000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000033"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$20001 - $21000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="20001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="21000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000034"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$21001 - $22000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="21001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="22000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000035"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$22001 - $23000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="22001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="23000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000036"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$23001 - $24000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="23001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="24000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000037"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$24001 - $25000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="24001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="25000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000038"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$25001 - $26000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="25001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="26000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000039"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$26001 - $27000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="26001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="27000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000040"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$27001 - $28000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="27001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="28000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000041"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$28001 - $29000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="28001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="29000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="4000042"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">$29001 - $30000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="29001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="FLOAT" VALUE="30000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+</DIMENSIONS>

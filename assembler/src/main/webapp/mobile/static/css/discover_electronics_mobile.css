@@ -1,0 +1,931 @@
+/*
+ * Copyright 2001, 2014, Oracle and/or its affiliates. All rights reserved.
+ * Oracle and Java are registered trademarks of Oracle and/or its
+ * affiliates. Other names may be trademarks of their respective owners.
+ * UNIX is a registered trademark of The Open Group.
+ *
+ * This software and related documentation are provided under a license
+ * agreement containing restrictions on use and disclosure and are
+ * protected by intellectual property laws. Except as expressly permitted
+ * in your license agreement or allowed by law, you may not use, copy,
+ * reproduce, translate, broadcast, modify, license, transmit, distribute,
+ * exhibit, perform, publish, or display any part, in any form, or by any
+ * means. Reverse engineering, disassembly, or decompilation of this
+ * software, unless required by law for interoperability, is prohibited.
+ * The information contained herein is subject to change without notice
+ * and is not warranted to be error-free. If you find any errors, please
+ * report them to us in writing.
+ * U.S. GOVERNMENT END USERS: Oracle programs, including any operating
+ * system, integrated software, any programs installed on the hardware,
+ * and/or documentation, delivered to U.S. Government end users are
+ * "commercial computer software" pursuant to the applicable Federal
+ * Acquisition Regulation and agency-specific supplemental regulations.
+ * As such, use, duplication, disclosure, modification, and adaptation
+ * of the programs, including any operating system, integrated software,
+ * any programs installed on the hardware, and/or documentation, shall be
+ * subject to license terms and license restrictions applicable to the
+ * programs. No other rights are granted to the U.S. Government.
+ * This software or hardware is developed for general use in a variety
+ * of information management applications. It is not developed or
+ * intended for use in any inherently dangerous applications, including
+ * applications that may create a risk of personal injury. If you use
+ * this software or hardware in dangerous applications, then you shall
+ * be responsible to take all appropriate fail-safe, backup, redundancy,
+ * and other measures to ensure its safe use. Oracle Corporation and its
+ * affiliates disclaim any liability for any damages caused by use of this
+ * software or hardware in dangerous applications.
+ * This software or hardware and documentation may provide access to or
+ * information on content, products, and services from third parties.
+ * Oracle Corporation and its affiliates are not responsible for and
+ * expressly disclaim all warranties of any kind with respect to
+ * third-party content, products, and services. Oracle Corporation and
+ * its affiliates will not be responsible for any loss, costs, or damages
+ * incurred due to your access to or use of third-party content, products,
+ * or services.
+ */
+ 
+ /* General Section */
+body, html {
+    font-family:Helvetica,Arial,Verdana,sans-serif;
+    font-size: 13px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    border: none;
+}
+
+a, a:hover, a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+div.sectionContainer {
+    background-color: white;
+    border: 1px solid #babbbd;
+    margin: 10px;
+    border-radius:10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+}
+
+div.back {
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    padding: 10px 10px 4px;
+    background-color: white;
+    border: 1px solid #babbbd;
+    margin: 10px;
+    border-radius:10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;  
+    vertical-align: middle;    
+}
+
+div.back a.backLink {
+    background-image: url(../images/disclosure_indicator_image_reverse.png);
+    background-repeat: no-repeat;
+    background-position: left center;  
+}
+
+div.grouped {
+    background: #A8B3BD;
+    min-height: 100%;
+    padding-top: 1px; /* This allows the background image on this div to lay under the margin from the section div */
+    padding-bottom: 10px;
+}
+
+div.grouped div.sectionTitle {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+}
+
+div.grouped div.sectionSpacer {
+    height: 5px;
+    font-size: 4px;
+}
+
+div.grouped div.section {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+div.grouped div.section div.first {
+    border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+}
+
+div.grouped div.section div.last {
+    border-radius: 0px 0 10px 10px;
+    -moz-border-radius: 0px 0 10px 10px;
+    -webkit-border-radius: 0px 0 10px 10px;
+}
+
+div.disclosure {
+    background-image: url(../images/listArrow.png);
+    background-repeat: no-repeat;
+    background-position: right center;  
+}
+
+a.cellLink:active div.disclosure {
+    background-image: url(../images/disclosure_indicator_image_white.png);
+    background-repeat: no-repeat;
+    background-position: right center;  
+}
+
+/**
+ * Used to show a clickable link that represents a current selection, usually in blue
+ */
+div.grouped .sectionCell {
+    background-color: #ffffff;
+    border-bottom: 1px solid #babbbd;
+}
+
+div.sectionCell a.cellLink:active, 
+div.sectionCell a.button:active, 
+div.buttonRow a.buttonLink:active {
+    background-color: #0F7ECD;  
+    color: white;
+}
+
+div.sectionCell a.cellLink, 
+div.sectionCell a.button, 
+div.buttonRow a.buttonLink {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333; 
+    display:block;
+    padding: 10px;
+}
+
+div.grouped div.first a {
+    border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+}
+
+div.grouped div.last a {
+    border-radius: 0px 0 10px 10px;
+    -moz-border-radius: 0px 0 10px 10px;
+    -webkit-border-radius: 0px 0 10px 10px;
+}
+
+/* Header */
+
+.header {
+    position: relative;
+    background:url('../images/bg-tHeader.gif');
+    height: 55px;
+    padding-top: 2px;
+}
+
+.logo img {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 45px;
+}
+
+.header ul, .header li{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+
+span.inlineMenu {
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+span.inlineMenu a{
+    color:#000;
+    font-family:Verdana;
+}
+
+span.inlineMenu a:hover{
+    color:#555;
+}
+
+ul#moreMenu {
+    background-color: white;
+    border: 1px solid #666666;
+    left: 160px;
+    position: absolute; 
+    width: 150px;
+    z-index:10;
+}
+
+ul#moreMenu li {
+    padding: 12px 15px; 
+}
+
+ul#moreMenu li a, ul#moreMenu li a:visited, ul#moreMenu li a:hover {
+    color: #15909B;
+    text-decoration:none;
+}
+
+/* SearchBox */
+div.search{
+    border: 0px solid #B8B8B8;
+}
+
+div.search form {
+    padding: 0px;
+}
+
+div.search form input {
+    font-size: 20px;
+}
+
+div.eraseSearchTextWrapper {
+    float:left;
+    z-index: 5;
+    position: relative;
+    width: 1px;
+    right: 28px;
+    margin-top: 4px;
+}
+
+input#searchText{
+    border-color: #C7C7C7;
+    float: left;
+    width: 70%;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+.submitSearch {
+    background-color: transparent;
+    background-image: url("../images/searchIcon.png");
+    background-repeat: no-repeat;
+    color: transparent;
+    cursor: pointer;
+    height: 33px;
+    margin-left: 3px;
+    width: 39px;
+    border: none;
+    z-index: 10
+}
+
+.eraseTextButton{
+    background-color: transparent;
+    background-image: url("../images/clearText.png");
+    background-repeat: no-repeat;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    height: 24px;
+}
+
+.hide{
+    display: none;
+}
+
+/* SearchAdjustments */
+.SearchAdjustments a:link {
+    color: #15909B;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.SearchAdjustments a:focus, .SearchAdjustments a:active, .SearchAdjustments a:visited  {
+    color: #0066A0;
+}
+
+.SearchAdjustments a:hover {
+    color: #333333;
+}
+
+.SearchAdjustments{
+    margin-bottom: 5px;
+}
+
+.searchInfo{
+    line-height: 18px;
+    padding: 5px;
+}
+
+span.autoCorrect {
+    font-weight: bold;
+}
+/* AutoSuggest */
+
+.ui-menu-item a {
+    padding: 3px 4px;   
+    display: block;
+}
+
+.ui-menu-item a.ui-state-active, .ui-menu-item a.ui-state-hover {
+    background-color: blue;
+    color: white;   
+}
+
+ul.ui-autocomplete, ul.ui-autocomplete li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-autocomplete-category{
+    font-weight: bold;
+    background-color: #a8b3bd;
+    border: 1px solid #989ea5;
+    color: white; 
+    cursor:default; 
+    display:block; 
+    font-weight:bold; 
+    padding:0.2em 0.4em;
+}
+.ui-autocomplete-title{
+    color: #666666;
+    border-left: 1px solid black;
+}
+.ui-menu .ui-menu-item {
+    background-color: white;
+    border-left: 1px solid #E2E2E2;
+    border-bottom: 1px solid #E2E2E2;
+}
+.ui-autocomplete-highlight{
+    color: #EE9640;
+}
+
+.img-thumbnail{
+    height:35px; 
+    width: 36px;
+}
+
+.ui-autocomplete{
+    max-height: 30px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ui-autocomplete-table{
+    display:table;
+    width: 100%;
+}
+
+.ui-autocomplete-table-row{
+    display:table-row;
+}
+
+.ui-autocomplete-table-image-cell{
+    display:table-cell;
+    width:37px;
+    height:36px;
+}
+.ui-autocomplete-table-text-cell{
+    display:table-cell;
+    vertical-align: middle; 
+    padding-left: 7px;
+    line-height:18px;
+}
+
+.ui-autocomplete-bottom-border{
+    border-bottom: 1px solid black;
+}
+
+/* ResultsList */
+
+div.plain div.odd {
+    background-color: #F2F2F2;
+    border-bottom: 1px solid #B8B8B8;
+}
+
+div.plain div.even {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #B8B8B8;
+}
+
+div.productAttributes {
+    margin-left: 87px;
+    padding: 8px 30px 8px 5px;
+}
+
+div.productBrand, div.productPrice, div.moreOptions, div.spotlightBrandSlot, div.spotlightPriceSlot {
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 2px;
+}
+
+div.productBrand,  div.spotlightBrandSlot{
+    color: #595959;
+}
+
+div.productName a, div.productName a:visited  {
+    color: #00AEB9;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.productPrice, div.spotlightPriceSlot {
+    color: #000;
+}
+
+div.productImage {
+    background-color: #fff;
+    border: 1px solid #B8B8B8;
+    display: table-cell;
+    float: left;
+    height: 100px;
+    margin: 7px; 
+    overflow: hidden;
+    text-align: center;
+    width: 100px;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+div.spotlightImageSlot {
+    background-color: #fff;
+    border: 1px solid #B8B8B8;
+    display: table-cell;
+    float: left;
+    height: 100px;
+    margin: 3px; 
+    overflow: hidden;
+    text-align: center;
+    width: 100px;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+
+div.productImage img {
+    margin-top: 10px;
+}
+
+div.noResultsMsg {
+    text-align:center;
+}
+
+/* Dimension Navigation */
+div.sectionCell a.Refinement {
+    float: left;
+    margin-top: 5px;    
+}
+
+span.RefinementCount {
+    float: right;
+    color: #595959;
+}
+
+a.moreLink{
+    color: #15909B;
+}
+
+div.navigationHeader {
+    position: relative;
+    text-align: center;
+    height: 30px;
+    padding-top: 10px;
+}
+
+input.navigationDoneButton {
+    float: right;
+    position: absolute;
+    right: 5px;
+    bottom: 5px; 
+}
+
+input.navigationClearAllButton {
+    float: right;
+    position: absolute;
+    right: 70px;
+    bottom: 5px; 
+}
+/* RecordDetails */
+
+div.shareContent{
+    padding: 10px;
+}
+
+div.photoGallery{
+    padding: 10px;
+}
+
+div.sellingPoints {
+    border-top: 1px solid #babbbd;
+    padding: 10px 10px;
+    color: grey;
+}
+
+
+div.sellingPoints {
+    border-top: 1px solid #BABBBD;
+    color: black;
+    padding: 10px;
+}
+
+div.productInfo{
+    float:left; 
+    font-weight: bold;
+}
+
+div.productDetailsBrand {
+    color: #595959;
+    padding: 5px 10px 0px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+div.productDetailsName {
+    padding: 5px 10px;
+    font-size: 15px;
+    width:160px;
+    font-weight: bold;
+}
+
+div.colorSelector{
+    color: #595959;
+    padding: 5px 10px 0px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+div.productDetailsPrice {
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div.productDetailsRating {
+    padding: 0px 10px 0px 0px;
+}
+
+div.productDetailsImage {
+    float: left;
+    margin: 10px 0 10px 10px;
+    text-align: center;
+    width: 120px;
+}
+
+div.addToCart button {
+    border: none; 
+    background: white;
+}
+
+.galleryThumbs {
+    margin-left: auto;
+    margin-right: auto;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+.selectedImage {
+    width: 100%;
+}
+
+.thumbnails {
+    margin: 2px;
+}
+
+.selectedThumb {
+    border: 1px solid black;
+}
+
+img.shareContentImages{
+    border: none;
+    vertical-align: middle;
+}
+/**
+ * Used when a cell does not have an <a> tag to provide padding
+ */
+
+div.copyright {
+    padding: 10px;
+    background: none;
+    text-align: center;
+}
+
+/*
+ * Breadcrumbs
+ */
+.sectionCell a.remove {
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin-top:-4px;
+    text-decoration: none;
+    display: inline;
+}
+
+.clearBoth {
+    clear: both;
+}
+
+.ResultsMeta {
+    height: 32px;
+    vertical-align: middle;
+    padding-left: 4px;
+    font-weight: bolder;
+    vertical-align: middle;
+    margin-right:8px;
+}
+
+.ResultsCount {
+    float: left;
+    font-weight: bolder;
+    line-height: 32px;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.ResultsFilters {
+    display: -webkit-box;
+
+    -webkit-box-pack: right;
+    -webkit-box-align: center;
+    
+    float: right;
+    line-height: 32px;
+    vertical-align: middle;
+}
+
+/* Horizontal Record Spotlight */
+
+div.mobileSpotlightText {
+    font-size: 14px;
+    font-weight: bold;  
+    padding: 7px;
+}
+
+div.mobileSpotlightMain {
+    background-color: #fff;
+    border-bottom: 1px solid #B8B8B8;
+    margin: 8px 0px 8px 0px;
+    text-align: center;
+    height:155px;
+}
+
+div.spotlightProductAttributes {
+    text-align: center;
+}
+
+div.prevArrow {
+    float: left;
+    margin-top: 50px;
+}
+div.nextArrow {
+    float: right;
+    margin-top: 50px;
+}
+
+div.spotlightRecord{
+    overflow:hidden;
+    text-align: center;
+}
+
+div.spotlightData{
+    padding:1.5em 0 1em 0;
+    float:left;
+    vertical-align: middle;
+    width: 165px;
+    overflow: hidden;
+    
+}
+
+
+div.spotlightRatingSlot {
+    margin: 0px;
+}
+
+div.spotlightNameSlot {
+    margin: 0px;
+}
+/* Test_tables */
+div.buttonRow {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+
+div.buttonRow .left,  div.buttonRow .right {
+    float: left;
+    width: 50%;
+}
+div.buttonRow .left33,  div.buttonRow .center33,  div.buttonRow .right33  {
+    float: left;
+    width: 33%;
+}
+div.buttonRow .center33 div.button {
+    margin: 0px;
+}
+
+/* Full width button markup has no container
+   div like .center33 or .left that has its own margins*/
+div.buttonRow div.button {
+    margin: 5px;
+}
+
+div.button {
+    border: 1px solid #999999;
+    left: 0;
+    right:0;
+    background-color: white;
+    margin: 5px 8px 0px 7px;
+    font-size: 14px;
+    font-weight: bold;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    text-align: center;
+    height: 31px;
+}
+
+div.button a {
+    display: block;
+    padding: 8px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    color: #333333;
+    text-decoration: none;
+}
+
+a.loadLast {
+    background-image: url('../images/disclosure_indicator_image_reverse.png');
+    background-repeat: no-repeat;
+	background-position: 6% center;
+}
+
+a.loadNext {
+    background-image: url('../images/disclosure_indicator_image.png');
+    background-repeat: no-repeat;
+	background-position: 96% center;
+}
+
+.buttonLink{
+    width:110px; 
+    display:inline; 
+    top:10px;
+}
+
+div.button a:active {
+    color: white;
+    background-color: #0F7ECD;
+}
+
+.floatRight{
+    float: right;
+}
+.floatLeft{
+    float: left;
+}
+
+/**
+* MediaBanner Styles
+*/
+div.MediaBanner {
+    padding-top: 2px;
+    text-align: center;
+    border-bottom: 1px solid #B8B8B8;
+    
+}
+
+div.PageSearch{
+    background-color: white;
+    border: 0px solid #babbbd;
+    margin-left: 7px;
+}
+
+div.SearchDetail{
+    background-color: white;
+    border: 0px solid #babbbd;
+    margin: 10px;
+}
+div.PageContentMobile {
+    width: 100%;
+    background-color: white;
+}
+
+div.PageFooterMobile {
+    width: 96%;
+    clear: both;
+    padding-left:7px;
+}
+
+div.adhoc {
+    float:left;
+}
+
+div .ranking{
+    border-bottom: 1px solid #E2E2E2;
+    border-top: 1px solid #E2E2E2;
+    color: #15909B;
+    font-size: small;
+    font-weight: bold;
+    height: 6px;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+input.button{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div.mobileProductImage {
+    text-align: center;
+}
+
+div.hiddenBlock {
+    display: none;
+}
+
+.hiddenBlock {
+    display: none;
+}
+
+div.imgThumbDivCont {
+    display: block;
+    max-height: 240px;
+    overflow-x: auto;
+    margin:5%;
+}
+
+div.imageCellFormat {
+    overflow: auto;
+    height: 100%;
+    background-color: white;
+    padding-top: 25px;
+    border-radius:10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+}
+
+
+
+img#prodImageThumbs{ 
+    width: 180px; 
+    max-height:200px;
+}
+
+div#imageCell{ 
+    border: 1px solid #BABBBD;
+    border-radius: 10px 10px 10px 10px;
+    margin:10px;
+}
+.imgThumbDiv{ 
+    display: inline-block; 
+    text-align: center; 
+    float:left; 
+    width: 50%;   
+}
+
+.imageContainer {     
+    height: 200px; 
+}
+
+div.galleryProductDetailsBrand{
+    color: #595959;
+    padding: 5px 10px 0px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align:left;
+}
+
+div.galleryProductDetailsName {
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align:left;
+}
+li.gallerySmallImg{
+   float:left;
+   list-style:none;
+  
+}
+ul.galleryContainer{
+   height:75px;
+}
+div.productSmallImage{
+   float:left;
+   display:none;
+}
+div#preImg,div#nextImg{
+   margin-top:30px;
+   float:left;
+   display:none;
+   cursor:point;
+}
+

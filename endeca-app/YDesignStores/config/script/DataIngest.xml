@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<spr:beans xmlns:spr="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns="http://www.endeca.com/schema/eacToolkit"
+  xsi:schemaLocation="
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+      http://www.endeca.com/schema/eacToolkit http://www.endeca.com/schema/eacToolkit/eacToolkit.xsd">
+
+  <!--
+    ########################################################################
+    # Data Ingest Hosts
+    #
+  -->
+  <host id="ITLHost" hostName="${itl.host}" port="${eac.port}" useSsl="false"/>
+
+  <!--
+    ########################################################################
+    # Baseline Update Script
+    #
+  -->
+  <script id="BaselineUpdate">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/baseline_update.sh</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting baseline update script.");
+    // obtain lock
+    if (LockManager.acquireLock("update_lock")) {
+      // test if data is ready for processing
+      if (Forge.isDataReady()) {
+
+        // clean directories
+        Forge.cleanDirs();
+        PartialForge.cleanCumulativePartials();
+        Dgidx.cleanDirs();
+        
+        // fetch extracted data files to forge input
+        Forge.getIncomingData();
+        LockManager.removeFlag("baseline_data_ready");
+        
+        // fetch config files to forge input
+        Forge.getConfig();
+        
+        // archive logs and run ITL
+        Forge.archiveLogDir();
+        Forge.run();
+        Dgidx.archiveLogDir();
+        Dgidx.run();
+
+        // distributed index, update Dgraphs
+        DistributeIndexAndApply.run();
+
+        WorkbenchManager.cleanDirs();
+        Forge.getPostForgeDimensions();
+        WorkbenchManager.updateWsDimensions();
+        
+        // archive state files, index
+        Forge.archiveState();
+        Dgidx.archiveIndex();
+        
+        // (start or) cycle the LogServer
+        LogServer.cycle();  
+      } else {
+        log.warning("Baseline data not ready for processing.");
+      }
+      // release lock
+      LockManager.releaseLock("update_lock");
+      log.info("Baseline update script finished.");
+    } else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+
+
+  <!--
+    ########################################################################
+    # Script to distribute index to dgraph servers, then update dgraphs
+    # with the distributed index. This script can be called to update or
+    # refresh the index of the dgraph cluster in case a server fails, a
+    # new dgraph is added, or the index simply needs to be updated.
+    #
+  -->
+  <script id="DistributeIndexAndApply">
+    <bean-shell-script>
+      <![CDATA[ 
+    AuthoringDgraphCluster.cleanDirs();
+    AuthoringDgraphCluster.copyIndexToDgraphServers();
+    AuthoringDgraphCluster.applyIndex();
+
+    LiveDgraphCluster.cleanDirs();
+    LiveDgraphCluster.copyIndexToDgraphServers();
+    LiveDgraphCluster.applyIndex();
+      ]]>
+    </bean-shell-script>
+  </script>
+
+
+  <!--
+    ########################################################################
+    # Partial Update Script
+    #
+  -->
+  <script id="PartialUpdate">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/partial_update.sh</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    throw new Exception("Partial updates not implemented.");
+
+    /*
+    log.info("Starting partial update script.");
+    // obtain lock
+    if (LockManager.acquireLock("update_lock")) {
+      // test if data is ready for processing
+      if (PartialForge.isPartialDataReady()) {
+        // archive logs
+        PartialForge.archiveLogDir();
+        
+        // clean directories
+        PartialForge.cleanDirs();
+        
+        // fetch extracted data files to forge input
+        PartialForge.getPartialIncomingData();
+        
+        // fetch config files to forge input
+        PartialForge.getConfig();
+        
+        // run ITL
+        PartialForge.run();
+        
+        // timestamp partial, save to cumulative partials dir
+        PartialForge.timestampPartials();
+        PartialForge.fetchPartialsToCumulativeDir();
+        
+        // distribute partial update, update Dgraphs
+        AuthoringDgraphCluster.copyPartialUpdateToDgraphServers();
+        AuthoringDgraphCluster.applyPartialUpdates();
+
+        LiveDgraphCluster.copyPartialUpdateToDgraphServers();
+        LiveDgraphCluster.applyPartialUpdates();
+        
+        // archive partials
+        PartialForge.archiveCumulativePartials();
+      } else {
+        log.warning("No partial update data ready for processing.");
+      }
+      // release lock
+      LockManager.releaseLock("update_lock");
+      log.info("Partial update script finished.");
+    } else {
+      log.warning("Failed to obtain lock.");
+    }
+    */
+      ]]>
+    </bean-shell-script>
+  </script>
+
+
+  <!--
+    ########################################################################
+    # Script to distribute cumulative partials to dgraph servers, then 
+    # update dgraphs with the distributed partials. This script can be 
+    # called to update or refresh the state of the dgraph cluster in case a 
+    # server fails, a new dgraph is added, or the index simply needs to be 
+    # updated. If a refresh is required between baselines, this script will
+    # distribute all partial updates that represent the changes to the index
+    # since the last baseline.
+    #
+  -->
+  <script id="DistributePartialsAndApply">
+    <bean-shell-script>
+      <![CDATA[ 
+    AuthoringDgraphCluster.cleanLocalPartialsDirs();
+    AuthoringDgraphCluster.copyCumulativePartialUpdatesToDgraphServers();
+    AuthoringDgraphCluster.applyPartialUpdates();
+
+    LiveDgraphCluster.cleanLocalPartialsDirs();
+    LiveDgraphCluster.copyCumulativePartialUpdatesToDgraphServers();
+    LiveDgraphCluster.applyPartialUpdates();
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Forge
+    #
+  -->
+  <forge id="Forge" host-id="ITLHost">
+    <properties>
+      <property name="numStateBackups" value="10" />
+      <property name="numLogBackups" value="10" />
+    </properties>
+    <directories>
+      <directory name="incomingDataDir">./data/incoming</directory>
+      <directory name="configDir">./config/pipeline</directory>
+      <directory name="wsTempDir">./data/workbench/temp</directory>
+    </directories>
+    <args>
+      <arg>-v</arg>
+      <arg>--javaClasspath</arg>
+      <arg>./config/lib/java/javaManipCommon-1.1.jar:./config/lib/java/java-manipulators-1.0.jar:./config/manipulator:./config/lib/java/spring-context-3.0.1.RELEASE.jar:./config/lib/java/spring-aop-3.0.1.RELEASE.jar:./config/lib/java/spring-beans-3.0.1.RELEASE.jar:./config/lib/java/spring-core-3.0.1.RELEASE.jar:./config/lib/java/spring-expression-3.0.1.RELEASE.jar:./config/lib/java/config/lib/java/spring-2.5.6.jar:./config/lib/java/spring-asm-3.0.1.RELEASE.jar
+      </arg>      
+    </args>
+    <log-dir>./logs/forges/Forge</log-dir>
+    <input-dir>./data/processing</input-dir>
+    <output-dir>./data/forge_output</output-dir>
+    <state-dir>./data/state</state-dir>
+    <temp-dir>./data/temp</temp-dir>
+    <num-partitions>1</num-partitions>
+    <pipeline-file>./data/processing/pipeline.epx</pipeline-file>
+	<!--
+    <credentials-map>CREDENTIALS_MAP</credentials-map>
+    <jps-config-path>JPSCONFIG_LOCATION</jps-config-path>
+    <opss-jars-dir>OPSS_JARS_DIR</opss-jars-dir>
+	-->
+  </forge>
+
+  <!--
+    ########################################################################
+    # Partial Update Forge
+    #
+  -->
+  <forge id="PartialForge" host-id="ITLHost">
+    <properties>
+      <property name="numLogBackups" value="10" />
+      <property name="numPartialsBackups" value="5" />
+    </properties>
+    <directories>
+      <directory name="incomingDataDir">./data/partials/incoming</directory>
+      <directory name="configDir">./config/pipeline</directory>
+      <directory name="cumulativePartialsDir">./data/partials/cumulative_partials</directory>
+    </directories>
+    <args>
+      <arg>-vw</arg>
+    </args>
+    <log-dir>./logs/forges/PartialForge</log-dir>
+    <input-dir>./data/partials/processing</input-dir>
+    <output-dir>./data/partials/forge_output</output-dir>
+    <state-dir>./data/state</state-dir>
+    <temp-dir>./data/temp</temp-dir>
+    <num-partitions>1</num-partitions>
+    <pipeline-file>./data/partials/processing/partial_pipeline.epx</pipeline-file>
+  </forge>
+
+  <!--
+    ########################################################################
+    # Dgidx
+    #
+  -->
+  <dgidx id="Dgidx" host-id="ITLHost">
+    <properties>
+      <property name="numLogBackups" value="10" />
+      <property name="numIndexBackups" value="3" />
+    </properties>
+    <args>
+      <arg>-v</arg>
+      <arg>--compoundDimSearch</arg>
+    </args>
+    <log-dir>./logs/dgidxs/Dgidx</log-dir>
+    <input-dir>./data/forge_output</input-dir>
+    <output-dir>./data/dgidx_output</output-dir>
+    <temp-dir>./data/temp</temp-dir>
+    <run-aspell>true</run-aspell>
+  </dgidx>
+
+</spr:beans>

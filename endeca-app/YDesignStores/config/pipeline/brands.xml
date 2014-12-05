@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE DIMENSIONS SYSTEM "dimensions.dtd">
+<DIMENSIONS VERSION="1.0.0">
+
+  <DIMENSION NAME="Brands-NewSource" SRC_TYPE="INTERNAL">
+    <DIMENSION_ID ID="4000000"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="4000000"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="TRUE">Brands-NewSource</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000001"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">12481</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brands</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40000</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000002"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">100</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brand-1</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40001</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000003"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">101</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brand-2</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40002</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000004"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">102</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brand-3</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40003</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000005"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">103</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Portable---Fans</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40004</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000006"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">104</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Wall---Fans</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40005</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000007"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">4680</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Controls</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40006</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000008"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">4681</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Parts</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40007</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="4000009"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="FALSE">4687</SYN>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Accent Lighting</SYN>
+          <PROP NAME="Related_ID">
+            <PVAL>40008</PVAL>
+          </PROP>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+</DIMENSIONS>

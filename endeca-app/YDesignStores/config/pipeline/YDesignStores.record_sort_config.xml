@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE RECORD_SORT_CONFIG SYSTEM "record_sort_config.dtd">
+<RECORD_SORT_CONFIG>
+
+  <RECORD_SORT NAME="name"/>
+
+  <RECORD_SORT NAME="price_retail"/>
+
+  <RECORD_SORT NAME="price_sale"/>
+
+  <RECORD_SORT NAME="price_sort"/>
+
+  <RECORD_SORT NAME="sort_default"/>
+
+  <RECORD_SORT NAME="sort_rating"/>
+
+  <RECORD_SORT NAME="price_sort_min"/>
+
+  <RECORD_SORT NAME="price_sort_max"/>
+
+  <RECORD_SORT NAME="p_customer_ratings"/>
+
+  <RECORD_SORT NAME="yb_metric_net_bookings"/>
+
+  <RECORD_SORT NAME="yl_metric_net_bookings"/>
+
+  <RECORD_SORT NAME="yv_metric_net_bookings"/>
+
+  <RECORD_SORT NAME="metric_days_on_site"/>
+
+</RECORD_SORT_CONFIG>

@@ -1,0 +1,241 @@
+/*
+ * Copyright 2001, 2014, Oracle and/or its affiliates. All rights reserved.
+ * Oracle and Java are registered trademarks of Oracle and/or its
+ * affiliates. Other names may be trademarks of their respective owners.
+ * UNIX is a registered trademark of The Open Group.
+ *
+ * This software and related documentation are provided under a license
+ * agreement containing restrictions on use and disclosure and are
+ * protected by intellectual property laws. Except as expressly permitted
+ * in your license agreement or allowed by law, you may not use, copy,
+ * reproduce, translate, broadcast, modify, license, transmit, distribute,
+ * exhibit, perform, publish, or display any part, in any form, or by any
+ * means. Reverse engineering, disassembly, or decompilation of this
+ * software, unless required by law for interoperability, is prohibited.
+ * The information contained herein is subject to change without notice
+ * and is not warranted to be error-free. If you find any errors, please
+ * report them to us in writing.
+ * U.S. GOVERNMENT END USERS: Oracle programs, including any operating
+ * system, integrated software, any programs installed on the hardware,
+ * and/or documentation, delivered to U.S. Government end users are
+ * "commercial computer software" pursuant to the applicable Federal
+ * Acquisition Regulation and agency-specific supplemental regulations.
+ * As such, use, duplication, disclosure, modification, and adaptation
+ * of the programs, including any operating system, integrated software,
+ * any programs installed on the hardware, and/or documentation, shall be
+ * subject to license terms and license restrictions applicable to the
+ * programs. No other rights are granted to the U.S. Government.
+ * This software or hardware is developed for general use in a variety
+ * of information management applications. It is not developed or
+ * intended for use in any inherently dangerous applications, including
+ * applications that may create a risk of personal injury. If you use
+ * this software or hardware in dangerous applications, then you shall
+ * be responsible to take all appropriate fail-safe, backup, redundancy,
+ * and other measures to ensure its safe use. Oracle Corporation and its
+ * affiliates disclaim any liability for any damages caused by use of this
+ * software or hardware in dangerous applications.
+ * This software or hardware and documentation may provide access to or
+ * information on content, products, and services from third parties.
+ * Oracle Corporation and its affiliates are not responsible for and
+ * expressly disclaim all warranties of any kind with respect to
+ * third-party content, products, and services. Oracle Corporation and
+ * its affiliates will not be responsible for any loss, costs, or damages
+ * incurred due to your access to or use of third-party content, products,
+ * or services.
+ */
+
+/*------------------------------Page Layout----------------------------------*/
+
+div.PageCenterRightColumn {
+    width: 763px;
+    float: left;
+    margin-left: 10px;
+	margin-top: 10px;
+}
+
+
+/*-------------------------Horizontal Navigation-----------------------------*/
+
+.HorizontalNav { 
+    width: 100%;
+    height: 29px;
+    background: url("../images/horizontal-nav.png") repeat-x;
+    border: 1px solid #cdcdcd;
+    margin-bottom: 20px;
+    clear: both;
+}
+
+.HorizontalNav .NavItem {
+    cursor: pointer;
+    font-size: 13px;
+    float: left;
+    height: 24px;
+    width: 130px;
+    padding-top: 6px;
+    border-right: 1px solid #cdcdcd;
+    text-transform: uppercase;
+    text-align: center;
+    color: #666;
+}
+
+.HorizontalNav .NavItem:hover {
+    background-color: #cdcdcd;
+    color: white;
+}
+
+
+/*----------------------------Customer Service-------------------------------*/
+
+.CustomerServiceLinks {
+    margin:0 0.8em;
+    padding: 1.5em .1em;
+    font-size: .7em;
+    line-height: 1.5em;
+    color: #4a4a49;
+}
+
+.CustomerServiceLinks a {
+    text-decoration: none;
+    color: #15909b;
+    font-weight: bold;
+}
+
+.CustomerServiceLinks a:hover {
+    text-decoration: underline;
+}
+
+.CustomerServiceLinks .active {
+    font-weight: bold;
+}
+
+/*------------------------------Contact Us-----------------------------------*/
+
+.ContactUs {
+    font-family: Arial;
+    font-size: 12px;
+    color: #333;
+    margin: -15px 0 10px 10px;
+}
+
+.ContactUs .address {
+    float: left;
+    width: 240px;
+    margin-bottom: 1.5em;
+    margin-left: 3px;
+}
+
+.ContactUs .address a {
+    color: #15909b;
+    font-weight: bold;
+}
+
+.ContactUs hr {
+    color: #cdcdcd;
+    background-color: #cdcdcd;
+    margin: .8em 0;
+    height: 2px;
+    border: none;
+    clear: both;
+}
+
+.ContactUs h1 {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+.ContactUs h2 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #666;
+    margin-top: 1.2em;
+}
+
+.ContactUs h3 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: .2em;
+    margin-top: 0;
+}
+
+/*------------------------------CorpHQ Sidebar-------------------------------*/
+
+.CorpHQHeader {
+    -moz-border-radius-topright: 0.35em;
+    border-top-right-radius: 0.35em;
+    -moz-border-radius-topleft: 0.35em;
+    border-top-left-radius: 0.35em;
+    background-color:#E2E2E2;
+    color:#6F6F6F;
+    font-size: 14px;
+    font-weight:bold;
+    line-height:2em;
+    padding-top:0.3em;
+    padding-left: 1em;
+    overflow:auto;
+}
+
+.CorpHQ {
+    font-size: 12px;
+    padding: 5px 8px;
+}
+
+.CorpHQ .address {
+    margin-bottom: 1em;
+}
+
+.CorpHQ a {
+    color: #15909b;
+    font-weight: bold;
+}
+
+.CorpHQ h3 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: .2em;
+    margin-top: 0;
+}
+
+.CorpHQ .careers {
+    font-weight: bold;
+}
+
+.CorpHQ hr {
+    color: #cdcdcd;
+    background-color: #cdcdcd;
+    margin: 1em 0;
+    height: 1px;
+    border: none;
+}
+
+
+/*---------------------------------About Us----------------------------------*/
+
+.AboutUs {
+    font-family: Arial;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 1.5em;
+}
+
+.AboutUs h1 {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+.AboutUs h2 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #666;
+    margin-top: 1.2em;
+}
+
+.AboutUs hr {
+    color: #cdcdcd;
+    background-color: #cdcdcd;
+    margin: .8em 0;
+    height: 2px;
+    border: none;
+    clear: both;
+}

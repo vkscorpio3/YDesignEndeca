@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE PROP_REFS SYSTEM "prop_refs.dtd">
+<PROP_REFS>
+
+  <PROP_REF NAME="record_spec" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PropertyName" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PropertyValue" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="unique_id" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yl_url_detail" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yl_image" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yv_url_detail" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yv_image" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="price_retail" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="price_sale" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="price_sort" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="description_short" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="sku" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="sort_default" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="sort_rating" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="keyword" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="model_nos" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="options" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="bulb_info" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yb_url_detail" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yb_image" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="price_sort_min" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="price_sort_max" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="p_customer_ratings" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="yb_metric_net_bookings" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yl_metric_net_bookings" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yv_metric_net_bookings" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="metric_days_on_site" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="S10" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S20" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S30" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S40" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S50" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S60" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S70" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S80" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S90" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S100" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S110" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S_TA_10" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="S_TA_20" TYPE="ALPHA"/>
+
+</PROP_REFS>

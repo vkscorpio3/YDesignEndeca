@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    <description>A tag library that defines functions needed by discover electronics store application.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>FunctionTagLibrary</short-name>
+    <uri>/FunctionLibrary</uri>
+  <function>
+    <name>imageGallery</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>java.util.List getImageGallary(com.endeca.infront.cartridge.model.Record)</function-signature>
+  </function>
+  <function>
+    <name>pagination</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>com.endeca.infront.refapp.support.Pagination getPagination(com.endeca.infront.cartridge.ResultsList, int)</function-signature>
+  </function>
+  <function>
+    <name>changeRecordsPerPage</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>com.endeca.infront.refapp.support.PagingControl getPaginationAction(com.endeca.infront.cartridge.model.NavigationAction, int, int)</function-signature>
+  </function>
+  <function>
+    <name>replace</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>java.lang.String replace(java.lang.String, java.lang.CharSequence, java.lang.CharSequence)</function-signature>
+  </function>
+  <function>
+    <name>escapeQuotes</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>java.lang.String escapeQuotes(java.lang.String)</function-signature>
+  </function>
+  <function>
+    <name>printEscapedArray</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>java.lang.String printEscapedArray(java.util.List)</function-signature>
+  </function>
+  <function>
+    <name>getUrlForAction</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>java.lang.String getUrlForAction(com.endeca.infront.cartridge.model.Action)</function-signature>
+  </function>
+  <function>
+    <name>getSiteUrl</name>
+    <function-class>com.endeca.infront.refapp.support.FunctionTags</function-class>
+    <function-signature>java.lang.String getSiteUrl(com.endeca.infront.site.model.SiteState, java.lang.String)</function-signature>
+  </function>
+  
+  
+    <function>
+    <name>getSiteContext</name>
+    <function-class>com.ydg.endeca.tags.FunctionTags</function-class>
+    <function-signature>java.lang.String getSiteContext()</function-signature>
+  </function>
+</taglib>

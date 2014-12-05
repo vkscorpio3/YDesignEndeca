@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+                 xmlns:editors="editors"
+                 type="Page">
+    <Description>${template.description}</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+    <ContentItem>
+        <Name>Two-Column Page</Name>
+        <Property name="title">
+            <String>Discover Electronics</String>
+        </Property>
+        <Property name="metaKeywords">
+            <String>camera cameras electronics</String>
+        </Property>
+        <Property name="metaDescription">
+            <String>Oracle Commerce reference application.</String>
+        </Property>
+        <Property name="headerContent">
+            <ContentItemList type="HeaderContent" />
+        </Property>
+        <Property name="secondaryContent">
+            <ContentItemList type="SecondaryContent" />
+        </Property>
+        <Property name="mainContent">
+            <ContentItemList type="MainContent" />
+        </Property>
+    </ContentItem>
+    <EditorPanel>
+        <BasicContentItemEditor>
+            <GroupLabel label="${group.contents.label}"/>
+            <editors:StringEditor propertyName="title" label="${property.title.label}" enabled="true" height="72"/>
+            <editors:StringEditor propertyName="metaKeywords" label="${property.metaKeywords.label}" enabled="true" height="72"/>
+            <editors:StringEditor propertyName="metaDescription" label="${property.metaDescription.label}" enabled="true" height="72"/>
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>Oracle Commerce Reference Application</display-name>
+    <description>Oracle Commerce Reference Application</description>
+
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Filter that exposes the request to Spring -->
+    <filter>
+        <filter-name>RequestContextFilter</filter-name>
+        <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RequestContextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <!-- The PerfFilter must go after the RequestContextFilter so it can have access to the request -->
+    <filter>
+        <filter-name>PerfFilter</filter-name>
+        <filter-class>
+            com.endeca.infront.assembler.perf.PerfEventFilter
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PerfFilter</filter-name>
+        <url-pattern>*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/assembler-context.xml</param-value>
+    </context-param>
+
+    <!-- Services Definition.  For reference, this is implemented as simple jsp pages,  -->
+    <!-- but this could also be done with a web framework, such as Spring MVC -->
+    <servlet>
+        <servlet-name>assemble</servlet-name>
+        <jsp-file>/WEB-INF/services/assemble.jsp</jsp-file>
+    </servlet>
+
+    <servlet>
+        <servlet-name>autosuggest.json</servlet-name>
+        <jsp-file>/WEB-INF/services/autosuggest-json.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>link</servlet-name>
+        <servlet-class>
+            com.endeca.infront.assembler.servlet.spring.SpringPreviewLinkServlet
+        </servlet-class>
+        <init-param>
+            <description>
+                The ID of the NavigationStateBuilder in the spring
+                contextConfig file
+            </description>
+            <param-name>navigationStateBuilderBeanId</param-name>
+            <param-value>navigationStateBuilder</param-value>
+        </init-param>
+        <init-param>
+            <description>
+                The ID of the ContentSource in the spring
+                contextConfig file
+            </description>
+            <param-name>contentSourceBeanId</param-name>
+            <param-value>contentSource</param-value>
+        </init-param>
+        <init-param>
+            <description>
+                The ID of the SiteManager in the spring
+                contextConfig file
+            </description>
+            <param-name>siteManagerId</param-name>
+            <param-value>siteManager</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>com.endeca.infront.assembler.servlet.spring.admin.SpringAdminServlet</servlet-class>
+        <init-param>
+            <param-name>adminServiceId</param-name>
+            <param-value>adminService</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>clicklog</servlet-name>
+        <jsp-file>/WEB-INF/services/clicklog.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/servlet/admin/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>autosuggest.json</servlet-name>
+        <url-pattern>/servlet/autosuggest.json/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>link</servlet-name>
+        <url-pattern>/servlet/link.json/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>assemble</servlet-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>clicklog</servlet-name>
+        <url-pattern>/servlet/clicklog/*</url-pattern>
+    </servlet-mapping>
+
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+</web-app>

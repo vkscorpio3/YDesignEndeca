@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE STUDIO_PROJECT SYSTEM "studio_project.dtd">
+<STUDIO_PROJECT APP_VERSION="11.1" NAME="YDesignStores" VERSION="1110">
+
+  <PROJECT_MANAGER_CONFIG APPLICATION="" FORGE_OP_CONFIG="--pruneAutoGen" PORT="8006" URL="localhost"/>
+
+  <PROJECT_PIPELINE URL="pipeline.epx"/>
+
+  <PROJECT_PIPELINE TYPE="PARTIAL" URL="partial_pipeline.epx"/>
+
+  <PROJECT_FILE TYPE="ANALYTICS_CONFIG" URL="YDesignStores.analytics_config.xml"/>
+
+  <PROJECT_FILE TYPE="DERIVED_PROPS" URL="YDesignStores.derived_props.xml"/>
+
+  <PROJECT_FILE TYPE="DIMENSION_GROUPS" URL="YDesignStores.dimension_groups.xml"/>
+
+  <PROJECT_FILE TYPE="DIMENSION_REFS" URL="YDesignStores.dimension_refs.xml"/>
+
+  <PROJECT_FILE TYPE="DIMSEARCH_CONFIG" URL="YDesignStores.dimsearch_config.xml"/>
+
+  <PROJECT_FILE TYPE="DIMSEARCH_INDEX" URL="YDesignStores.dimsearch_index.xml"/>
+
+  <PROJECT_FILE TYPE="DVAL_RANKS" URL="YDesignStores.dval_ranks.xml"/>
+
+  <PROJECT_FILE TYPE="DVAL_REFS" URL="YDesignStores.dval_refs.xml"/>
+
+  <PROJECT_FILE HIGHEST_ID="2" TYPE="MERCH_RULES" URL="YDesignStores.merch_rules.xml"/>
+
+  <PROJECT_FILE TYPE="MERCHSTYLES" URL="YDesignStores.merchstyles.xml"/>
+
+  <PROJECT_FILE TYPE="MERCHZONES" URL="YDesignStores.merchzones.xml"/>
+
+  <PROJECT_FILE TYPE="PRECEDENCE_RULES" URL="YDesignStores.precedence_rules.xml"/>
+
+  <PROJECT_FILE TYPE="PROP_REFS" URL="YDesignStores.prop_refs.xml"/>
+
+  <PROJECT_FILE TYPE="RECORD_FILTER" URL="YDesignStores.record_filter.xml"/>
+
+  <PROJECT_FILE TYPE="RECORD_SORT_CONFIG" URL="YDesignStores.record_sort_config.xml"/>
+
+  <PROJECT_FILE TYPE="RECORD_SPEC" URL="YDesignStores.record_spec.xml"/>
+
+  <PROJECT_FILE TYPE="RECSEARCH_CONFIG" URL="YDesignStores.recsearch_config.xml"/>
+
+  <PROJECT_FILE TYPE="RECSEARCH_INDEXES" URL="YDesignStores.recsearch_indexes.xml"/>
+
+  <PROJECT_FILE TYPE="REFINEMENTS_CONFIG" URL="YDesignStores.refinement_config.xml"/>
+
+  <PROJECT_FILE TYPE="RELRANK_STRATEGIES" URL="YDesignStores.relrank_strategies.xml"/>
+
+  <PROJECT_FILE TYPE="RENDER_CONFIG" URL="YDesignStores.render_config.xml"/>
+
+  <PROJECT_FILE TYPE="ROLLUPS" URL="YDesignStores.rollups.xml"/>
+
+  <PROJECT_FILE TYPE="SEARCH_CHARS" URL="YDesignStores.search_chars.xml"/>
+
+  <PROJECT_FILE TYPE="STOP_WORDS" URL="YDesignStores.stop_words.xml"/>
+
+  <PROJECT_FILE TYPE="PHRASES" URL="YDesignStores.phrases.xml"/>
+
+  <PROJECT_FILE TYPE="THESAURUS" URL="YDesignStores.thesaurus.xml"/>
+
+  <PROJECT_FILE TYPE="STEMMING" URL="YDesignStores.stemming.xml"/>
+
+  <PROJECT_FILE TYPE="PROFILES" URL="YDesignStores.profiles.xml"/>
+
+  <PROJECT_FILE TYPE="KEY_PROPS" URL="YDesignStores.key_props.xml"/>
+
+  <PROJECT_FILE TYPE="LANGUAGES" URL="YDesignStores.languages.xml"/>
+
+  <PROJECT_FILE TYPE="CRAWLER_GLOBAL_CONFIG" URL="YDesignStores.crawler_global_config.xml"/>
+
+  <PROJECT_FILE TYPE="CRAWLER_DEFAULTS" URL="YDesignStores.crawler_defaults.properties"/>
+
+  <PROJECT_FILE TYPE="CRAWL_PROFILES" URL="YDesignStores.crawl_profiles.xml"/>
+
+</STUDIO_PROJECT>

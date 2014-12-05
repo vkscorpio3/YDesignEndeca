@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<spr:beans xmlns:spr="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns="http://www.endeca.com/schema/eacToolkit"
+  xsi:schemaLocation="
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+      http://www.endeca.com/schema/eacToolkit http://www.endeca.com/schema/eacToolkit/eacToolkit.xsd">
+
+  <!--
+    ########################################################################
+    # Live MDEX Hosts - The machines used to host all MDEX processes
+    # for the 'live environment' MDEX cluster.
+    #
+  -->
+  <host id="LiveMDEXHostA" hostName="${live.mdex.host}" port="${eac.port}" useSsl="false"/>
+  <!--
+  <host id="LiveMDEXHostB" hostName="TODO" port="${eac.port}" />
+  -->
+
+  <!--
+    ########################################################################
+    # Live Dgraph Cluster - The 'live environment' MDEX cluster.
+    #
+  -->
+  <dgraph-cluster id="LiveDgraphCluster" getDataInParallel="true" enabled="true" configSnapshotDir="./data/dgraphcluster/LiveDgraphCluster/config_snapshots">
+    <dgraph ref="DgraphA1" />
+    <!--
+    <dgraph ref="DgraphA2" />
+    <dgraph ref="DgraphB1" />
+    <dgraph ref="DgraphB2" />
+    -->
+  </dgraph-cluster>
+
+  <!--
+    ########################################################################
+    # Live Dgraph Process Definitions
+    #
+  -->
+  <dgraph id="DgraphA1" host-id="LiveMDEXHostA" port="${live.mdex.port}"
+          post-startup-script="LiveDgraphPostStartup">
+    <properties>
+      <property name="restartGroup" value="1" />
+      <property name="DgraphContentGroup" value="Live" />
+    </properties>
+    <log-dir>./logs/dgraphs/DgraphA1</log-dir>
+    <input-dir>./data/dgraphs/DgraphA1/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/DgraphA1/dgraph_input/updates</update-dir>
+  </dgraph>
+
+  <!--
+  <dgraph id="DgraphA2" host-id="LiveMDEXHostA" port="TODO"
+          post-startup-script="LiveDgraphPostStartup">
+    <properties>
+      <property name="restartGroup" value="2" />
+      <property name="DgraphContentGroup" value="Live" />
+    </properties>
+    <log-dir>./logs/dgraphs/DgraphA2</log-dir>
+    <input-dir>./data/dgraphs/DgraphA2/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/DgraphA2/dgraph_input/updates</update-dir>
+  </dgraph>
+
+  <dgraph id="DgraphB1" host-id="LiveMDEXHostB" port="TODO"
+          post-startup-script="LiveDgraphPostStartup">
+    <properties>
+      <property name="restartGroup" value="1" />
+      <property name="DgraphContentGroup" value="Live" />
+    </properties>
+    <log-dir>./logs/dgraphs/DgraphB1</log-dir>
+    <input-dir>./data/dgraphs/DgraphB1/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/DgraphB1/dgraph_input/updates</update-dir>
+  </dgraph>
+
+  <dgraph id="DgraphB2" host-id="LiveMDEXHostB" port="TODO"
+          post-startup-script="LiveDgraphPostStartup">
+    <properties>
+      <property name="restartGroup" value="2" />
+      <property name="DgraphContentGroup" value="Live" />
+    </properties>
+    <log-dir>./logs/dgraphs/DgraphB2</log-dir>
+    <input-dir>./data/dgraphs/DgraphB2/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/DgraphB2/dgraph_input/updates</update-dir>
+  </dgraph>
+  -->
+
+    <script id="LiveDgraphPostStartup">
+        <bean-shell-script>
+            <![CDATA[
+        dgraphId = invokingObject.getElementId();
+        log.info("Publishing Workbench 'live' configuration to MDEX '" + dgraphId + "'");
+        LiveDgraphCluster.applyConfigSnapshot(dgraphId);
+      ]]>
+        </bean-shell-script>
+    </script>
+
+
+</spr:beans>

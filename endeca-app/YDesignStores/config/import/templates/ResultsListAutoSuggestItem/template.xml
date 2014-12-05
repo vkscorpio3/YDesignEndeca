@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008" 
+    xmlns:editors="editors"
+    xmlns:xavia="http://endeca.com/schema/xavia/2010"
+                 type="AutoSuggest">
+    
+    <Description>${template.description}</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+    
+    <ContentItem>
+        <Name>Results List</Name>
+        <Property name="boostStrata">
+            <xavia:List/>
+        </Property>
+        <Property name="buryStrata">
+            <xavia:List/>
+        </Property>
+        <Property name="sortOption">
+            <xavia:Item class="com.endeca.infront.navigation.model.SortOption">
+                <xavia:Property name="label">Most Sales</xavia:Property>
+                <xavia:Property name="sorts">
+                    <xavia:List>
+                        <xavia:Item class="com.endeca.infront.navigation.model.SortSpec">
+                            <xavia:Property name="key">product.analytics.total_sales</xavia:Property>
+                            <xavia:Property name="descending">false</xavia:Property>
+                        </xavia:Item>
+                    </xavia:List>
+                </xavia:Property>
+            </xavia:Item>
+        </Property>
+        <Property name="relRankStrategy">
+            <!-- Margin Bias -->
+            <String>nterms,maxfield,exact,static(product.analytics.conversion_rate,descending)</String>
+        </Property>
+        <Property name="recordsPerPage">
+            <String>10</String>
+        </Property>      
+    </ContentItem>
+    
+    
+    <EditorPanel>
+        <BasicContentItemEditor>
+        
+            <editors:NumericStepperEditor label="${property.recordsPerPage.label}" propertyName="recordsPerPage" minValue="10" maxValue="100">
+            </editors:NumericStepperEditor>
+            
+            <editors:BoostBuryRecordEditor propertyName="boostStrata" buryProperty="buryStrata" label="${property.boostBury.label}"/>
+            
+            <GroupLabel label="${group.searchResultSettings.label}"/>
+            
+            <editors:ChoiceEditor propertyName="relRankStrategy" label="${property.relRankStrategy.label}">
+                <choice label="${property.relRankStrategy.marginBias.label}" value="nterms,maxfield,exact,static(product.analytics.conversion_rate,descending)" />
+                <choice label="${property.relRankStrategy.inventoryBias.label}" value="nterms,maxfield,exact,static(product.inventory.count,descending)" />
+                <choice label="${property.relRankStrategy.first.label}" value="first" />
+                <choice label="${property.relRankStrategy.price.label}" value="static(product.price)" />
+                <choice label="${property.relRankStrategy.frequency.label}" value="freq" />
+            </editors:ChoiceEditor>
+            
+            <GroupLabel label="${group.navigationResultSettings.label}"/>
+            
+            <editors:SortEditor propertyName="sortOption" label="${property.sortOption.label}">
+                <xavia:Item class="com.endeca.infront.navigation.model.SortOption">
+                    <xavia:Property name="label">${property.sortOption.default.label}</xavia:Property>
+                    <xavia:Property name="sorts">
+                        <xavia:List />
+                    </xavia:Property>
+                </xavia:Item>
+                <xavia:Item class="com.endeca.infront.navigation.model.SortOption">
+                    <xavia:Property name="label">${property.sortOption.sales.label}</xavia:Property>
+                    <xavia:Property name="sorts">
+                        <xavia:List>
+                            <xavia:Item class="com.endeca.infront.navigation.model.SortSpec">
+                                <xavia:Property name="key">product.analytics.total_sales</xavia:Property>
+                                <xavia:Property name="descending">true</xavia:Property>
+                            </xavia:Item>
+                        </xavia:List>
+                    </xavia:Property>
+                </xavia:Item>
+                <xavia:Item class="com.endeca.infront.navigation.model.SortOption">
+                    <xavia:Property name="label">${property.sortOption.conversionRate.label}</xavia:Property>
+                    <xavia:Property name="sorts">
+                        <xavia:List>
+                            <xavia:Item class="com.endeca.infront.navigation.model.SortSpec">
+                                <xavia:Property name="key">product.analytics.conversion_rate</xavia:Property>
+                                <xavia:Property name="descending">true</xavia:Property>
+                            </xavia:Item>
+                        </xavia:List>
+                    </xavia:Property>
+                </xavia:Item>
+                <xavia:Item class="com.endeca.infront.navigation.model.SortOption">
+                    <xavia:Property name="label">${property.sortOption.priceAscending.label}</xavia:Property>
+                    <xavia:Property name="sorts">
+                        <xavia:List>
+                            <xavia:Item class="com.endeca.infront.navigation.model.SortSpec">
+                                <xavia:Property name="key">product.price</xavia:Property>
+                                <xavia:Property name="descending">false</xavia:Property>
+                            </xavia:Item>
+                        </xavia:List>
+                    </xavia:Property>
+                </xavia:Item>
+                <xavia:Item class="com.endeca.infront.navigation.model.SortOption">
+                    <xavia:Property name="label">${property.sortOption.priceDescending.label}</xavia:Property>
+                    <xavia:Property name="sorts">
+                        <xavia:List>
+                            <xavia:Item class="com.endeca.infront.navigation.model.SortSpec">
+                                <xavia:Property name="key">product.price</xavia:Property>
+                                <xavia:Property name="descending">true</xavia:Property>
+                            </xavia:Item>
+                        </xavia:List>
+                    </xavia:Property>
+                </xavia:Item>
+            </editors:SortEditor>
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>

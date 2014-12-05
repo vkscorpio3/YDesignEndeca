@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ydesign.endeca.YDesignEndeca</groupId>
+		<artifactId>dev-orend10</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+
+	<groupId>com.ydesign.endeca.YDesignEndeca.${environment.name}</groupId>
+	<artifactId>endeca-app</artifactId>
+	<packaging>pom</packaging>
+	<name>endeca-app (${environment.name})</name>
+	<description>Contains the endeca app that will go to /opt/endeca/app of the ITL server.</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ydesign.endeca.YDesignEndeca</groupId>
+			<artifactId>endeca-app</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<finalName>endeca-app</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/assembly/distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>create-project-bundle</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

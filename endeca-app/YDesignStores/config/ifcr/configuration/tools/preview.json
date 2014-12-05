@@ -1,0 +1,6 @@
+{
+    "sling:resourceType": "endeca/preview",
+    "previewUrl": "",
+    "linkServiceUrl": "",
+    "jcr:primaryType": "endeca:unstructured"
+}

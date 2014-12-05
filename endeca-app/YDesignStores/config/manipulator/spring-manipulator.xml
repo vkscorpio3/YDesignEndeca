@@ -1,0 +1,270 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="EXAMPLEMANIPULATOR" class="com.cirrus10.endeca.manipulators.BaseManipulator"
+		init-method="init" scope="singleton">
+		<property name="recordHandlers">
+			<list>
+				<ref bean="consolidateProps" />
+
+				<!-- The following creates the searchable properties. Refer to spreadsheet 
+					DataModelDesign->Search for more info -->
+				<ref bean="S10" />
+				<ref bean="S20" />
+				<ref bean="S30" />
+				<ref bean="S40" />
+				<ref bean="S50" />
+				<ref bean="S60" />
+				<ref bean="S70" />
+				<ref bean="S80" />
+				<ref bean="S90" />
+				<ref bean="S100" />
+				<ref bean="S_TA_10" />
+				<ref bean="S_TA_20" />
+
+			</list>
+		</property>
+	</bean>
+
+	<!-- This will perform consolidation of different properties into a few 
+		props aggregated together -->
+	<bean name="consolidateProps" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.CreatePropBasedOnOtherProps">
+		<property name="configurations">
+			<list>
+				<!-- if a record has is_free_shipping=1, create Promotions=Free Shipping -->
+				<bean class="com.cirrus10.endeca.config.CreatePropBasedOnOtherPropsConfig">
+					<property name="propertyName" value="is_free_shipping" />
+					<property name="propertyValue" value="1" />
+					<property name="newPropertyToCreate" value="Promotions" />
+					<property name="newPropertyValueToCreate" value="Free Shipping" />
+				</bean>
+
+				<!-- if a record has is_on_sale=1, create Promotions=On Sale -->
+				<bean class="com.cirrus10.endeca.config.CreatePropBasedOnOtherPropsConfig">
+					<property name="propertyName" value="is_on_sale" />
+					<property name="propertyValue" value="1" />
+					<property name="newPropertyToCreate" value="Promotions" />
+					<property name="newPropertyValueToCreate" value="On Sale" />
+				</bean>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S10" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S10</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>category_id</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean name="S20" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S20</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S10</value>
+				<value>brand</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S30" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S30</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S20</value>
+				<value>Designer</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S40" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S40</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S30</value>
+				<value>color</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean name="S50" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S50</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S40</value>
+				<value>options</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S60" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S60</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S50</value>
+				<value>name</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean name="S70" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S70</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S60</value>
+				<value>Collection</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S80" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S80</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S70</value>
+				<value>model</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean name="S90" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S90</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S80</value>
+				<value>sku</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S100" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S100</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S90</value>
+				<!-- add everything else that is they want to be searchable here -->
+				<value>keyword</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S_TA_10" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S_TA_10</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>name</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="S_TA_20" scope="singleton"
+		class="com.cirrus10.endeca.recordhandlers.ConcatenateProperties">
+
+		<!-- The name of the new concatenated property -->
+		<property name="propName">
+			<value>S_TA_20</value>
+		</property>
+
+		<!-- The fields to concatenate -->
+		<property name="fields">
+			<list>
+				<value>S_TA_10</value>
+				<value>model</value>
+				<value>sku</value>
+			</list>
+		</property>
+	</bean>
+
+
+	
+</beans>
+				

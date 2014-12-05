@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<spr:beans xmlns:spr="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns="http://www.endeca.com/schema/eacToolkit"
+  xsi:schemaLocation="
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+      http://www.endeca.com/schema/eacToolkit http://www.endeca.com/schema/eacToolkit/eacToolkit.xsd">
+
+  <!--
+    ########################################################################
+    # EAC Application Definition
+    #
+  -->
+  <app appName="YDesignStores" eacHost="${eac.host}" eacPort="${eac.port}" 
+      dataPrefix="YDesignStores" sslEnabled="false" lockManager="LockManager">
+    <working-dir>${ENDECA_PROJECT_DIR}</working-dir>
+    <log-dir>./logs</log-dir>
+  </app>
+
+  <!--
+    ########################################################################
+    # It is a global SSL configuration which can be used across different
+    # components like Forge, Dgraph, LogServer, etc.
+    #
+  -->
+  <!--
+  <ssl-config id="globalSslConfig">
+    <property name="certFile" value="C:/Endeca/two-way-ssl/cert.pem"/>
+    <property name="caFile" value="C:/Endeca/two-way-ssl/cacert.pem"/>
+    <property name="cipher" value="AES128-SHA"/>
+  </ssl-config>
+  -->
+
+  <!--
+    ########################################################################
+    # Lock Manager - Used to set/remove/test flags and obtain/release locks
+    #
+  -->
+  <lock-manager id="LockManager" releaseLocksOnFailure="true" />
+
+  <!--
+    ########################################################################
+    # Imported Modules
+    #
+  -->
+  <spr:import resource="InitialSetup.xml" />
+  <spr:import resource="DgraphDefaults.xml" />
+  <spr:import resource="AuthoringDgraphCluster.xml" />
+  <spr:import resource="LiveDgraphCluster.xml" />
+  <spr:import resource="LiveAppServerCluster.xml" />
+  <spr:import resource="UsageCollectionConfig.xml" />
+  <spr:import resource="WorkbenchConfig.xml" />
+  <spr:import resource="ReportGeneration.xml" />
+  <spr:import resource="DataIngest.xml" />
+  <spr:import resource="AssemblerConfig.xml" />
+
+</spr:beans>

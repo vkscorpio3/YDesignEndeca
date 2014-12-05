@@ -1,0 +1,9 @@
+<project name="deploy" default="deploy" basedir=".">
+	<property file="build.properties" />
+	<!--Copy ${app.name} to ${endeca.apps.dir}/${app.name} -->	
+	<target name="deploy"  description="deploys endeca app">
+        <copy todir="${endeca.apps.dir}/${app.name}" overwrite="true">        	
+        	<fileset dir="${app.name}"></fileset>
+        </copy>
+    </target>
+</project>

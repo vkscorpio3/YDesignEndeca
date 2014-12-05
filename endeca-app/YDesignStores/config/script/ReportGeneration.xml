@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<spr:beans xmlns:spr="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns="http://www.endeca.com/schema/eacToolkit"
+  xsi:schemaLocation="
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+      http://www.endeca.com/schema/eacToolkit http://www.endeca.com/schema/eacToolkit/eacToolkit.xsd">
+
+  <!--
+    ########################################################################
+    # Reporting System Hosts
+    #
+    # ReportGenerationHost - The machine that generates Workbench reports.
+    # Endeca Platform Services needs to be installed on this host.
+    #
+    # WorkbenchHost - The machine that hosts Workbench. This is where
+    # generated reports are delivered.
+    #
+  -->
+  <host id="ReportGenerationHost" hostName="${logserver.host}" port="${eac.port}" useSsl="false"/>
+  
+  <host id="WorkbenchHost" hostName="${itl.host}" port="${eac.port}" useSsl="false">
+    <directories>
+      <directory name="workbench-report-dir">./reports</directory>
+    </directories>
+  </host>
+
+  <!--
+    ########################################################################
+    # LogServer - Aggregates application request logging information to
+    # generate Workbench reports.
+    #
+  -->
+  <logserver id="LogServer" host-id="ReportGenerationHost" port="${logserver.port}">
+    <properties>
+      <property name="numLogBackups" value="10" />
+      <property name="targetReportGenDir" value="./reports/input" />
+      <property name="targetReportGenHostId" value="ReportGenerationHost" />
+    </properties>
+    <log-dir>./logs/logservers/LogServer</log-dir>
+    <output-dir>./logs/logserver_output</output-dir>
+    <startup-timeout>120</startup-timeout>
+    <gzip>false</gzip>
+  </logserver>
+
+  <!--
+    ########################################################################
+    # DaySoFar Workbench report generation script.
+    #
+  -->
+    <script id="DaySoFarReports">
+        <log-dir>./logs/provisioned_scripts</log-dir>
+        <provisioned-script-command>./control/runcommand.sh DaySoFarReports run</provisioned-script-command>
+        <bean-shell-script>
+            <![CDATA[
+    log.info("Starting daysofar Workbench report generation script.");
+
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      DaySoFarReportGenerator.cleanInputDir();
+
+      // always roll the logserver, because reporting DaySoFar
+      if (LogServer.isActive()) {
+        LogServer.callLogserverRollUrl(ReportGenerationHost.getHostName());
+      }
+
+      // retrieve required log files for processing
+      LogServer.copyDaySoFarLogFilesToTargetDir();
+
+      // update report generator to the appropriate dates, time series and to
+      // output a file named "DaySoFar", as required by Workbench
+      DaySoFarReportGenerator.updateProvisioningForDaySoFarReport();
+
+      if (DaySoFarReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        DaySoFarReportGenerator.archiveLogDir();
+
+        // generate report
+        DaySoFarReportGenerator.run();
+
+        // copy generated report and charts to the Workbench directory defined
+        // in the "WorkbenchHost" and its "workbench-report-dir" directory
+        reportHost = "WorkbenchHost";
+        absDestDir = PathUtils.getAbsolutePath(WorkbenchHost.getWorkingDir(), WorkbenchHost.getDirectory("workbench-report-dir"));
+        absDestDir += "/daysofar";
+        DaySoFarReportGenerator.copyReportToWorkbench(reportHost, absDestDir);
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished daysofar Workbench report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+        </bean-shell-script>
+    </script>
+  
+  <!--
+    ########################################################################
+    # Yesterday Workbench report generation script.
+    #
+  -->
+  <script id="DailyReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.sh DailyReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting daily Workbench report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      DailyReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.yesterdayIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl(ReportGenerationHost.getHostName());
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyYesterdayLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file, as required by Workbench
+      DailyReportGenerator.updateProvisioningForYesterdayReport();
+      
+      if (DailyReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        DailyReportGenerator.archiveLogDir();
+        
+        // generate report
+        DailyReportGenerator.run();
+
+        // copy generated report and charts to the Workbench directory defined
+        // in the "WorkbenchHost" and its "workbench-report-dir" directory
+        reportHost = "WorkbenchHost";
+        absDestDir = PathUtils.getAbsolutePath(WorkbenchHost.getWorkingDir(), WorkbenchHost.getDirectory("workbench-report-dir"));
+        absDestDir += "/daily";
+        DailyReportGenerator.copyReportToWorkbench(reportHost, absDestDir);
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished daily Workbench report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Weekly Workbench report generation script.
+    #
+  -->
+  <script id="WeeklyReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.sh WeeklyReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting weekly Workbench report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      WeeklyReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.weekEndingYesterdayIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl(ReportGenerationHost.getHostName());
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyWeekEndingYesterdayLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file, as required by Workbench
+      WeeklyReportGenerator.updateProvisioningForWeekEndingYesterdayReport();
+      
+      if (WeeklyReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        WeeklyReportGenerator.archiveLogDir();
+      
+        // generate report
+        WeeklyReportGenerator.run();
+
+        // copy generated report and charts to the Workbench directory defined
+        // in the "WorkbenchHost" and its "workbench-report-dir" directory
+        reportHost = "WorkbenchHost";
+        absDestDir = PathUtils.getAbsolutePath(WorkbenchHost.getWorkingDir(), WorkbenchHost.getDirectory("workbench-report-dir"));
+        absDestDir += "/weekly";
+        WeeklyReportGenerator.copyReportToWorkbench(reportHost, absDestDir);
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished weekly Workbench report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+
+  <!--
+    ########################################################################
+    # DaySoFar HTML report generation script.
+    #
+  -->
+  <script id="DaySoFarHtmlReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.sh DaySoFarHtmlReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[
+    log.info("Starting DaySoFar HTML report generation script.");
+
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      DaySoFarHtmlReportGenerator.cleanInputDir();
+
+      // always roll the logserver
+      if (LogServer.isActive()) {
+        LogServer.callLogserverRollUrl(ReportGenerationHost.getHostName());
+      }
+
+      // retrieve required log files for processing
+      LogServer.copyDaySoFarLogFilesToTargetDir();
+
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file
+      DaySoFarHtmlReportGenerator.updateProvisioningForDaySoFarReport();
+
+      if (DaySoFarHtmlReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        DaySoFarHtmlReportGenerator.archiveLogDir();
+
+        // generate report
+        DaySoFarHtmlReportGenerator.run();
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished DaySoFar HTML report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+        </bean-shell-script>
+    </script>
+  
+  <!--
+    ########################################################################
+    # Daily HTML report generation script.
+    #
+  -->
+  <script id="DailyHtmlReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.sh DailyHtmlReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting daily HTML report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      DailyHtmlReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.yesterdayIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl(ReportGenerationHost.getHostName());
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyYesterdayLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file
+      DailyHtmlReportGenerator.updateProvisioningForYesterdayReport();
+      
+      if (DailyHtmlReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        DailyHtmlReportGenerator.archiveLogDir();
+        
+        // generate report
+        DailyHtmlReportGenerator.run();
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished daily HTML report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Weekly HTML Workbench report generation script.
+    #
+  -->
+  <script id="WeeklyHtmlReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.sh WeeklyHtmlReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting weekly HTML report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      WeeklyHtmlReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.lastWeekIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl(ReportGenerationHost.getHostName());
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyLastWeekLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file
+      WeeklyHtmlReportGenerator.updateProvisioningForLastWeekReport();
+      
+      if (WeeklyHtmlReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        WeeklyHtmlReportGenerator.archiveLogDir();
+        
+        // generate report
+        WeeklyHtmlReportGenerator.run();
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished weekly HTML report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Workbench XML Report Generators
+    #
+  -->
+  <report-generator id="WeeklyReportGenerator" host-id="ReportGenerationHost">
+    <log-dir>./logs/report_generators/WeeklyReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/weekly/report.xml</output-file>
+    <stylesheet-file>./config/report_templates/tools_report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>LastWeek</time-range>
+    <time-series>Daily</time-series>
+    <charts-enabled>true</charts-enabled>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+  
+  <report-generator id="DailyReportGenerator" host-id="ReportGenerationHost">
+    <log-dir>./logs/report_generators/DailyReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/daily/report.xml</output-file>
+    <stylesheet-file>./config/report_templates/tools_report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>Yesterday</time-range>
+    <time-series>Hourly</time-series>
+    <charts-enabled>true</charts-enabled>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+
+  <report-generator id="DaySoFarReportGenerator" host-id="ReportGenerationHost">
+    <log-dir>./logs/report_generators/DaySoFarReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/daysofar/daysofar.xml</output-file>
+    <stylesheet-file>./config/report_templates/tools_report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>DaySoFar</time-range>
+    <time-series>Hourly</time-series>
+    <charts-enabled>true</charts-enabled>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>
+  </report-generator>
+  
+  <!--
+    ########################################################################
+    # HTML Report Generators
+    #
+  -->
+  <report-generator id="WeeklyHtmlReportGenerator" host-id="ReportGenerationHost">
+    <properties>
+      <property name="numLogBackups" value="3" />
+    </properties>
+    <log-dir>./logs/report_generators/WeeklyHtmlReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/weekly/report.html</output-file>
+    <stylesheet-file>./config/report_templates/report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>LastWeek</time-range>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+  
+  <report-generator id="DailyHtmlReportGenerator" host-id="ReportGenerationHost">
+    <properties>
+      <property name="numLogBackups" value="3" />
+    </properties>
+    <log-dir>./logs/report_generators/DailyHtmlReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/daily/report.html</output-file>
+    <stylesheet-file>./config/report_templates/report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>Yesterday</time-range>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+
+  <report-generator id="DaySoFarHtmlReportGenerator" host-id="ReportGenerationHost">
+    <properties>
+      <property name="numLogBackups" value="3" />
+    </properties>
+    <log-dir>./logs/report_generators/DaySoFarHtmlReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/daysofar/daysofar.html</output-file>
+    <stylesheet-file>./config/report_templates/report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>DaySoFar</time-range>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>
+  </report-generator>
+
+</spr:beans>

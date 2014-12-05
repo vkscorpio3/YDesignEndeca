@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.1//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.1.dtd">
+
+<!--
+
+    Configuration file for UrlRewriteFilter
+    http://tuckey.org/urlrewrite/
+    http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.1/index.html
+
+-->
+<urlrewrite>
+
+    <!-- 
+      - [Step 1] Map all static resources to the desired location 
+      -->
+    <rule>
+      <from>^/views/(.*?)\.js$</from>
+      <to>/WEB-INF/views/$1.js</to>
+    </rule>
+
+    <rule>
+      <from>^/images/(.*)$</from>
+      <to last="true">/images/$1</to>
+    </rule>
+    <rule>
+      <from>^/css/(.*)$</from>
+      <to last="true">/css/$1</to>
+    </rule>    
+    <rule>
+      <from>^/js/(.*)$</from>
+      <to last="true">/js/$1</to>
+    </rule>
+    <rule>
+      <from>^(.*).js$</from>
+      <to last="true">$1.js</to>
+    </rule>
+    <rule>
+      <from>^/mobile/static/(.*)$</from>
+      <to last="true">/mobile/static/$1</to>
+    </rule>
+
+     <!-- 
+      - [Step 2] All resources not mapped to a static location
+      - will be mapped to /servlet/$1
+      -->
+    
+    <!-- Map "" and "/" to /browse -->
+   <rule>
+      <from>^/?$</from>
+      <to>/browse</to>
+    </rule>
+    <rule>
+      <from>^/(.*)$</from>
+      <to>/servlet/$1</to>
+    </rule>
+    <outbound-rule>
+      <from>^/servlet/(.*)$</from>
+      <to>/$1</to>
+    </outbound-rule>
+    <outbound-rule encodefirst="true">
+        <note>Strip URL Session ID's</note>
+        <from>^(.*?)(?:\;ORA_OC_WBSESSION=[^\?#]*)?(\?[^#]*)?(#.*)?$</from>
+        <to>$1$2$3</to>
+    </outbound-rule>
+</urlrewrite>

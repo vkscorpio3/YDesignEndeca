@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+    xmlns:e="editors" type="SecondaryContent">
+    <Description>${template.description}</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+
+    <ContentItem>
+        <Name>Navigation Container</Name>
+        <Property name="navigation">
+            <ContentItemList type="Navigation" />
+        </Property>
+    </ContentItem>
+
+    <EditorPanel>
+        <BasicContentItemEditor>
+            <e:GuidedNavigationEditor propertyName="navigation">
+                <e:ContentItemMapping>
+                    <!--
+                      ~ This map is used to map dimension properties to content
+                      ~ item properties and the content item name during the
+                      ~ cartridge generation process.
+                      ~
+                      ~ Use <Name dimensionProperty="" /> to map a dimension
+                      ~ property to a content item name.
+                      ~ Use <Property name="" dimensionProperty="" /> to map a
+                      ~ dimension property to a content item property.
+                      ~
+                      ~ The following dimension properties are supported:
+                      ~ 1. endeca:name - the dimension name
+                      ~ 2. endeca:identifier - the dimension id
+                      ~ 3. any dval prop - the name of a dimension property
+                      ~
+                      ~ If multiple dimension property mappings are defined for
+                      ~ the content item name or a given content item property,
+                      ~ the first non-null value is applied to the content item
+                      ~ name or property.
+                      ~
+                      ~ If a dval prop has multiple values, only the first value
+                      ~ is applied to the content item name or property.
+                      -->
+                    <e:Name dimensionProperty="display_name" />
+                    <e:Name dimensionProperty="endeca:name" />
+                    <e:Property name="dimensionName" dimensionProperty="endeca:name" />
+                    <e:Property name="dimensionId" dimensionProperty="endeca:identifier" />
+                </e:ContentItemMapping>
+            </e:GuidedNavigationEditor>
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>
