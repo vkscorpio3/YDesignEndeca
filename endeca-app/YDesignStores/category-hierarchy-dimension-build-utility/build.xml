@@ -1,0 +1,36 @@
+<project name="affymetrix" basedir="." default="make-category-dimension">
+
+	<property name="lib.dir" value="lib"/>
+	<property name="input.dir" value="input"/>
+	<property name="output.dir" value="output"/>
+	<property name="xslt.dir" value="xslt"/>
+	
+	<property name="dimension.category.file.name" value="category.dimensions.xml"/>
+
+	<property name="hierarchy.id.pattern" value="2000000"/>
+	
+	<property name="input.file.name" value="category.txt"/>
+ 	
+	<!-- 
+	======================================================================
+	O'Reilly XSLT transform TXT to category.dimension.xml 
+	
+	command line:: ant make-category-dimension
+	====================================================================== 
+	-->
+	
+	<target name="make-category-dimension">
+		<mkdir dir="./${output.dir}"/>
+		<xslt
+			force="true"
+		    in="./${input.dir}/empty.xml"
+		    out="./${output.dir}/${dimension.category.file.name}"
+		    style="./${xslt.dir}/make-category-dimension.xsl">
+		  <param name="input-file" expression="../${input.dir}/${input.file.name}"/>
+		  <param name="delimiter" expression="&#x009;"/>
+		  <param name="id-pattern" expression="${hierarchy.id.pattern}"/>
+			<classpath location="${lib.dir}/saxon9.jar" />
+		</xslt>
+	</target>
+	
+</project>

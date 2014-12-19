@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (c) 2001-2004, Endeca Technologies, Inc. All rights reserved.
+-->
+
+<!-- ============================================================
+      Declare some entities that may be useful for users.
+      Values may be substituted using the variable substitution feature
+           on the command line or in a configuration file.
+      Duplicate entity names are allowed, but ignored duplicates will
+           be silently ignored.
+      The precedence for values is as follows (high to low):
+           1) The entities described in the XML spec (amp, gt, lt, quot, apos)
+           2) Command line overrides
+           3) Configuration file overrides
+           4) The "current_date" and "current_time" defaults (defined below)
+           5) The FIRST entity with a given name declared in the XML file
+           6) Values for the entities defined below (except "current_date"
+              and "current_time" which cannot be overridden by entities defined
+              in the XML file)
+     ============================================================ -->
+
+<!-- if not overridden, current_date will default to today
+     in "mm/dd/yyyy" (the value below is an example and
+     cannot be used to change the format)-->
+<!ENTITY current_date "mm/dd/yyyy">
+
+<!-- if not overridden, current_time will default to the time
+     the pipeline is started in "HH:MM::SS" format (the value
+     below is an example and cannot be used to change the
+     format)-->
+<!ENTITY current_time "HH:MM:SS">
+
+<!-- if not overridden, end_of_line will default to the correct
+     (escaped) representation of the end of a line on the current
+     platform. -->
+<!ENTITY end_of_line "\n">
+
+<!ENTITY default_compression_level "-1">
+<!ENTITY default_format "XML">
+<!ENTITY default_record_format "&default_format;">
+<!ENTITY default_dimension_format "&default_format;">
+<!ENTITY default_record_delimiter "EOR">
+<!ENTITY default_row_delimiter "\n">
+<!ENTITY default_column_delimiter "\t">
+<!ENTITY default_filter_empty_props "TRUE">
+<!ENTITY default_output_prefix "out">
+<!ENTITY default_path "./">
+<!ENTITY % url
+	"URL			CDATA		#REQUIRED"
+>
+
+<!-- ============================================================
+	 Declare a shortcut for the enumeration of possible
+         COMPRESSION_LEVEL values
+     ============================================================ -->
+<!ENTITY % compression "COMPRESSION_LEVEL (-1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9) #IMPLIED">
+
+<!-- ============================================================
+	 A DVAL_ID is the identity of a Dimension Value.
+	 It should be unique throughout the system.
+	 A DVAL_ID may, optionally, provide a DIMENSION_ID as
+	 a hint to speed processing.
+     ============================================================ -->
+<!ELEMENT DVAL_ID EMPTY>
+<!ATTLIST DVAL_ID
+	DIMENSION_ID	CDATA	#IMPLIED
+	ID				CDATA	#REQUIRED
+>
+
+<!-- ============================================================
+	 A DVAL_PATH is an alternate way of specifying a Dimension Value.
+	 It specifies the "name" of all the DVals in a path starting with
+	 the root of the dimension and including the "name" of the target
+	 DVal itself. For this discussion, "name" means "synonym with
+	 DISPLAYABLE=TRUE".  Optionally, the name of the dimension
+	 containing the path may be provided as a hint to speed
+	 processing.
+	 ============================================================ -->
+<!ELEMENT DVAL_PATH EMPTY>
+<!ATTLIST DVAL_PATH
+	DIMENSION_NAME	CDATA	#IMPLIED
+	PATH			CDATA	#REQUIRED
+>
+
+<!ELEMENT DIMENSION_ID EMPTY>
+<!ATTLIST DIMENSION_ID
+	ID		CDATA	#REQUIRED
+>
+
+<!ELEMENT RECORD_ID EMPTY>
+<!ATTLIST RECORD_ID
+	ID		CDATA	#REQUIRED
+>
+
+<!ELEMENT PROPNAME (#PCDATA)>
+<!ELEMENT DIMNAME (#PCDATA)>
+
+<!ELEMENT PROP (PVAL, PROP*)>
+
+<!ATTLIST PROP
+	NAME	CDATA		#REQUIRED
+	UPDATE	(A | C | D)	#IMPLIED
+>
+<!ELEMENT PVAL (#PCDATA)>
+
+<!-- ============================================================
+	 The COMMENT element provides a way for comments to be placed on
+	 other elements, and be preserved when the file is re-written. (XML
+	 comments get lost when the file is re-written)
+	 ============================================================ -->
+<!ELEMENT COMMENT (#PCDATA)>
+
+<!-- ============================================================
+	 A LOG is a place where INFO can be collected.
+         FILE has been deprecated for "URL" (which will be required)
+	 ============================================================ -->
+<!ELEMENT LOG EMPTY>
+<!ATTLIST LOG
+	NAME	CDATA			#REQUIRED
+	TYPE	(SIMPLE | UNIQUE)	#REQUIRED
+	URL		CDATA		#IMPLIED
+        FILE            CDATA           #IMPLIED
+        %compression;
+>
+
+<!-- ============================================================
+	 CONFIG provides generic parameterized configuration information
+	 ============================================================ -->
+<!ELEMENT CONFIG EMPTY>
+<!ATTLIST CONFIG
+	NAME	CDATA	#REQUIRED
+	VALUE	CDATA	#REQUIRED
+>
+
+
+<!--
+The RECORD_INDEX specifies the property and dimension keys on
+which the records are sorted.
+-->
+<!ELEMENT RECORD_INDEX	(KEY_DIMENSION+)>
+<!ATTLIST RECORD_INDEX
+    UNIQUE      (TRUE | FALSE)      #IMPLIED
+>
+
+<!--
+The RECORD_GROUP provides the property and dimension keys on
+for record grouping. In Forge, output adapters group records
+to compress information. In addition, dgidx uses the information
+provided by this element to create multi-records.
+-->
+<!ELEMENT RECORD_GROUP  (KEY_DIMENSION+)>
+
+<!--
+The ID attribute of the KEY_DIMENSION is the property name
+(TYPE=PVAL) or dimension id (TYPE=DVAL) of the index key.
+TYPE="PROPERTY_VALUE" has been deprecated
+-->
+<!ELEMENT KEY_DIMENSION	EMPTY>
+<!ATTLIST KEY_DIMENSION
+    TYPE		(PVAL | DVAL | PROPERTY_VALUE)	#REQUIRED
+    ID			CDATA				            #REQUIRED
+    MIN_VALS    CDATA                           "0"
+>
+
+
+<!-- ==============================================================
+        The PROFILE element is a general element used for 
+	personalization.  It allows you to use strings to 
+	refer to named end user groups in various configuration
+	elements.
+	For example:
+		<PROFILE>old_guy</PROFILE>
+		<PROFILE>baseball_fan</PROFILE>
+	============================================================ -->
+
+<!ELEMENT PROFILE (#PCDATA)>
+
+
+<!-- ==============================================================
+	The PHRASE element specifies a phrase entry in the Navigation
+	Engine's phrase dictionary which is a collection of phrases.
+	The Automatic Phrasing feature uses this phrase dictionary
+	to suggest alternative queries given a user's query by
+	phrasing certain contiguous subsequences of search query
+	terms.
+
+	Here is an example of how one would use the PHRASE element:
+		<PHRASE>New York</PHRASE>
+	============================================================ -->
+
+<!ELEMENT PHRASE (#PCDATA)>
+

@@ -1,0 +1,445 @@
+brand_id	brand_name	yoyo_id	primary_store
+11159	Holmris		
+682	A19	a19-lighting	yl
+683	Ai Lati	ai-lati	yl
+684	Alessi	alessi	yv
+685	Ameico		
+686	AFX	american-fluorescent	yl
+687	&Tradition		
+688	Anglepoise		
+689	Artek		
+690	Artemide Lighting	artemide	yl
+691	Arturo Alvarez		
+692	Attilo Wismer		
+693	AXO Light	axo-light	yl
+694	Babette Holland		
+695	Ballfinger Lighting		
+696	Besa Lighting	besa-lighting	yl
+697	Blankblank		
+698	Blankblank Studiot		
+699	Blankblank Zinn		
+700	Blauet	blauet	yl
+701	Bloom		
+702	B.Lux	blux	yl
+703	Bocci	bocci	yl
+704	Bover	bover	yl
+705	Bruck Lighting	bruck	yl
+706	Brunklaus Amsterdam Lighting	brunklaus-amsterdam	yl
+707	Castor Design	castor-design	yl
+708	Cerno		
+709	Cherry Tree Design		
+710	Condor Lighting		
+711	Contardi	contardi	yl
+712	Cree Lighting	cree	yl
+713	CSL Lighting	csl-lighting	yl
+714	Dab		
+715	David Trubridge Design		
+716	Design By Frandsen		
+717	Illuminating Experiences		
+718	Design By Liao		
+719	Dimmers		
+720	Droog		
+721	& Costa		
+722	Essenze		
+723	Established Sons		
+724	Estiluz Lighting		
+725	Eurofase		
+726	Fabbian		
+727	Fambuena		
+728	Fanimation		
+729	Fdv Collection		
+730	FLOS Lighting		
+731	Flux	flux	yv
+732	FontanaArte		
+733	Foscarini		
+734	Gandia Blasco		
+735	George Kovacs		
+736	Hampstead Lighting		
+737	HelenBilt		
+738	Herman Miller		
+739	Holtkoetter		
+740	Hubbardton Forge		
+741	Humanscale		
+742	Lamp International		
+743	Illuminating Experiences Lighting		
+744	Oty Light		
+745	Illuminating Experiences Contardi Collection		
+746	Illuminating Experiences Contemporary		
+747	Illuminating Experiences Cubox		
+748	Illuminating Experiences Meltemi Collection		
+749	Vetreria DeMajo		
+750	Ingo Maurer		
+751	Innermost		
+752	Itre		
+753	Jamie Young Co.		
+754	Jonathan Adler		
+755	Robert Abbey		
+756	Kartell		
+757	Koncept Lighting		
+758	Kundalini		
+759	LBL Lighting		
+760	Le Klint		
+761	Leucos		
+762	Lightolier		
+763	Lights Up		
+764	Lightyears		
+765	Louis Poulsen		
+766	Luceplan		
+767	Lucesco		
+768	Lucitalia		
+769	Lujan Sicilia		
+770	LumenArt		
+771	Lumina		
+772	LUXIT		
+773	Luxo		
+774	Lx Japan		
+775	Lyx		
+776	Lzf Lamps		
+777	Marset		
+778	Mater		
+779	Matthews Fan Company		
+780	Maxim		
+781	Metalarte		
+782	Miaicefa		
+783	Minka Aire		
+784	Modern Fan Co.		
+785	Modiss		
+786	ModoLuce		
+787	Mood Light		
+788	Moooi		
+789	George Nelson Bubble Lamps		
+790	NEMO Italianaluce		
+791	Nemo Franco Albini		
+792	Niche Modern		
+793	Offi &amp;amp; Company		
+794	Ogus		
+795	Oluce		
+796	Omikron Design		
+797	Oxygen Lighting		
+798	Pablo		
+799	Pallucco		
+800	Plumen		
+801	Porce Light		
+802	Prandina		
+803	Produzione Privata		
+804	Quasar		
+805	Rezek by Artemide		
+806	Rich Brilliant Willing		
+807	Roll &amp; Hill		
+808	Rossetti		
+809	Rotaliana		
+810	Santa &amp;amp; Cole		
+811	Schonbek		
+812	Simon Pearce		
+813	Slamp		
+814	Solar Cynergy		
+815	Sonneman	sonneman	yl
+816	Spark Lighting		
+817	Spark Viso		
+818	Stonegate Designs		
+819	Studio Italia Design		
+820	Sundayland		
+821	Taller Uno		
+822	Tango Lighting		
+823	Targetti		
+824	TECH Lighting		
+825	Tech Lighting 2kdegrees		
+826	Terzani		
+827	Tom Dixon		
+828	Translite Systems		
+829	Tronconi		
+830	Unique Interieur		
+831	Varaluz		
+832	Venini		
+833	Verpan		
+834	VIBIA		
+835	Vistosi		
+836	WAC Lighting		
+838	Zaneen		
+5717	Lutron	lutron	yl
+11160	Akaba	akaba	yv
+8779	Iacoli &amp; McAllister		
+9196	ilomio		
+8778	Hudson Valley		
+2072	Smart &amp;amp; Green		
+1752	Ango	ango	yl
+9195	MUUTO		
+5258	LittleFootprint Lighting		
+5260	Swarovski Lighting		
+5261	AV Mazzega	av-mazzega	yl
+5262	Global Lighting		
+5263	Garden Party by Global Lighting		
+5264	Hinkley Lighting		
+5265	BEGA	bega	yl
+5266	Fredrick Ramond		
+5267	Period Arts Fan Company		
+5268	Light &amp;amp; Contrast		
+5269	Michael McHale Designs		
+5259	Resident		
+5257	Hive		
+5270	Tango Lighting Collection		
+5271	Carpyen	carpyen-lighting	yl
+5272	Axis71	axis-71-lighting	yl
+5273	Philips Consumer Luminaires		
+5274	Masiero		
+5275	Structures		
+5276	Philips Forecast Lighting		
+5277	Secto Design		
+5278	LightLove		
+5279	Slamp		
+5280	Modern Forms		
+5281	Blackjack Lighting	blackjack-lighting	yl
+5606	Stickbulb	stickbulb	yl
+11154	Infinity Drain	infinity-drain	yb
+6978	Ridgely Studio Works		
+6979	Viso		
+5765	PELLE		
+6786	Forestier		
+6787	Tunto		
+9714	Ak47	ak-47	yv
+9715	Alchemy Glass	alchemy-glass	yb
+9716	Alice Tacheny Design	alice-tacheny-design	yv
+9717	Ali Sandifer Studio	ali-sandifer	yv
+9718	Amba Towel Warmers	amba	yb
+9719	Ambiance Bain	ambiance-bain	yb
+9720	Antonello Italia	antonello-italia	yv
+9721	Anything Design		
+9722	Aquamass	aquamass	yb
+9723	Arblu	arblu	yb
+9724	Areaware	areaware	yv
+9725	Arktura Furniture	arktura	yv
+9726	Art Ceram	art-ceram	yb
+9727	Artecnica	artecnica	yv
+9728	Artelinea	artelinea	yb
+9729	Artifort	artifort	yv
+9730	ARTLESS	artless	yv
+9731	Atmosphere Globes	atmosphere-globes	yv
+9732	Axor	axor	yb
+9733	Azzurra	azzurra	yb
+9734	Babyletto	babyletto	yv
+9735	BDI	bdi	yv
+9736	Bend Seating	bend-seating	yv
+9737	Blu Dot	blu-dot	yv
+9738	Board by Design	board-by-design	yv
+9739	Bobles	bobles	yv
+9740	Bontempi Casa	bontempi-casa	yv
+9741	Born In Sweden	born-in-sweden	yv
+9742	Boskke	boskke	yv
+9743	Bowron Sheepskins	bowron-sheepskins	yv
+9744	Braun	braun	yv
+9745	Bunaco Company	bunaco	yv
+9746	BuzziSpace	buzzispace	yv
+9747	Calligaris	calligaris	yv
+9748	Carl Mertens		
+9749	Case Furniture		
+9750	Cattelan Italia	cattelan-italia	yv
+9751	Chandra Rugs	chandra-rugs	yv
+9752	Cherner Chair Company	cherner-chair	yv
+9753	Chive	chive	yv
+9754	Coalesse	coalesse	yv
+9755	Componendo	componendo	yb
+9756	Conmoto	conmoto	yv
+9757	Copeland Furniture	copeland-furniture	yv
+9758	Danese Milano	danese-milano	yv
+9759	David Rasmussen		
+9760	De La Espada	de-la-espada	yv
+9761	Design House Stockholm		
+9762	Design Kollection	design-kollection	yv
+9763	Domitalia	domitalia	yv
+9764	Driade Furniture		
+9765	Eastvold Furniture	eastvold-furniture	yv
+9766	Elemental Living		
+9767	Elementem Photography	elementem	yv
+9768	Essey	essey	yv
+9769	Estel	estel	yv
+9770	Eva Solo	eva-solo	yv
+9771	Fatboy	fatboy	yv
+9772	ferm LIVING	ferm-living	yv
+9773	Fermob	fermob	yv
+9774	Fferrone Design	fferrone	yv
+9775	FIAM	fiam	yv
+9776	Flensted Mobiles	flensted-mobiles	yv
+9777	Fossil	fossil	yv
+9778	Freek	freek	yv
+9779	GAN Rugs	gan-rugs	yv
+9780	Geberit	geberit	yb
+9781	Geneva Sound System	genevasound	yv
+9782	Gense	gense	yv
+9783	Goods	goods	yv
+9784	Graff	graff	yb
+9785	Grain	grain	yv
+9786	Grand Splendid	grand-splendid	yv
+9787	Greenington	greenington	yv
+9788	Green Srl	green-srl	yv
+9789	Gus* Modern	gus	yv
+9790	Hakusan	hakusan	yv
+9791	Half13	half13	yv
+9792	Hansgrohe	hansgrohe	yb
+9793	Harbour Outdoor	harbour-outdoor	yv
+9794	Heller	heller	yv
+9795	Huppe	huppe	yv
+9796	Iannone Design	iannone-design	yv
+9797	iBert	ibert-inc	yv
+9798	Idea International	idea-international	yv
+9799	iittala	iittala	yv
+9800	Industrya	industrya	yv
+9801	Industry of All Nations	industry-of-all-nations	yv
+9802	Inhabit	inhabit	yv
+9803	Innit	innit	yv
+9804	Innovation Living	innovation	yv
+9805	IONDesign	iondesign	yv
+9806	Italbrass	italbrass	yb
+9807	Jeb Jones	jeb-jones	yv
+9808	Jesper Office	jesper-office	yv
+9809	Jorine	jorine	yv
+9810	Junghans	junghans	yv
+9811	KAKKOii	kakkoii	yv
+9812	Kalia	kalia	yb
+9813	Kalon Studios	kalon-studios	yv
+9814	Keuco	keuco	yb
+9815	Klein &amp;amp; More	klein-and-more	yv
+9816	Kosha		
+9817	Kurikyu	kurikyu	yv
+9818	Kymo Rugs	kymo	yv
+9819	LaPalma Furniture	lapalma	yv
+9820	Lebello	lebello	yv
+9821	Lechuza	lechuza	yv
+9822	LEFF Amsterdam	leff-amsterdam	yv
+9823	Leif.designpark	leif-designpark	yv
+9824	Le Klint	le-klint	yv
+9825	Lemnos	lemnos	yv
+9826	Lexon	lexon	yv
+9827	Linie Design	linie-design	yv
+9828	Linteloo		
+9829	Loll	loll	yv
+9830	Magdalena York	magdalena-york	yv
+9831	Magis	magis	yv
+9832	Maharam	maharam	yv
+9833	Majamoo		
+9834	Makro	makro	yb
+9835	Markamoderna	markamoderna	yv
+9836	MASHstudios	mash-studios	yv
+9837	MatterMade	mattermade	yv
+9838	Mattiazzi	mattiazzi	yv
+9839	Menu A/S	menu	yv
+9840	MGS Faucets	mgs-faucets	yb
+9841	Holmris	milk	yv
+9842	Miller Goodman	miller-goodman	yv
+9843	Mint Inc.	mint	yv
+9844	Missoni Home	missoni-home	yv
+9845	Modernica	modernica	yv
+9846	ModernOutdoor	modernoutdoor	yv
+9847	Modloft	modloft	yv
+9848	Mono Flatware	mono	yv
+9849	Monte Design	monte-design	yv
+9850	Nameeks	nameeks	yb
+9851	nanimarquina	nanimarquina	yv
+9852	Neo-Metro	neo-metro	yb
+9853	Neptune	neptune	yb
+9854	Nicoletti Calia		
+9855	Nolen Niu	nolen-niu	yv
+9856	Normann Copenhagen	normann-copenhagen	yv
+9857	NUMI NUMI Design	numi-numi-design	yv
+9858	Nursery Works	nurseryworks	yv
+9859	Oliver Hemming	oliver-hemming	yv
+9860	OOTS!		
+9861	Orange22	orange22	yv
+9862	Osidea	osidea	yv
+9863	Pad Outdoor	pad-outdoor	yv
+9864	Papatya	papatya	yv
+9865	Playsam	playsam	yv
+9866	Porcelight	porcelight	yv
+9867	POTT	pott	yv
+9868	PRAXIS	praxis	yv
+9869	Punkt.	punkt	yv
+9870	Purcell Living	purcell-living	yv
+9871	Pure Rugs	pure-rugs	yv
+9872	Quinze &amp;amp; Milan	quinze-and-milan	yv
+9873	Rabbit Air	rabbit-air	yv
+9874	Radius Design	radius	yv
+9875	Rain Therapy&amp;amp;trade;	rain-therapy	yv
+9876	Rapson-Inc.	rapson	yv
+9877	Retro Bullet	retrobullet	yv
+9878	Richard Schultz Collection	richard-schultz	yv
+9879	Ripple Products	ripple-products	yv
+9880	Robern	robern	yb
+9881	Room B	room-b	yv
+9882	Roros Tweed	roros-tweed	yv
+9883	Rosendahl	rosendahl	yv
+9884	Rossetto	rossetto	yv
+9885	Rotoluxe	rotoluxe	yv
+9886	Royal Vkb	royal-vkb	yv
+9887	RS Barcelona	rs-barcelona	yv
+9888	Saccaro	saccaro	yv
+9889	Saloom Furniture	saloom-furniture	yv
+9890	Scale 1:1	scale-1-to-1	yv
+9891	Seletti	seletti	yv
+9892	Side by Side	side-by-side	yv
+9893	Sirch Toys	sirch-toys	yv
+9894	SkLO	sklo	yv
+9895	Skram Furniture	skram	yv
+9896	SLIDE Design	slide-design	yv
+9897	Sodura	sodura	yv
+9898	SonoBath	sonobath	yb
+9899	Sovet Italia	sovet-italia	yv
+9900	Spectrum West		
+9901	Spot On Square	spot-on-square	yv
+9902	Steelcase	steelcase	yv
+9903	SteelForme	steelforme	yv
+9904	Stelton	stelton	yv
+9905	Steuart Padwick		
+9906	Surya	surya	yv
+9907	Svan	svan	yv
+9908	Symbol Audio	symbol-audio	yv
+9909	Teckell	teckell	yv
+9910	Teroforma	teroforma	yv
+9911	Thayer Coggin	thayer-coggin	yv
+9912	Thomas Eyck	thomas-eyck	yv
+9913	thomaspaul	thomas-paul	yv
+9914	Three by Three	three-by-three	yv
+9915	Tivoli Audio	tivoli-audio	yv
+9916	Tonin Casa	tonin-casa	yv
+9917	TOTO	toto	yb
+9918	TrueModern	true-modern	yv
+9919	Turnstone	turnstone	yv
+9920	Ubabub	ubabub	yv
+9921	Urbancase	urbancase	yv
+9922	Urbanista	urbanista	yv
+9923	Verso Design		
+9924	VesseL	vessel	yv
+9925	Vifah	vifah	yv
+9926	Vitra	vitra	yv
+9927	Vlaemsch ( )	vlaemsch	yv
+9928	Vondom	vondom	yv
+9929	WallCandy Arts	wallcandy-arts	yv
+9930	Wallter	wallter	yv
+9931	Warli	warli	yv
+9932	Way Basics	way-basics	yv
+9933	Wilhelmina Collection		
+9934	Wobi Office	wobi-office	yv
+9935	wohnbedarf	wohnbedarf	yv
+9936	Xo Design		
+9937	Y&amp;#039;A PAS LE FEU AU LAC	y-a-pas-le-feu-au-lac	yv
+9938	York Wallcoverings	york-wallcoverings	yv
+9939	Zafferano	zafferano	yv
+11249	Geiger	geiger	yv
+14008	Leland International	leland-international	yv
+12458	Native Trails	native-trails	yb
+12461	Knoll	knoll	yv
+12462	MacMaster		
+12626	Rosendahl		
+12471	Unique Wood Design	unique-wood-design	yb
+12782	SLV Lighting		
+12627	IC Design Group	ic-design-group	yv
+12617	Bongio	bongio	yb
+12624	Apaiser	apaiser	yb
+12645	Tonelli	tonelli	yv
+12787	Accupunto		
+12752	Harco Loor Design		
+12758	Blanco		
+12771	Ceramica Globo	ceramica-globo-all	yb
+12777	Nook Sleep Systems	nook-sleep-systems	yv
+12781	Oilo	oilo	yv
+14018	Grohe	grohe	yb
+14020	Grohe		
+14034	Akaba &amp; ! ; * &Atilde;&copy; &#039; &Acirc;&reg; test		

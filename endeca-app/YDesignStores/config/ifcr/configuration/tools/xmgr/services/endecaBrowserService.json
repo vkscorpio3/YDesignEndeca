@@ -1,10 +1,10 @@
 {
-    "recDisplayNameProp" : "",
-    "recSpecProp": "",
+    "recDisplayNameProp" : "name",
+    "recSpecProp": "unique_id",
     "recAggregationKey": "",
     "recFilter": "",
     "recImgUrlProp" : "",
-    "recDisplayProps": [ ],
+    "recDisplayProps": [ "name", "price_retail", "description_short" ],
     "textSearchKey": "All",
     "textSearchMatchMode" : "ALLPARTIAL"
 }

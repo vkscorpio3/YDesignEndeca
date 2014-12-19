@@ -6,10 +6,10 @@
 <c:set var="siteState" value="${rootComponent['endeca:siteState']}"/>
 
 <ydg:getSiteContextPath var="siteContext"/>
-<c:set var="autoSuggestServiceUrl" value="/${siteContext}/browse"/>
+<c:set var="autoSuggestServiceUrl" value="/${siteContext}/search"/>
 
 <div class="SearchBox">
-    <form onsubmit="if(this.Ntt.value == '')return false;" autocomplete="off" action='<c:url value="/${siteContext}/browse')}"/>'>
+    <form onsubmit="if(this.Ntt.value == '')return false;" autocomplete="off" action='<c:url value="${autoSuggestServiceUrl}"/>'>
         <input class="submit" type="submit" value=""/>
         <input type="hidden" name="Dy" value="1"/>
         <input type="hidden" name="Nty" value="1"/>

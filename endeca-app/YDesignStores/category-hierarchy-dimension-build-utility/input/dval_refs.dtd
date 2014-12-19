@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (c) 2001-2003, Endeca Technologies, Inc. All rights reserved.
+-->
+
+<!ENTITY % common.dtd SYSTEM "common.dtd">
+%common.dtd;
+
+<!ELEMENT DVAL_REFS (COMMENT?, DVAL_REF*)>
+
+<!--
+	The DVAL_REF element specifies how specific dvals should behave.
+
+	INERT				(TRUE | FALSE)		#IMPLIED
+
+	Setting the INERT attribute to TRUE makes this dval non-navigable.
+	For more information on non-navigable dvals, refer to the Endeca
+	Documentation.
+
+	COLLAPSIBLE			(TRUE | FALSE)		#IMPLIED
+
+	COLLAPSIBLE is used in combination with the THRESHOLD attribute
+	on DIMENSION_REF. Marking an internal dval as collapsible has
+	the effect that if the navigation state would return more than
+	DVAL_THRESHOLD (as specified in the DIMENSION_REF of this dval's
+	dimension) child dvals as edges, the collapsible dval is returned
+	instead. If less than THRESHOLD children would be returned, the
+	collapsible dval is ignored and its children are returned.
+
+-->
+<!ELEMENT DVAL_REF EMPTY>
+<!ATTLIST DVAL_REF
+	ID				CDATA			#REQUIRED
+	INERT				(TRUE | FALSE)		"FALSE"
+	COLLAPSIBLE			(TRUE | FALSE)		"FALSE"
+>

@@ -2,10 +2,15 @@
     "jcr:primaryType": "endeca:unstructured",
     "host": "localhost.localdomain",
     "port": "16002",
-    "recordSpecName": "",
+    "recordSpecName": "unique_id",
     "aggregationKey": "",
     "recordFilter": "",
     "wildcardSearchEnabled": false,
-    "recordNameField": "",
-    "fields": {}
+    "recordNameField": "name",
+    "fields": {
+	"unique_id": "",
+        "name": "plain",
+        "price_retail": "currency",
+        "description_short": ""
+}
 }

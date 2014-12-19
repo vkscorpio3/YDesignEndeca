@@ -60,7 +60,7 @@
 											<c:out value="${record.attributes['name'][0]}"/>
 										</c:when>
 										<c:otherwise>
-											<c:out value="${fn:substring(productName, 0, 15)}..."/>     
+											<c:out value="${fn:substring(productName, 0, 30)}..."/>     
 										</c:otherwise>
 									</c:choose>
 							</a>

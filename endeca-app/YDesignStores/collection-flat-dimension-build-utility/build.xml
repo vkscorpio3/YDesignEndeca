@@ -1,0 +1,45 @@
+<project name="YDesign" basedir="." default="make-collection-dimension">
+
+	<!-- 
+	======================================================================
+	-	Make YDesign collection dimension
+		o	ant make-collection-dimension
+		
+	====================================================================== 
+	-->
+
+	<property name="lib.dir" value="lib"/>
+	<property name="input.dir" value="input"/>
+	<property name="output.dir" value="output"/>
+	<property name="xslt.dir" value="xslt"/>
+	
+	<property name="dimension.collection.file.name" value="collection.dimensions.xml"/>
+
+	<property name="collection.id.pattern" value="4000000"/>
+	
+	<property name="input.file.name" value="collection.txt"/>
+ 	
+	<!-- 
+	======================================================================
+	Transform a tab-delimited text file to collection dimension XML 
+	
+	command line:: ant make-collection-dimension
+	====================================================================== 
+	-->
+
+	<target name="make-collection-dimension">
+		<mkdir dir="./${output.dir}"/>
+		<xslt
+			force="true"
+		    in="./${input.dir}/empty.xml"
+		    out="./${output.dir}/${dimension.collection.file.name}"
+		    style="./${xslt.dir}/make-collection-dimension.xsl">
+		  <param name="input-file" expression="../${input.dir}/${input.file.name}"/>
+			<!-- <param name="delimiter" expression=","/> -->
+			<param name="delimiter" expression="&#x009;"/>
+			<param name="id-pattern" expression="${collection.id.pattern}"/>
+			<classpath location="${lib.dir}/saxon9.jar" />
+		</xslt>
+	</target>
+
+</project>

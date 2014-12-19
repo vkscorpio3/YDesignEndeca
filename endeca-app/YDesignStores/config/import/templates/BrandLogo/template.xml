@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+	type="SecondaryContent">
+	<Description>Displays the brand logo if there's only 1 brand selected.
+	</Description>
+	<ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+	<ContentItem>
+		<Name>Brand Logo</Name>
+	</ContentItem>
+	<EditorPanel>
+		<BasicContentItemEditor />
+	</EditorPanel>
+</ContentTemplate>

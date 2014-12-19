@@ -1,0 +1,487 @@
+category_id	category_name	parent_category_id	yoyo_id	primary_store
+4806	Two Circuit Track	4804		
+4807	Wall Lighting	4686		
+4805	Two Circuit Track Components	4804		
+5622	Office Accessories	5282		
+4804	Two Circuit Track Hardware	4796		
+5660	Pitchers + Carafes	5683		
+5661	Kitchen Tools	5331		
+5662	Food Cutting Boards	5661		
+5663	Food Preparation Tools	5661		
+5664	Kitchen Gadgets	5661		
+5665	Kitchen Mills + Grinders	5661		
+5666	Small Kitchen Appliances	5661		
+5667	Serving Dishes + Platters	5332		
+5668	Centerpieces	5643		
+5669	Dinnerware	5643		
+5670	Napkin Holders + Rings	5643		
+5671	Salt + Pepper Servers	5643		
+5672	Sugar + Creamer Servers	5643		
+5673	Trivets	5643		
+5674	Utensils	5331		
+5675	Serving Utensils	5674		
+5676	Specialty Utensils	5674		
+5677	Rugs	5684		
+5678	Area Rugs	5677		
+5679	Travel Accessories	5682		
+5680	Mugs + Tea Cups	5683		
+5681	Tea Pots + Coffee Servers	5332		
+5682	Personal Accessories	5282		
+5683	Drinkware	5331		
+5684	Textiles			
+4811	Wall Sconces + Lights	4807	sconandsurmo	yl
+5134	Coat Racks	5321		
+5133	Desk + Business Accessories	5622		
+4809	Bath Vanity Lights	4807	bath-vanity-lights	yl
+4802	Single Circuit Track	4800		
+4801	Single Circuit Track Components	4800		
+4770	Remote	4769		
+4798	Track Heads	4796		
+4800	Single Circuit Track Hardware	4796		
+4799	Track Pendants	4796		
+4797	Track Lighting Accessories	4796		
+4796	Track Lighting	4686		
+4795	Wall Housings	4787		
+4794	Wall Trims + Fixtures	4787		
+4793	Uplight Housings	4787		
+4792	Uplight Trims + Fixtures	4787		
+4791	Multiple Light Housings	4787		
+4790	Multiple Light Trims + Fixtures	4787		
+4789	Ceiling Housings	4787		
+4788	Ceiling Trims + Fixtures	4787		
+4787	Recessed Lighting	4686		
+4786	Wall Components	4761		
+4785	LED Illuminated Monorail Lighting Two Circuit Hardware Rail	4783		
+4784	LED Illuminated Monorail Lighting Connectors, Supports, and Feeds	4783		
+4783	LED Illuminated Monorail Lighting Two Circuit Hardware	4779		
+4782	LED Illuminated Monorail Lighting Surface Mounted Transformers	4780		
+4781	LED Rail Remote Transformers	4780		
+4780	LED Rail Transformers	4779		
+4779	LED Illuminated Monorail Lighting	4761		
+4778	Two Circuit Rail	4776		
+4777	Two Circuit Rail Components	4776		
+4776	Two Circuit Rail Hardware	4761		
+4775	Two Circuit Rail Surface Transformers	4773		
+4774	Single Circuit Rail Surface Transformers	4773		
+4773	Surface Mounted	4769		
+4771	Single Circuit Rail Remote Transformers	4770		
+4768	Single Circuit Rail	4766		
+4767	Single Circuit Rail Components	4766		
+4765	Rail Pendants	4761		
+4766	Single Circuit Rail Hardware	4761		
+4764	Kits	4761	monorailkits	yl
+4763	Rail Heads	4761		
+4762	Monorail Lighting Accessories	4761		
+4760	Task Lamps	4754		
+4761	Monorail Lighting	4686		
+4759	Table Lamps	4754	table-lamps	yl
+4758	Torchiere Lamps	4756	torchiere-floor-lamps	yl
+4757	Reading Lamps	4756	reading-floor-lamps	yl
+4756	Floor Lamps	4754	floorlamps	yl
+4755	Desk Lamps	4754	desk-lamps	yl
+4754	Floor + Table Lamps	4686		
+4753	Wall Lights	4748	outdoor-wall-lights	yl
+4752	Outdoor Table Lamps	4748	outdoor-table-lamps	yl
+4751	Landscape Lighting	4748	outdoor-landscape-lighting	yl
+4730	Drum Pendants	4729	pendants-drum-shade	yl
+4731	Mini Pendants	4729	mini-pendants	yl
+4732	Multipoint Pendants	4729		
+4733	Pendant Lights	4729		
+4734	Semi-Flush Mount	4725	semi-flush-mount-ceiling-lights	yl
+4735	Lightbulbs	4692	halligbul	yl
+4736	High Intensity Discharge Bulbs	4735		
+4737	Sodium Bulbs	4736		
+4738	Mercury Vapor Bulbs	4736		
+4739	Metal Halide Bulbs	4736		
+4750	Outdoor Floor Lamps	4748	outdoor-floor-ground-lamps	yl
+4748	Outdoor Lighting	4686		
+4749	Ceiling Lights	4748	outdoor-ceiling-lights	yl
+4747	Xenon Bulbs	4744		
+4745	Halogen Bulbs	4744		
+4746	Reflectorized Incandescent Bulbs	4744		
+4744	Incandescent Bulbs	4735		
+4743	Dimmable Fluorescent Bulbs	4740		
+4742	Compact Fluorescent Bulbs (CFL)	4740		
+4741	T8 Fluorescent Bulbs	4740		
+4740	Fluorescent Bulbs	4735		
+4728	Linear Suspension	4725	linear-suspension	yl
+4729	Pendants	4725	pendantlights1	yl
+4719	Cable Transformers	4712		
+4720	Cable Remote Transformers	4719		
+4721	Surface Mounted Transformers	4719		
+4722	Two Circuit Cable Hardware	4712		
+4723	Two Circuit Cable Components	4722		
+4724	Two Circuit Cable	4722		
+4725	Ceiling Lighting	4686		
+4726	Chandeliers	4725	chandeliers	yl
+4727	Flush Mount	4725	flush-mount-ceiling-lights	yl
+4718	Single Circuit Cable	4716		
+4717	Single Circuit Cable Components	4716		
+4716	Single Circuit Cable Hardware	4712		
+4715	Cable Pendants	4712		
+4714	Cable Heads	4712		
+4713	Cable Accessories	4712		
+4712	Cable Lighting	4686		
+4707	Architectural Ceiling Lighting	4705		
+4708	Architectural Linear Suspension	4707	architectural-linear-suspension-lights	yl
+4710	Architectural Recessed Lighting	4705	architectural-recessed-lighting	yl
+4709	Pendant Lights	4707	architectural-pendant-lights	yl
+4706	Architectural Accent Lighting	4705	architectural-accent-lights	yl
+4705	Architectural Lighting	4686		
+4690	Step Lighting	4687	step-lighting	yl
+4691	Up Lighting	4687	accent-up-lighting	yl
+4692	Lighting Accessories	4686		
+4693	Canopies	4692		
+4704	Wall Plates	4692		
+4703	Outdoor Transformers	4701		
+4701	Transformers	4692		
+4702	Indoor Transformers	4701		
+4699	Other	4692		
+4700	Systems Parts + Accessories	4692		
+4698	Magnetic (low voltage)	4694	magnetic-low-voltage-dimmers	yl
+4769	Monorail Transformers	4761		
+4772	Two Circuit Rail Remote Transformers	4770		
+4697	Electronic (low voltage)	4694	electronic-low-voltage-dimmers	yl
+4711	Surface Lighting	4705	architectural-surface-lighting	yl
+4696	Universal	4694		
+4695	Incandescent	4694	incandescent-dimmers	yl
+4694	Dimmers	4692		
+4689	Display + Picture Lighting	4687	accent-display-picture-lights	yl
+4687	Accent Lighting	4686		
+4688	Cabinet Lighting	4687	accent-cabinet-lighting	yl
+4686	Lighting			
+4684	Portable Fans	4678	floor-table-fans	yl
+4685	Wall Fans	4678	wall-fans	yl
+4683	Outdoor Fans	4678	outdoor-ceiling-fans	yl
+4681	Parts	4679		
+4682	Ceiling Fans	4678	ceiling-fans	yl
+4680	Controls	4679	ln-fancontrols	yl
+4678	Fans			
+4679	Fan Accessories	4678	fan-accessories-and-controls	yl
+5302	Sectionals	5327		
+5301	Coffee Tables	5303		
+5299	Standard Sofas	5327		
+5300	Loveseats + Small Sofas	5327		
+5298	Desks	5326		
+5297	Counter Stools	5325		
+5296	Bar Height Stools	5325		
+5295	Side + Dining Chairs	5324		
+5294	Office Chairs	5324		
+5293	Lounge Chairs	5324		
+5292	Bookshelves + Cases	5289		
+5659	Coffee + Tea Kettles	5637		
+5303	Tables	5323		
+5304	Bedside Tables	5303		
+5291	Office Storage Furniture	5289		
+5290	Credenzas + Cabinets	5289		
+5289	Cabinets + Storage	5323		
+5288	Home Waste Cans	5322		
+5287	Step Stools + Ladders	5321		
+5286	Baskets + Bins	5321		
+5285	Wine Racks	5319		
+5284	Vases + Flowerpots	5319		
+5283	Magazine Racks	5319		
+5282	Home Accessories			
+5305	Standard Tables	5328		
+5306	Console Tables	5303		
+5307	Side Tables	5303		
+5308	Kids Seating	5330		
+5309	Serving Bowls + Baskets	5332		
+5310	Serving Trays	5332		
+5311	Outdoor Dining Chairs	5335		
+5312	Outdoor Lounge Chairs	5335		
+5313	Outdoor Sofas	5335		
+5314	Outdoor Coffee + Side Tables	5336		
+5315	Standard Height	5294		
+5316	Low Stools	5325		
+5317	Rocking Chairs	5324		
+5318	More Mirrors	5320		
+5319	Decorative	5282		
+5320	Mirrors	5319		
+5321	Other Home Accessories	5282		
+5322	Waste Cans	5321		
+5323	Furniture			
+5324	Chairs	5323		
+5325	Stools	5323		
+5326	Desks + Laptop Desks	5323		
+5327	Sofas	5323	modern-sofas	yv
+5328	Dining Tables	5303		
+5329	Kids			
+5330	Kids Furniture	5329		
+5331	Kitchen + Dining			
+5332	Serveware	5331		
+5333	Outdoor Living			
+5334	Outdoor Furniture	5333		
+5335	Outdoor Seating	5334		
+5336	Outdoor Tables	5334		
+5621	Accessories	4787		
+5623	Bath			
+5624	Other Bath Accessories	5625		
+5625	Accessories	5623		
+5626	Soap Dishes	5625		
+5627	Soap Dispensers	5625		
+5628	Toilet Brushes + Holders	5625		
+5629	Toothbrush Holders	5625		
+5630	T5 Fluorescent Bulbs	4740		
+5631	LED Bulbs	4735		
+5632	Floor Lamps	4756		
+5633	Hooks	5321		
+5634	Objects	5319		
+5635	Kids Outdoor Play	5329		
+5636	Floating Lights	4748		
+5637	Cookware	5331		
+5638	Pots + Pans	5637		
+5639	Barware + Cocktail Tools	5331		
+5640	Cocktail Accessories	5639		
+5641	Ice Buckets + Barware Utensils	5639		
+5642	Food Containers + Storage	5331		
+5643	Tabletop Accessories	5331		
+5644	Condiment Servers	5643		
+5645	Candles + Accessories	5319		
+5646	Clocks	5319		
+5647	Wall Clocks	5646		
+5648	Wall Decor	5319		
+5649	Wall Art	5648		
+5650	Pet Accessories	5282		
+5651	Pet Bowls + Accessories	5650		
+5652	Space Savers	5321		
+5653	Wall Shelves + Organizers	5321		
+5654	Benches	5323		
+5655	Cafe Tables	5328		
+5656	Kids Toys	8767		
+5657	Kids Tables + Desks	5330		
+5658	Corkscrews + Bottle Openers	5639		
+5749	Switch Plates	5752	switchplates	yl
+5750	Switches	5752	switches	yl
+5751	Timers + Sensors	5752	timers-sensors	yl
+5752	Controls	4692		
+6155	Outdoor Bar Stools	5335		
+6156	Outdoor Counter Stools	5335		
+6157	Outdoor Low Stools	5335		
+7094	Dressers + Armoires	5289		
+7095	Accent Pillows	5684		
+7096	Ottomans + Poufs	5323		
+7097	Frames	5319		
+7098	Buffets + Sideboards	5289		
+7099	Screens + Curtains	5319		
+7103	Outdoor Accessories	5333		
+8767	Kids Accessories	5329		
+10764	Audio	5282		
+10765	Bookends	5319		
+10766	Cabinet Handles	5319		
+10767	Alarm Clocks	5646		
+10768	Floor Clocks	5646		
+10769	Table Clocks	5646		
+10770	Travel Clocks	5646		
+10771	Drawer Pulls	5319		
+10772	Fireplaces + Accessories	5319		
+10773	Fireplace Tools	5319		
+10774	Games	5319		
+10775	Holiday Decor	5319		
+10776	Planters	5319		
+10777	Bath Mirrors	5320		
+10778	Vanity Mirrors	5320		
+10779	Mobiles	5319		
+10780	Small Home Accessories	5319		
+10781	Storage Containers	5319		
+10782	Wall Decals	5648		
+10783	Wallpaper	5319		
+10784	Bags + Packs	5682		
+10785	Jewelry	5682		
+10786	Wallets + Small Leather Goods	5682		
+10787	Watches	5682		
+10788	Pet Apparel	5650		
+10789	Pet Beds + Shelters	5650		
+10790	Air Purifiers	5321		
+10791	Electrical Accessories	5321		
+10792	Hampers	5321		
+10793	Home Keeping Tools + Supplies	5321		
+10794	Umbrella Stands	5321		
+10795	Bath Waste Cans	5322		
+10796	Accessory Sets	5625		
+10797	Cabinet Hardware	5625		
+10798	Bath Caddies + Organizers	5625		
+10799	Robe Hooks	5625		
+10800	Shelves	5625		
+10801	Shower Curtain Rods + Accessories	5625		
+10802	Shower Curtains	5625		
+10803	Tissue Holders	5625		
+10804	Toilet Paper Holders	5625		
+10805	Toilet Tank Levers	5625		
+10806	Towel Bars	5625		
+10807	Towel Rings	5625		
+10808	Towel Stands	5625		
+10809	Towel Warmer	5625		
+10810	Tumblers	5625		
+10811	Bath Safety	5623		
+10812	Bathtubs	5623		
+10813	Air Tubs	10812		
+10814	Combo Tubs	10812		
+10815	Soaking Tubs	10812		
+10816	Whirlpool Tubs	10812		
+10817	All Faucets	5623		
+10818	Bidet Fittings	10817		
+10819	Shower Faucets	10817		
+10820	Body Sprays	10819		
+10821	Hand Held Shower Heads	10819		
+10822	Shower Hoses	10821		
+10823	Shower Heads	10819		
+10824	Shower Arms	10823		
+10825	Shower Panels	10819		
+10826	Shower Systems	10819		
+10827	Sink Faucets	10817		
+10828	Centersets	10827		
+10829	Floor-Standing Faucets	10827		
+10830	Single Hole Faucets	10827		
+10831	Vessel Fillers	10827		
+10832	Wall-Mounted Faucets	10827		
+10833	Widespreads	10827		
+10834	Tub Faucets	10817		
+10835	Free-Standing Tub Faucets	10834		
+10836	Deck-Mounted Tub Faucets	10834		
+10837	Tub Spouts	10834		
+10838	Wall-Mounted Tub Faucets	10834		
+10839	Tub + Shower Combination	10817		
+10840	Bath Furniture	5623		
+10841	Accent Furniture	10840		
+10842	Etageres	10840		
+10843	Linen Cabinets	10840		
+10844	Medicine Cabinets	10840		
+10845	Lighted Medicine Cabinets	10844		
+10846	Recessed Medicine Cabinets	10844		
+10847	Surface Mount Medicine Cabinets	10844		
+10848	Bath Storage	10840		
+10849	Wall Organizers	10848		
+10850	Vanities	10840		
+10851	Vanity Cabinet	10850		
+10852	Consoles	10850		
+10853	Double Vanities	10850		
+10854	Single Vanities	10850		
+10855	Vanity Sets	10850		
+10856	Vanity Tops	10850		
+10857	Makeup Mirrors	11153		
+10858	Lighted Mirrors	11153		
+10859	Wall Mirrors	11153		
+10860	Bath Parts + Components	5623		
+10861	Parts + Components	10860		
+10862	Drain	10860		
+10863	Shower Drains	10862		
+10864	Sink Drains	10862		
+10865	P-Traps	10860		
+10866	Shower Valves	10860		
+10867	Wall Tanks	10860		
+10868	Bathtub Valves	10860		
+10869	Showers	5623		
+10870	Shower Doors	10869		
+10871	Shower Pans	10869		
+10872	Shower Slide Bars	10869		
+10873	Shower Wall Outlets	10869		
+10874	Bath + Shower Walls	10869		
+10875	Sinks	5623		
+10876	Drop In Sinks	10875		
+10877	Inset Sinks	10875		
+10878	Pedestal Sinks	10875		
+10879	Surface Mount Sinks	10875		
+10880	Undermount Sinks	10875		
+10881	Vessel Sinks	10875		
+10882	Wall Mounted Sinks	10875		
+10883	Toilets	5623		
+10884	Toilet Actuators	10883		
+10885	Bidets	10883		
+10886	Multi Function Toilet	10883		
+10887	1-Piece Elongated Toilets	10883		
+10888	1-Piece Round Front Toilets	10883		
+10889	Toilet Seats	10883		
+10890	2-Piece Elongated Toilets	10883		
+10891	2-Piece Round Front Toilets	10883		
+10892	Urinals	10883		
+10893	Wall-Mounted Toilets	10883		
+10894	Shower Controls	5623		
+10895	Diverters	10894		
+10896	Pressure Balance	10894		
+10897	Temperature Controls	10894		
+10898	Volume Controls	10894		
+10899	Bean Bags	5323		
+10900	Beds + Headboards	5323		
+10901	Beds	10900		
+10902	Headboards	10900		
+10903	Mattresses	10900		
+10904	Carts and Trolleys	5289		
+10905	Media Centers	5289		
+10906	Modular Storage	5289		
+10907	TV Stands	5289		
+10908	Chaises	5324		
+10909	Stool Height	5294		
+10910	Laptop Desks	5326		
+10911	Modular Systems	5326		
+10912	Wall Mounted Desks	5326		
+10913	Convertible Sofas + Daybeds	5327		
+10914	Conference Tables	5303		
+10915	Bar Height Tables	5328		
+10916	Extendable Tables	5328		
+10917	Kids Bags + Backpacks	8767		
+10918	Kids Plates + Utensils	8767		
+10919	Kids Wall Decor	8767		
+10920	Kids Lighting + Nightlights	8767		
+10921	Kids Step Stools	8767		
+10922	Kids Storage Containers	8767		
+10923	Changing Tables	5330		
+10924	Cribs	5330		
+10925	Kids Dressers	5330		
+10926	Nursery Ottomans	5330		
+10927	Nursery Rockers	5330		
+10928	Kids Bookcases + Shelves	5330		
+10929	Kid + Toddler Beds	5330		
+10930	Kids Textiles	5329		
+10931	Kids Bath Towels + Robes	10930		
+10932	Kids + Crib Bedding	10930		
+10933	Kids Pillows	10930		
+10934	Kids Rugs	10930		
+10935	Wine Accessories	5639		
+10936	Cooking Utensils	5637		
+10937	Cooking Knives	5637		
+10938	Glasses	5683		
+10939	Coasters	5643		
+10940	Flatware	5674		
+10941	Outdoor Accessories Others	7103		
+10942	Bird Feeders + Birdbaths	7103		
+10943	Doormats	7103		
+10944	Outdoor Entertaining Accessories	7103		
+10945	Furniture Covers	7103		
+10946	Gardening Tools + Accessories	7103		
+10947	Outdoor Planters	7103		
+10948	Outdoor Bars	5334		
+10949	Outdoor Benches	5335		
+10950	Outdoor Chaises	5335		
+10951	Hammocks	5335		
+10952	Outdoor Ottomans	5335		
+10953	Outdoor Rocking Chairs	5335		
+10954	Outdoor Stools	5335		
+10955	Outdoor Storage	5333		
+10956	Outdoor Dining Tables	5336		
+10957	Outdoor Serving Cart	5336		
+10958	Other Outdoor	5333		
+10959	Outdoor Textiles	5333		
+10960	Beach Towels	10959		
+10961	Outdoor Pillows + Cushions	10959		
+10962	Outdoor Rugs	10959		
+10963	Bath Mats	5684		
+10964	Bedding	5684		
+10965	Pillowcases + Shams	10964		
+10966	Duvets	10964		
+10967	Sheets + Sheet Sets	10964		
+10968	Door Mats	5677		
+10969	Entry Rugs	5677		
+10970	Table Linens	5684		
+10971	Kitchen Table Linens	10970		
+10972	Napkins + Placemats	10970		
+10973	Tablecloth + Runners	10970		
+10974	Throws + Blankets	5684		
+10975	Towels	5684		
+10976	Bath Towels	10975		
+10977	Kitchen Towels	10975		
+11153	Bath Mirrors	5623		
+12629	Crib Mattresses	10924		
+12788	Outlets	4692		
+12789	Outlet Assemblies	12788		
+12790	Receptacles	12788		

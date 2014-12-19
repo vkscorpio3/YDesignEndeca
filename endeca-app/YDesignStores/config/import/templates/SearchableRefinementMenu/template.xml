@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+                 xmlns:xavia="http://endeca.com/schema/xavia/2010"
+                 xmlns:editors="editors"
+                 type="Navigation">
+    <Description>${template.description}</Description>
+    <ThumbnailUrl>thumbnail.jpg</ThumbnailUrl>
+    <ContentItem>
+        <Name>Dimension Navigation</Name>
+        <Property name="dimensionName">
+            <String/>
+        </Property>
+        <Property name="dimensionId">
+            <String/>
+        </Property>
+        <Property name="sort">
+            <String>default</String>
+        </Property>
+        <Property name="showMoreLink">
+            <Boolean>false</Boolean>
+        </Property>
+        <Property name="moreLinkText">
+            <String>Show More Refinements...</String>
+        </Property>
+        <Property name="lessLinkText">
+            <String>Show Less Refinements...</String>
+        </Property>
+        <Property name="numRefinements">
+            <String>2000</String>
+        </Property>
+        <Property name="maxNumRefinements">
+            <String>2000</String>
+        </Property>
+        <Property name="boostRefinements">
+            <xavia:List/>
+        </Property>
+        <Property name="buryRefinements">
+            <xavia:List/>
+        </Property>
+    </ContentItem>
+    <EditorPanel>
+        <BasicContentItemEditor>
+            <editors:DimensionSelectorEditor propertyName="dimensionName" idProperty="dimensionId" label="${property.dimensionName.label}" enabled="true"/>
+            <GroupLabel label="${group.order.label}"/>
+            <editors:ChoiceEditor label="${property.sort.label}" propertyName="sort">
+                <choice label="${property.sort.default.label}" value="default"/>
+                <choice label="${property.sort.static.label}" value="static"/>
+                <choice label="${property.sort.dynRank.label}" value="dynRank"/>
+            </editors:ChoiceEditor>
+            <editors:BoostBuryEditor propertyName="boostRefinements" buryProperty="buryRefinements" label="${property.boostBury.label}" dimensionIdProperty="dimensionId" enabled="true"/>
+            <GroupLabel label="${group.size.label}"/>
+            <editors:NumericStepperEditor propertyName="numRefinements" label="${property.numRefinements.label}" maxValue="20000" enabled="false"/>
+            
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>

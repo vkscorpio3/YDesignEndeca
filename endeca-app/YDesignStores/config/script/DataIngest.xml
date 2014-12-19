@@ -205,7 +205,7 @@
       <directory name="wsTempDir">./data/workbench/temp</directory>
     </directories>
     <args>
-      <arg>-v</arg>
+      <arg>${forge.log.level}</arg>
       <arg>--javaClasspath</arg>
       <arg>./config/lib/java/javaManipCommon-1.1.jar:./config/lib/java/java-manipulators-1.0.jar:./config/manipulator:./config/lib/java/spring-context-3.0.1.RELEASE.jar:./config/lib/java/spring-aop-3.0.1.RELEASE.jar:./config/lib/java/spring-beans-3.0.1.RELEASE.jar:./config/lib/java/spring-core-3.0.1.RELEASE.jar:./config/lib/java/spring-expression-3.0.1.RELEASE.jar:./config/lib/java/config/lib/java/spring-2.5.6.jar:./config/lib/java/spring-asm-3.0.1.RELEASE.jar
       </arg>      

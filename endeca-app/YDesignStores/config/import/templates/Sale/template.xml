@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+                 xmlns:editors="editors" 
+                 type="HeaderContent">
+    <Description>Displays an on sale message</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+    <ContentItem>
+        <Name>On Sale</Name>
+        
+        <Property name="media">
+          <Item class="com.endeca.infront.cartridge.model.MediaObject" xmlns="http://endeca.com/schema/xavia/2010">
+            <Property name="uri"></Property>
+            <Property name="contentWidth"></Property>
+            <Property name="contentHeight"></Property>
+            <Property name="contentBytes"></Property>
+            <Property name="contentType"></Property>
+            <Property name="contentSrcKey"></Property>
+          </Item>
+        </Property>
+        
+        <Property name="text">
+            <String></String>
+        </Property>
+
+        <Property name="iconUrl">
+            <String></String>
+        </Property>
+        <Property name="iconAltText">
+            <String></String>
+        </Property>
+       <Property name="link">
+          <Item class="com.endeca.infront.cartridge.model.LinkBuilder" xmlns="http://endeca.com/schema/xavia/2010">
+            <Property name="path"></Property>
+            <Property name="linkType"></Property>
+            <Property name="queryString"></Property>
+          </Item>
+        </Property>
+    </ContentItem>
+    <EditorPanel>
+        <BasicContentItemEditor>
+        	<editors:StringEditor propertyName="text" label="Text" enabled="true"/>        	        
+            <GroupLabel label="Icon"/>
+        	<editors:StringEditor propertyName="iconUrl" label="Image Url" enabled="true"/>        	
+            <editors:StringEditor propertyName="iconAltText" label="Image Alt Text" enabled="true"/>
+            <GroupLabel label="Link"/>
+          	<editors:LinkBuilderEditor propertyName="link" label="Link" enabled="true"/>            
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>

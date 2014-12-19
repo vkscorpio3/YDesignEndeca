@@ -82,7 +82,6 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
       <list>
         <ref bean="categoryFormatter"/> 
         <ref bean="brandFormatter"/>
-        <ref bean="brandFormatterMultiSelect"/>
       </list>
     </property>
 	
@@ -274,7 +273,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
       class="com.endeca.soleng.urlformatter.seo.SeoDimLocationFormatter">
 
     <property name="key">
-      <value>Brand</value>
+      <value>Brands</value>
     </property>
 
     <property name="appendRoot">
@@ -325,67 +324,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 
   </bean>
   
-  <!--
-    ########################################################################
-    # BEAN: brandFormatter
-    #
-    # Formatter for DimLocation objects from the product.brand.name dimension.
-    #
-  -->
-  <bean id="brandFormatterMultiSelect"
-      class="com.endeca.soleng.urlformatter.seo.SeoDimLocationFormatter">
-
-    <property name="key">
-      <value>BrandForCategories</value>
-    </property>
-
-    <property name="appendRoot">
-      <value>false</value>
-    </property>
-
-    <property name="appendAncestors">
-      <value>false</value>
-    </property>
-
-    <property name="appendDescriptor">
-      <value>true</value>
-    </property>
-
-    <property name="separator">
-      <value>-</value>
-    </property>
-
-    <property name="rootStringFormatter">
-      <bean class="com.endeca.soleng.urlformatter.seo.StringFormatterChain">
-        <property name="stringFormatters">
-          <list>
-            <!-- replace 'product.brand.name' with 'Brand' -->
-            <bean class="com.endeca.soleng.urlformatter.seo.RegexStringFormatter">
-              <property name="pattern">
-                <value>product.brand.name</value>
-              </property>
-
-              <property name="replacement">
-                <value>Brand</value>
-              </property>
-
-              <property name="replaceAll">
-                <value>false</value>
-              </property>
-            </bean>
-
-            <!-- execute the default string formatter chain -->
-            <ref bean="defaultStringFormatterChain"/>
-          </list>
-        </property>
-      </bean>
-    </property>
-
-    <property name="dimValStringFormatter">
-      <ref bean="defaultStringFormatterChain"/>
-    </property>
-
-  </bean>
+ 
 
     <!--
     ########################################################################

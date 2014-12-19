@@ -11,6 +11,7 @@ import com.endeca.infront.cartridge.ResultsList;
 import com.endeca.infront.cartridge.ResultsListConfig;
 import com.endeca.infront.cartridge.ResultsListHandler;
 import com.endeca.infront.cartridge.model.SortOptionConfig;
+import com.ydg.endeca.utils.CartridgeShare;
 
 /**
  * The Class CrossSitesResultsListHandler.
@@ -25,6 +26,7 @@ public class YDGResultsListHandler extends ResultsListHandler{
 	private static final String PROP_NAME_BESTSELLER_SORT="bestSellerSort";
 	private static final String FLAG_DESCENDING="|1";
 	private static final String FLAG_ASCENDING="|0";
+	private CartridgeShare cartridgeShare;
 	
 	@Override
 	public void preprocess(ResultsListConfig config)
@@ -74,7 +76,6 @@ public class YDGResultsListHandler extends ResultsListHandler{
 		
 		//set the best seller sort to the right key/name depending on the site selection in the cartridge configuration
 				
-		
 		if(ret!=null){
 			/*
 			 * If this is the last page of the results list, then we need to display the child Cross Site Results List.
@@ -111,11 +112,19 @@ public class YDGResultsListHandler extends ResultsListHandler{
 				ret.put("crossSiteResults", null);
 			}
 		}
-
+		getCartridgeShare().put("resultsList", ret);
 		return ret;
 	}
 
 	
+	public CartridgeShare getCartridgeShare() {
+		return cartridgeShare;
+	}
+
+	public void setCartridgeShare(CartridgeShare cartridgeShare) {
+		this.cartridgeShare = cartridgeShare;
+	}
+
 	private ResultsList processCrossSite(ContentItem crossSiteResultsList ) {
 		if(crossSiteResultsList==null){
 			return null;

@@ -1,0 +1,1257 @@
+designer_id	designer_name	yoyo_id	primary_store
+1	Azzolin		
+2	Designer		
+3	Anissa Szeto	designer-anissa-szeto	yl
+4	Christian Ploderer	designer-christian-ploderer	yl
+5	Luc Ramael		
+6	Marcin Padlewski		
+7	Mengotti		
+8	Michel Devernet		
+9	Prandina		
+10	Sandro Santantonio		
+11	Achille Castiglioni		
+12	Alberto Gozzi		
+13	Aldo Rossi		
+14	Alessandro Mendini		
+15	Anselmo Vitale		
+16	Antonio Cagianelli		
+17	Carlo Alessi		
+18	Carlo Mazzeri		
+19	Clare Brass	designer-clare-brass	yv
+20	CSA	designer-csa	yv
+21	Donata Paruccini		
+23	Donato D&#039;Urbino		
+24	Elja Helander	designer-elja-helander	yl
+25	Emma Silvestris		
+26	Ettore Sottsass		
+27	Fernando Campana		
+28	Francesca Amfitheatrof	designer-francesca-amfitheatrof	yv
+29	Franco Sargiani		
+30	Frank Gehry	designer-frank-gehry	yv
+31	Gabriele Chiave	designer-gabriele-chiave	yv
+32	Giovanni Alessi Anghini		
+33	Gualtiero Archesi	designer-gualtiero-archesi	yv
+34	Guido Venturini	designer-guido-venturini	yv
+35	Hani Rashid		
+36	Humberto Campana		
+37	Jasper Morrison		
+38	Joanna Lyle	designer-joanna-lyle	yv
+39	Khodi Feiz		
+40	King Kong	designer-king-kong	yv
+41	Kobi Wiesendanger	designer-kobi-wiesendanger	yv
+42	Kristiina Lassus		
+43	Lluis Clotet		
+44	Lorenzo Piccione Di Pianogrillo	designer-lorenzo-piccione-di-pianogrillo	yv
+45	LPWK	designer-lpwk	yv
+46	Luigi Massoni		
+47	Marta Sansoni	designer-marta-sansoni	yv
+48	Massimo Giacon	designer-massimo-giacon	yv
+49	Massimo Morozzi	designer-massimo-morozzi	yv
+50	Mattia Di Rosa		
+51	Michael Graves		
+52	Mika H. J. Kim	designer-mika-h-j-kim	yv
+53	Miriam Mirri	designer-miriam-mirri	yv
+54	Paolo Lomazzi		
+55	Paolo Pagani	designer-paolo-pagani	yv
+56	Patrick Jouin		
+57	Paul Van Iersel Harry	designer-paul-van-iersel-harry	yv
+58	Philippe Starck		
+59	Pier Giacomo Castiglioni		
+60	Piero Lissoni		
+61	Richard Sapper		
+62	Ron Arad		
+63	Stefano Giovannoni		
+64	Steve Blaess		
+65	Susan Cohn		
+66	Theo Williams	designer-theo-williams	yv
+67	Ufficio Tecnico Alessi	designer-ufficio-tecnico-alessi	yv
+68	Wolfgang Hints		
+69	Antonio Citterio		
+70	Edward Barber		
+71	Gino Sarfatti		
+72	Jay Osgerby		
+73	Joris Laarman		
+74	Konstantin Grcic		
+75	Marcel Wanders		
+76	Marcello Ziliani		
+77	Matteo Thun		
+78	Oliver Low		
+79	Paolo Rizzato		
+80	Patricia Urquiola		
+81	Piero Castiglioni		
+82	Piero Manz		
+83	Rodolfo Dordoni		
+84	Ron Gilad		
+85	Sebastian Wrong		
+86	Tim Derhaag		
+87	Toan Nguyen		
+88	Tobia Scarpa		
+89	Adriano Rachele	designer-adriano-rachele	yl
+90	Bruno Rainaldi	designer-bruno-rainaldi	yl
+91	Carlo Contin		
+92	Elodie Longo	designer-elodie-longo	yl
+93	Francesco Paretti		
+94	Luca Mazza		
+95	Manuel Wijffels		
+96	Nigel Coates		
+97	Stefano Papi		
+98	Susanna Succhiarelli		
+99	Agnes And Hoss	designer-agnes-and-hoss	yl
+100	Fusion Z		
+101	Gonzalo Gonzales		
+102	Zia Priven Design		
+103	Ai Lati		
+104	Federico De Majo		
+105	Aia Salazar Navarro		
+106	Antonio Herrero	designer-antonio-herrero	yl
+107	Carlos Serra	designer-carlos-serra	yl
+108	Diego Fortunato		
+109	Eduardo Albors	designer-eduardo-albors	yl
+110	Francesc Vilaro		
+111	Gemma Bernal		
+112	Gonzalo Mila		
+114	Jh Van Lierde		
+115	Jon Santacoloma		
+116	Jorge Pensi		
+117	Josep Novell		
+118	Josep Puig		
+119	Manel Ybarguengoitia		
+120	Mario Ruiz		
+121	Miguel Angel Ciganda		
+122	Miguel Herranz		
+123	Quim Larrea		
+124	Ramon Isern		
+125	Alberto		
+126	Alberto Lievore		
+127	David Ramos Tarres		
+128	Jannette Altherr		
+129	Jannette Altherre		
+130	Jordi Bassols Borrell		
+131	Jordi Vilardell		
+132	Manel Molina		
+133	Meritxell Vidal		
+134	Miguel De Mas		
+135	Oscar Devesa		
+136	Pete Sans		
+137	Proli Diffusion Studio	designer-proli-diffusion-studio	yv
+138	Ramon Benedito		
+139	Robby Cantarutti		
+140	Sergi Devesa		
+141	Xavier Claramunt		
+142	Xucla		
+143	Lievore		
+144	Alberto Basaglia	designer-alberto-basaglia	yl
+145	Natalia Roat Nodari		
+146	Perry King		
+147	Santiago Miranda		
+148	Alberto Gherardi	designer-alberto-gherardi	yl
+149	Andrea Tosetto	designer-andrea-tosetto	yl
+150	Denis Santachiara		
+151	Edoardo Rofry		
+152	Marco Ferreri		
+153	Pio Toso		
+154	Studio Italia		
+155	Tito Toso		
+156	Alessandra Matilde		
+157	Atelier Oi		
+158	Defne Koz		
+159	Eliana Gerotto		
+160	Enrico Franzolini		
+161	Ferruccio Laviani		
+162	Gabriele Schiavon		
+163	Gerard Sanmart		
+164	Gianpietro Gai		
+165	Giulio Iacchetti		
+166	Jozeph Forakis		
+167	Karim Rashid		
+168	Luca Nichetto		
+169	Ludovica Palomba		
+170	Marc Sadler		
+171	Massimo Gardone		
+172	Roberto Palomba		
+173	Tom Dixon		
+174	Valerio Bottin		
+175	Vicente Garcia Jimenez		
+176	Antoni Arola		
+177	Enoc Armengol	designer-enoc-armengol	yl
+178	Ferran Estela		
+179	Geert Koster		
+180	Hector Serrano		
+181	Herme Ciscar		
+182	Itamar Burnstein		
+183	Jaime Hayon		
+184	Jordi Veciana		
+185	Josep Aregall		
+186	Lagranja Design		
+187	Monica Garcia		
+188	Otto Canalda		
+189	Ramon Ubeda		
+190	Ricard Ferrer		
+191	Serraydelarocha		
+192	Uli Guth		
+193	Alberto Meda		
+195	Alfredo Haberli		
+196	Amedeo Guidobono Cavalchini		
+197	Carlo Forcolini	designer-carlo-forcolini	yl
+198	Dante Donegani		
+199	Diego Rossi		
+200	Domenico Perrucci		
+201	Ferdi Giardini		
+202	Francisco Gomez Paz		
+203	Franco Raggi		
+204	Giancarlo Fassina		
+205	Inga Sempe		
+206	Luciano Balestrini		
+207	Paola Longhi		
+208	Paolo Rizzatto		
+209	Raffaele Tedesco		
+210	Riccardo Sarfatti		
+211	Ross Lovegrove		
+212	Sandro Colbertaldo		
+213	Andries Van Onck		
+214	Anna Castelli Ferrieri		
+216	Carlo Bartoli	designer-carlo-bartoli	yv
+217	Carlo Tamborini		
+218	Enzo Mari		
+219	Erwin Bouroullec	designer-erwin-bouroullec	yl
+220	Eugeni Quitllet		
+221	Giotto Stoppino	designer-giotto-stoppino	yv
+222	Joe Colombo		
+223	Maarten Van Severen		
+224	Mario Bellini		
+225	Ronan Bouroullec		
+226	Simon Fussel		
+227	Tokujin Yoshioka		
+228	Vico Magistretti		
+229	Alberto Nason	designer-alberto-nason	yl
+230	Michele De Lucchi		
+231	Alberto Saggia	designer-alberto-saggia	yl
+232	Ali Siahvoshi	designer-ali-siahvoshi	yl
+233	Benjamin Hubert		
+234	Bridgewell Consulting	designer-bridgewell-consulting	yl
+235	Francesco Lucchese		
+236	Gianpaolo Canova		
+237	Giovanni Minelli		
+238	Lisa Bellon		
+239	Mary Pavin		
+240	Nicola Gardin		
+241	Paolo De Lucchi		
+242	Renato Montagner		
+243	Roberto Pamio		
+244	Roger Zanon		
+245	Valerio Sommella		
+246	Alecia Wesner		
+247	Dawn Ladd		
+248	KC Dering		
+249	Michael Dibiasi		
+250	Rachel Simon		
+251	Alessandra Baldereschi		
+252	Alessandro Crosera		
+253	Andrea Crovato	designer-andrea-crovato	yl
+254	Andrea Garuti		
+255	Archirivolto	designer-archirivolto	yv
+256	Arkispazio		
+257	Centro Stile		
+258	I Tre		
+259	Jan Des Bouvrie		
+260	Letizia Mammini		
+261	Massimiliano Artuso		
+262	Massimo Tonetto		
+263	Matilde Alessandra		
+264	Mauro Marzollo		
+265	V 12		
+266	Valeria Candido		
+267	Works Studio		
+268	Eric Sole		
+269	Ernesto Gismondi		
+270	Gerard Reichert		
+271	Gerhard Reichert		
+272	Giancarlo Mattioli		
+273	Gianfranco Frattini		
+274	Giuseppe Maurizio Scutella		
+275	Guy Bur		
+276	Hubb Ubbens		
+277	Naoto Fukasawa		
+278	Neil Poulton		
+279	Ora Ito		
+280	Peclar Nalbandian		
+281	Rodney Ross	designer-rodney-ross	yv
+282	Ron Rezek		
+283	Alessandro Trentin	designer-alessandro-trentin	yl
+284	Carlo Zerbaro	designer-carlo-zerbaro	yl
+285	Carlo Zerbaro And Alessandro Trentin		
+286	Matthias Bader		
+287	Zerbaro And Trentin		
+288	Alex Ogus		
+289	Alexander Taylor		
+290	Alfonso Fontal		
+291	Alfonso Mila	designer-alfonso-mila	yl
+292	Antoni De Moragas Gallissa	designer-antoni-de-moragas-gallissa	yl
+293	Arne Jacobsen		
+294	Equipo Santa		
+295	Federico Correa		
+296	Ferran Freixa		
+297	Jordi Mirabel		
+298	Mariona Raventos		
+299	Miguel Mila		
+300	Santa &amp; Cole Design Team		
+301	Santiago Roqueta		
+302	Alvar Aalto		
+303	Jorn Utzon		
+304	Alvaro Siza		
+305	Archivio Storico	designer-archivio-storico	yv
+306	Archivio Storico Fontanaarte		
+307	Benson Saw		
+308	Carlos Moya	designer-carlos-moya	yl
+309	Charles Williams		
+310	Chris Hardy		
+311	Claudio Valent		
+312	David Chipperfield		
+313	Fontanaarte		
+314	Gae Aulenti		
+315	Gio Ponti		
+316	Jan Kaplicky		
+317	Livio Castiglioni		
+318	Luisa Calvi		
+319	Marco Acerbis		
+320	Marinella Patetta		
+321	Mauro Merlini		
+322	Max Ingrand		
+323	Metis		
+324	Norman Foster		
+325	Paolo Zini		
+326	Pierluigi Cerri		
+327	Pietro Chiesa		
+328	Robert Menghi		
+329	Sergio Asti		
+330	Studio Beretta	designer-studio-beretta	yv
+331	Voon Wong		
+332	Amanda Betz		
+333	Hvidt And Molgaard		
+334	Poul Christiansen		
+335	Andrea Branzi		
+336	Camilla Diedrich	designer-camilla-diedrich	yl
+337	Giovanni Lauda		
+338	Toyo Ito		
+339	Andrea Pamio		
+340	Andrea Parmio		
+341	Eugenio Pamio	designer-eugenio-pamio	yl
+342	Paolo Crepax		
+343	Silvio Zanon		
+344	Simone Pamio		
+345	Annarosa Romano	designer-annarosa-romano	yl
+346	Antonio Piva	designer-antonio-piva	yl
+347	Bruno Menegoni	designer-bruno-menegoni	yl
+348	Enzo Ciampalini	designer-enzo-ciampalini	yl
+349	Felice Buelli		
+350	Franca Helg		
+351	Francesco Dei Rossi		
+352	Franco Albini		
+354	Hans Thyge Raunkjaer		
+355	Illuminating Experiences Collection		
+356	Illuminating Experiences Lighting		
+357	Marco Albini		
+358	Paolo Grasselli		
+359	Vetreria Demajo		
+360	Andreas Engesvik	designer-andreas-engesvik	yl
+361	Diego Chilo	designer-diego-chilo	yl
+362	Enzo Panzeri	designer-enzo-panzeri	yl
+363	Equipo Milan		
+364	Espen Voll	designer-espen-voll	yl
+365	Flemming Bjorn		
+366	Friedrich Reiffer		
+367	Giampaolo Mengato		
+368	Highlight		
+369	Hiroki Takada		
+370	Jordi Jane		
+371	Laguna Light		
+372	Mario Ornaghi		
+373	Poom Lab		
+374	Roberto Favaretto		
+375	Roberto Spitalli		
+376	Silvia Poma		
+378	Stefan Kahrs		
+379	Torbjorn Anderssen		
+380	Yohji Terazeri		
+381	Antonio Minervini		
+382	Cristian Malisan	designer-cristian-malisan	yl
+383	Jurgen Laub		
+384	Markus Jehs		
+385	Nicola Nerboni		
+386	Sabine Leuthold		
+387	Anu Moser	designer-anu-moser	yl
+388	Erik Mollers Tegnestue	designer-erik-mollers-tegnestue	yl
+389	Louise Campbell		
+390	Ole Jensen		
+391	Poul Henningsen		
+392	Shoichi Uchiyama		
+393	Verner Panton		
+394	Vilhelm Wohlert		
+395	Louis Poulsen		
+396	Arian Brekveld	designer-arian-brekveld	yv
+397	Chris Kabel		
+398	Sam Hecht		
+399	Tejo Remy		
+400	Arihiro Miyake		
+401	Bertjan Pot		
+402	Edward Van Vliet	designer-edward-van-vliet	yv
+403	Front		
+404	Joel Degermark		
+405	Jurgen Bey		
+406	Maarten Baas		
+407	Marcus Beck	designer-marcus-beck	yv
+408	Moooi Works		
+409	Nika Zupanc		
+410	Piet Boon		
+411	Raimond Puts	designer-raimond-puts	yv
+412	Richard Hutten		
+413	Simon Macro	designer-simon-macro	yv
+414	Studio Job		
+415	Armando D Andrea		
+416	Sofie Refer		
+417	Victor Vetterlein		
+418	Arter Citton	designer-arter-citton	yl
+419	Carlo Nason	designer-carlo-nason	yl
+420	Federica Maragoni		
+421	Giorgia Paganini		
+422	Manuel Giuliano		
+423	Riccardo Giovanetti		
+424	Takahide Sano		
+425	Vincent Lo		
+426	Arturo Alvarez		
+427	Martin Azua	designer-martin-azua	yv
+428	Roberto Feo		
+429	Rosario Hurtado		
+430	Attilio Wismer		
+431	Babette Holland		
+432	Bang Design		
+433	Burkhard Dammer		
+435	Luis Eslava Studio		
+436	Marivi Calvo		
+437	Oskar Cerezo		
+438	Ray Power		
+439	Victor Carrasco		
+440	Barlas Baylar	designer-barlas-baylar	yl
+441	Christian Lava	designer-christian-lava	yl
+442	Dodo Arslan	designer-dodo-arslan	yl
+444	Jean Francois Crochet		
+445	Benjamin Hopf		
+446	Blasius Osko		
+447	Christophe Pillet		
+448	Constantin Wortmann		
+449	Gregorio Spini		
+450	Guglielmo Berchicchi		
+451	Jean Marie Massaud		
+452	Laura Agnoletto		
+453	Marzio Rusconi Clerici		
+454	Oliver Deichmann		
+455	Patrick Norguet	designer-patrick-norguet	yv
+456	Benjamin Hopf And Constantin Wortman		
+457	Bernhard Dessecker	designer-bernhard-dessecker	yl
+458	Christoph Matthias	designer-christoph-matthias	yl
+459	Ingo Maurer		
+460	Raffaele Celentano		
+461	Carla Baratelli	designer-carla-baratelli	yl
+462	Danilo De Rossi	designer-danilo-de-rossi	yl
+463	Giusto Toso		
+464	Ilkka Suppanen		
+465	Marco Piva		
+466	Noti Massari		
+467	Oscar Tusquets Blanca	designer-oscar-tusquets-blanca	yv
+468	Renato Toso		
+469	Rockwell Group		
+470	Thomas Sandell		
+471	Carles Riart	designer-carles-riart	yl
+472	Christophe Mathieu	designer-christophe-mathieu	yl
+473	Joana Bover		
+474	Luis Porqueras		
+475	Taller/Estudi Bover		
+476	Emmanuel Gallina	designer-emmanuel-gallina	yl
+477	Francoise Wang Lin		
+478	Gabi Peretto		
+479	Jonathan Maltz		
+480	Marco Antonicelli		
+481	Mario Tedeschi		
+482	Nanni Holen		
+483	Foster And Partners		
+484	Hannes Wettstein		
+485	Marco Colombo		
+486	Mario Barbaglia		
+487	Stefano Marcato		
+488	Stephen Blackman		
+489	Carlos Puchol		
+490	Carlotta De Bevilacqua		
+491	Carmine Deganello		
+492	Pablo Pardo		
+493	Peter Stathis		
+494	Catherine David		
+495	Christopher Metcalfe		
+496	David Trubridge		
+497	Kevin Webby		
+498	Rebecca Asquith		
+499	Cecilie Manz		
+500	Chiaramonte		
+501	Marin		
+502	Mauro Olivieri		
+503	Studio Tecnico Vetreria Vistosi		
+504	Chris Jackson		
+505	Christian Diez	designer-christian-diez	yl
+506	Javier M Borras		
+507	Joan Gaspar		
+508	Mathias Hahn		
+509	Xavier Manosa		
+510	Gabriel Teixido		
+511	Jonathan Daifuku		
+512	Jordi Mila		
+513	Marc Gilberte		
+514	Nuria Ferreres		
+515	Pascual Salvador		
+516	Porcuatro		
+517	Christopher Labrooy		
+518	Jake Phipps		
+519	Koray Ozgen		
+520	Peter Mac Cann		
+521	Phayvanah Halsackda		
+522	Rich Brilliant Willing		
+523	The Unnatural Light Company		
+524	Tina Leung		
+525	Winnie Lui		
+526	Claudio Bellini		
+527	Crista Riccio		
+528	Daniela Puppa		
+529	Daniele Lo Scalzo Moscheri		
+530	Maurizio Ferrari		
+531	Studio Tecnico Interno		
+532	David Abad	designer-david-abad	yl
+533	David Easton		
+534	Jonathan Adler		
+535	Rico Espinet		
+536	Didier Raimbault		
+537	Diego Lazzarini		
+538	Dikas Design	designer-dikas-design	yl
+539	Leonardo Marelli		
+540	Oriol Guimera		
+541	Ximo Roca		
+542	Emanuele Ricci	designer-emanuele-ricci	yl
+543	Ettore Cimini	designer-ettore-cimini	yl
+544	Tommaso Cimini		
+545	Yaacov Kaufman		
+546	Emma Schweinberger		
+547	Mariano Fortuny Y Madrazo		
+548	Sergio Calatroni		
+549	Susanne Philippson		
+550	Equipo Taller Uno		
+551	Helena Pouch		
+552	Joan Auge		
+553	Nancy Robbins		
+554	Eric Pfeiffer		
+555	Offi &amp; Company		
+556	Roberto Gil		
+557	Erik Magnussen	designer-erik-magnussen	yv
+558	Estudi Blanc		
+559	Estudio Blauet		
+560	Joan Lao		
+561	Jordi Aymerich		
+562	Jordi Mallorqui		
+563	Josep Joan Teruel		
+564	Josep Llusca		
+565	Ramon Valls		
+566	Serra And De La Rocha		
+567	Eurofase Lighting		
+568	Ezio Didone		
+569	Giancarlo Maina		
+570	Marco Romanelli		
+571	Marienzo Ferrero		
+572	Marta Laudani		
+573	Massimo Noceto		
+574	Stefano Casciani		
+575	Fernando Gerscovich		
+576	Juan Diego Gerscovich		
+577	Filipe Lisboa		
+578	Team Viso		
+579	Filippo Dell Orto		
+580	Francesco Brivio		
+581	Francisco Lujan		
+582	Jaime Sicilia		
+583	Francois Zille		
+584	Riccardo Raco		
+585	Frans Van Nieuwenborg		
+586	Fred Bould		
+587	Frederic Sicard		
+588	Gianluigi Landoni	designer-gianluigi-landoni	yv
+589	Jeremy King		
+590	Riccardo Roselli		
+591	Tristan Auer		
+592	George Carwardine		
+593	Kenneth Grange		
+594	George Nelson		
+595	Guido Buratto		
+596	Hans Peter Weidmann		
+597	Helen Gifford		
+598	Helen Kontouris		
+599	Helle Abild		
+600	Helle Graabek		
+601	Herzog Demeuron	designer-herzog-demeuron	yv
+602	Jac Jacobsen		
+603	Jukka Setala		
+604	Shawn Littrell		
+605	Jameelah El Gahsjgari		
+606	James Irvine		
+607	Jan Van Lierde		
+608	Jason Miller		
+609	Jonah Takagi		
+610	Lindsey Adams Adelman		
+611	Paul Loebach		
+612	Jaume Sans		
+613	Jens Moller Jenson		
+614	Jeremy Pyles		
+615	Jill Main		
+616	Jonas Wannfors		
+617	Jose A Gandia		
+618	Pablo Girones		
+619	Laser Illuminazione		
+620	Manuel Vivian		
+621	Marcello Furlan		
+622	Max Vivian		
+623	Liao		
+624	Altherr		
+625	Molina		
+626	Maija Isola		
+627	Kristina Isola		
+628	Marco Morosini		
+629	Margarita Viarnes		
+630	Mark Mckenna		
+631	Michael Mccoy		
+632	Niels Diffrient		
+633	Matali Crasset		
+634	Max Kistner		
+635	Michelle Kaufman		
+636	Mizar		
+637	Naoko Shintani		
+638	Nicolette Brunklaus		
+639	Nucleo		
+640	Olle Anderson		
+641	Omer Arbel		
+642	Oriano Favaretto		
+643	Orni Halloween		
+644	Oxygen Lighting		
+645	Al Glass	designer-al-glass	yv
+646	Paolo Bistacchi		
+647	Paolo Nava		
+648	Fabio Casiraghi		
+649	Paul Gurry		
+650	Pd Studio		
+651	Valery Jean Marie		
+652	Pep Sant		
+653	Ramon Bigas		
+655	Peter Bundgaard Rutzou		
+656	Signe Bindslev Henriksen		
+657	Todd Bracher		
+658	Peter Zegers		
+659	Philip Bro Ludvigsen		
+660	Pierluigi Nicolin		
+661	Pietro Lissoni		
+662	Prospero Rasulo	designer-prospero-rasulo	yv
+663	Pure Design Studio		
+664	Quottnim Song		
+665	Noti Massar		
+666	Rob Zinn		
+667	Roland Schneider		
+668	Rooms		
+669	Scott Klinker		
+670	Olga Barmine		
+671	Stefano Pirovano	designer-stefano-pirovano	yv
+672	Steven Holl		
+673	Tetsushi Inoue		
+674	Afra Scarpa		
+675	Uffe Schioler		
+676	Umberto Riva		
+677	Vetreria Vistosi		
+678	Victor Juan		
+679	Wiel Arets	designer-wiel-arets	yv
+680	Yves Behar	designer-yves-behar	yv
+681	Rezek		
+9224	Alissia Melka-Teichroew	designer-alissia-melka-teichroew	yv
+9207	Aase Flensted		
+9212	Alberto Mantilla	designer-alberto-mantilla	yv
+9211	Alberto Danese	designer-alberto-danese	yv
+8693	Chak	designer-chak	yl
+9213	Alberto Werner Arter	designer-alberto-werner-arter	yv
+8694	Corinna Warm	designer-corinna-warm	yl
+9210	Aino Aalto	designer-aino-aalto	yv
+9206	Aaron Probyn	designer-aaron-probyn	yv
+9209	Adrien Gardere	designer-adrien-gardere	yv
+9215	Alejandro Ortiz	designer-alejandro-ortiz	yv
+9216	Aleksi Per&amp;auml;l&amp;auml;		
+9208	Adriano Balutto	designer-adriano-balutto	yv
+9214	Aldo Bakker	designer-aldo-bakker	yv
+9218	Alexander Girard	designer-alexander-girard	yv
+9219	Alexander Purcell Rodrigues	designer-alexander-purcell-rodrigues	yv
+9220	Alexis Georgacopoulos		
+9223	Andre Sandifer &amp; Abir Ali	designer-ali-sandifer-studio	yv
+9222	Alice Tacheny	designer-alice-tacheny	yv
+9221	Alice Abi	designer-alice-abi	yv
+9217	Alessandro Moretti	designer-alessandro-moretti	yv
+9194	Miquel Planas		
+9193	Joan Verdugo		
+9192	G.L. Arnaldi		
+9191	Donato D&#039;Urbani	designer-donato-d-urbano	yv
+9190	Zac Ridgely		
+9189	Guillaume Delvigne		
+9188	Filippo Protasoni		
+5763	Joost Van Bleiswijk		
+9225	Allesandro Mendini		
+6846	Alex Fernandez Camps	designer-alex-fernandez-camps	yl
+6847	Andrea Lazzari		
+6848	Arik Levy		
+6849	Axel Schmid		
+6850	Brian Rasmussen		
+6851	Cambi Scatena Turini		
+6852	Carmen Ferrara		
+6853	Christy Manguerra	designer-christy-manguerra	yl
+6854	Crouscalogero	designer-crouscalogero	yl
+6855	Danny Fang	designer-danny-fang	yl
+6856	Design Zagato		
+6857	Eva Zeisel	designer-eva-zeisel	yl
+6858	Fabien Dumas	designer-fabien-dumas	yl
+6859	Fe Design		
+6860	Filippo Caprioglio		
+6861	Francesc Rife		
+6862	Gianluca Zin &amp; dds		
+6863	Guirneraicinca		
+6864	Hector Fernandez		
+6865	Ionna Vautrin		
+6866	Issey Miyake		
+6867	Jean Pelle		
+6868	Jordi Llopis		
+6869	Juha Leiviska		
+6870	Kenneth Cobonbue		
+6871	Laurence Brabant		
+11156	Marc Newson	designer-marc-newson	yv
+6873	Luisa Robinson		
+6874	Lukas Peet		
+6875	Marina Toscano		
+6876	Mario Mazzer		
+6877	Massimliani Raggi		
+6878	Mathieu Lehanneur		
+6879	Michael McHale		
+6880	Mikko Karkkainen		
+6881	Moritz Waldemeyer		
+6882	Nick Sheridan		
+6883	Nicolas Terzani		
+6884	Oliver Pelle		
+6885	Oriol Llahona		
+6886	Pamio Design		
+6887	Robert Sonneman		
+6888	Ron Henderson		
+6889	Seppo Koho		
+6890	Shigeru Ban		
+6891	Simon Pengelly		
+6892	Stefan Geisbauer		
+6893	Tapio Wirkkala		
+6894	Ville Kokkonen		
+6895	Vim Vigor		
+8645	Alessio Bassan		
+8695	Tom Kirk		
+8696	Geeio Yuen		
+8697	James Bartlett		
+9226	Ana Mir	designer-ana-mir	yv
+9227	&amp; Design	designer-and-design	yv
+9228	Andrea Gulisano	designer-andrea-gulisano	yv
+9229	Andrea Lucatello	designer-andrea-lucatello	yv
+9230	Andrea Morgante	designer-andrea-morgante	yv
+9231	Andreas Lund	designer-andreas-lund	yv
+9232	Andree Putman	designer-andree-putman	yv
+9233	Andre Klauser	designer-andre-klauser	yv
+9234	Andrew Lang	designer-andrew-lang	yv
+9235	Angeletti Ruzza Design	designer-angeletti-ruzza-design	yb
+9236	Angelo Cortesi	designer-angelo-cortesi	yv
+9237	Angelo Mangiarotti		
+9238	Anna &amp;amp; Gian Franco Gasparini	designer-anna-gian-franco-gasparini	yv
+9239	Anna Hellman	designer-anna-hellman	yv
+9240	Anne Birgitte Balle	designer-anne-birgitte-balle	yv
+9241	Anthony Baxter	designer-anthony-baxter	yv
+9242	Antoni de Moragas	designer-antoni-de-moragas	yv
+9243	Antonio Arevalo	designer-antonio-arevalo	yv
+9244	Anu Penttinen	designer-anu-penttinen	yv
+9245	Area 44	designer-area-44	yv
+9246	Ariadna Miquel	designer-ariadna-miquel	yv
+9247	Arne Quinze	designer-arne-quinze	yv
+9248	Arnout Visser	designer-arnout-visser	yv
+9249	Artifort Design Group	designer-artifort-design-group	yv
+9250	Arto Kankkunen	designer-arto-kankkunen	yv
+9251	Art Studio Patrignani, S.T.C.	designer-art-studio-patrignani	yv
+9252	Aurelien Barbry	designer-aurelien-barbry	yv
+9253	Axel Delbrayere	designer-axel-delbrayere	yv
+9254	Axel Enthoven	designer-axel-enthoven	yv
+9255	Axel Wowereit	designer-axel-wowereit	yv
+9256	Ayako Takase	designer-ayako-takase	yv
+9257	Ayush Kasliwal	designer-ayush-kasliwal	yv
+9258	Bartoli Design	designer-bartoli-design	yv
+9259	BassamFellows	designer-bassamfellows	yv
+9260	Bas Van Tol	designer-bas-van-tol	yv
+9261	Benjamin Cherner	designer-benjamin-cherner	yv
+9262	Bertil Vallien		
+9263	Bertoli &amp; Pajetta	designer-bertoli-pajetta	yv
+9264	Bill Stumpf	designer-bill-stumpf	yv
+9265	Bjorn Dahlstrom	designer-bjorn-dahlstrom	yv
+9266	Bolette and Louise Blaedel	designer-blaedel	yv
+9267	Bmw Group Designworks Usa	designer-bmw-group-designworks-usa	yv
+9268	Boje Estermann	designer-boje-estermann	yv
+9269	Boonzaaijer &amp; Spierenburg	designer-boonzaaijer-spierenburg	yv
+9270	Bos And Couvee	designer-bos-and-couvee	yv
+9271	Brendan Ravenhill	designer-brendan-ravenhill	yv
+9272	Brian Kane	designer-brian-kane	yv
+9273	Britt Bonnesen	designer-britt-bonnesen	yv
+9274	Britt Kornum	designer-britt-kornum	yv
+9275	Bruce Burdick	designer-bruce-burdick	yv
+9276	Buro Wehberg	designer-buro-wehberg	yv
+9277	Candice Olson	designer-candice-olson	yv
+9278	C&Atilde;&nbsp; Nova Design	designer-ca-nova-design	yv
+9279	Care &amp;amp; Fair	designer-care-and-fair	yv
+9280	Carl Gustav Magnusson	designer-carl-magnusson	yv
+9281	Carlo Colombo		
+9282	Carl Pott	designer-carl-pott	yv
+9283	Carme Pinos	designer-carme-pinos	yv
+9284	Carol Catalano	designer-carol-catalano	yv
+9285	Catherine and Bruno Lefebvre	designer-catherine-and-bruno-lefebvre	yv
+9286	Charles Pfister	designer-charles-pfister	yv
+9287	Charles Pollock	designer-charles-pollock	yv
+9288	Charlotte Lancelot	designer-charlotte-lancelot	yv
+9289	Charlotte Van Der Waals	designer-charlotte-van-der-waals	yv
+9290	Chris Adamick	designer-chris-adamick	yv
+9291	Chris Kabatsi	designer-chris-kabatsi	yv
+9292	Christian Flensted	designer-christian-flensted	yv
+9293	Christian Ghion	designer-christian-ghion	yv
+9294	Christina Parrett		
+9295	Christine Schwarzer	designer-christine-schwarzer	yv
+9296	Christoph Bitzer	designer-christoph-bitzer	yv
+9297	Christopher Douglas	designer-christopher-douglas	yv
+9298	Cini Boeri	designer-cini-boeri	yv
+9299	Clara Von Zweigbergk	designer-clara-von-zweigbergk	yv
+9300	Claudia Raimondo		
+9301	Claudio D&#039;Amore	designer-claudio-d-amore	yv
+9302	Claydies	designer-claydies	yv
+9303	Clive Wilkinson		
+9304	Federico Correa and Alfonso Mila	designer-correa-mila	yv
+9305	Cory Grosser	designer-cory-grosser	yv
+9306	Cristian Wicha	designer-cristian-wicha	yv
+9307	Cristian Zuzunaga	designer-cristian-zuzunaga	yv
+9308	Cristina Giopato &amp; Christopher Coombes	designer-cristina-giopato-christopher-coombes	yv
+9309	Damian Velasquez	designer-damian-velasquez	yv
+9310	Dana D&#039;Amico	designer-dana-damico	yv
+9311	Daniele Bedini		
+9312	Darin Montgomery	designer-darin-montgomery	yv
+9313	Dario Antonioni		
+9314	Darling Clementine	designer-darling-clementine	yv
+9315	David Cressey	designer-david-cressey	yv
+9316	Davide Oppizzi	designer-davide-oppizzi	yb
+9317	David Rasmussen	designer-david-rasmussen	yv
+9318	David Salmela	designer-david-salmela	yv
+9319	David Weatherhead	designer-david-weatherhead	yv
+9320	David Weeks	designer-david-weeks	yv
+9321	David Winston	designer-david-winston	yv
+9322	Design Group Italia	designer-design-group-italia	yv
+9323	Designit		
+9324	Design Rosendahl	designer-design-rosendahl	yv
+9325	Designwright	designer-designwright	yv
+9326	Oscar and Sergi Devesa	designer-devesa	yv
+9327	Diego Marocco	designer-diego-marocco	yv
+9328	Dieter Rams	designer-dieter-rams	yv
+9329	Dietrich Lubs	designer-dietrich-lubs	yv
+9330	Diplomat U.K.	designer-diplomat-uk	yv
+9331	Don Chadwick	designer-don-chadwick	yv
+9332	Don Wallance		
+9333	Dorigo Design		
+9334	Dorothee Becker	designer-dorothee-becker	yv
+9335	Dual Design	designer-dual-design	yv
+9336	Dz Studio	designer-dz-studio	yv
+9337	Charles + Ray Eames	designer-eames	yv
+9338	Ed Annink	designer-ed-annink	yv
+9339	Ed Carpenter	designer-ed-carpenter	yv
+9340	Edi &amp; Paolo Ciani	designer-edi-paolo-ciani	yv
+9341	Edward Geluk	designer-edward-geluk	yv
+9342	Eero Aarnio	designer-eero-aarnio	yv
+9343	Eero Saarinen	designer-eero-saarinen	yv
+9344	Eija Helander	designer-eija-helander	yv
+9345	Elena Manferdini	designer-elena-manferdini	yv
+9346	Elena Somalo	designer-elena-somalo	yv
+9347	Eli Alexander	designer-eli-alexander	yv
+9348	Elisa Gargan Giovannoni	designer-elisa-gargan	yv
+9349	Emanuele Zenere	designer-emanuel-zenere	yv
+9350	Emilia Borgthorsdottir	designer-emilia-borgthorsdottir	yv
+9351	Emilio Nanni	designer-emilio-nanni	yv
+9352	Emili Padros	designer-emili-padros	yv
+9353	Emanuela Frattini Magnusson	designer-emmanuella-frattina	yv
+9354	Enrico Bressan	designer-enrico-bressan	yv
+9355	Enrico Tonucci	designer-enrico-tonucci	yv
+9356	Eric Janssen	designer-eric-janssen	yv
+9357	Eric Kuczynski	designer-eric-kuczynski	yv
+9358	Erik Bagger	designer-erik-bagger	yv
+9359	Eva Eisler	designer-eva-eisler	yv
+9360	Eva Langhans	designer-eva-langhans	yv
+9361	Fabio Di Bartolomei	designer-fabio-di-bartolomei	yv
+9362	Fabio Novembre		
+9363	Fabrizio Batoni	designer-fabrizio-batoni	yv
+9364	Fabrizio Citton	designer-fabrizio-citton	yv
+9365	Fernando Brizio	designer-fernando-brizio	yv
+9366	Finn Magee	designer-finn-magee	yv
+9367	Flemming Bo Hansen	designer-flemming-bo-hansen	yv
+9368	Flemming Hoejfeldt	designer-flemming-hoejfeldt	yv
+9369	Florence Knoll	designer-florence-knoll	yv
+9370	Douwe Jacobs + Tom Schouten	designer-flux	yv
+9371	Folke Arstr&amp;ouml;m		
+9372	Form Us With Love	designer-form-us-with-love	yv
+9373	Formway Design	designer-formway-design	yv
+9374	Fort Standard		
+9375	Francis Cayouette	designer-francis-cayouette	yv
+9376	Fratelli Campana	designer-fratelli-campana	yv
+9377	Frede Fabek		
+9378	Frederic Gooris	designer-frederic-gooris	yv
+9379	Frederic Sofia	designer-frederic-sofia	yv
+9380	Doriana and Massimiliano Fuksas	designer-fuksas	yv
+9381	Fx Ballery	designer-fx-ballery	yv
+9382	Gabriel Nigro	designer-gabriel-nigro	yv
+9383	Gary Chang	designer-gary-chang	yv
+9384	Geoffrey Harcourt RDI	designer-geoffrey-harcourt	yv
+9385	George Nakashima	designer-george-nakashima	yv
+9386	Gerald Brandst&amp;auml;tter	designer-gerald-brandstatter	yv
+9387	Gerard Moline	designer-gerard-moline	yv
+9388	Gerd Van Cauteren		
+9389	Gerrit Rietveld	designer-gerrit-rietveld	yv
+9390	Fernando Gerscovich &amp; Juan Diego Gerscovich	designer-gerscovich-brothers	yv
+9391	Giacomo Mutti	designer-giacomo-mutti	yv
+9392	Gianni Arnaudo		
+9393	Gijs Bakker	designer-gijs-bakker	yv
+9394	Giorgio Biscaro		
+9395	Giorgio Cattelan	designer-giorgio-cattelan	yv
+9396	Giorgio Del Piero	designer-giorgio-del-piero	yv
+9397	Glen Oliver Low		
+9398	G&amp;ouml;ran Hongell	designer-goran-hongell	yv
+9399	Greenberg Kingsley	designer-greenberg-kingsley	yv
+9400	Guglielmo Berchicci		
+9401	Gugliemo Berchicci		
+9402	Guido Cattelan	designer-guido-cattelan	yv
+9403	Gunnar Cyr&amp;eacute;n		
+9404	Gustaf Nordenski&amp;ouml;ld		
+9405	Gustav Hallen	designer-gustav-hallen	yv
+9406	Halskov + Dalsgaard	designer-halskov-dalsgaard	yv
+9407	Hanz Lammersdorf	designer-hanz-lammersdorf	yv
+9408	Harald Guggenbichler	designer-harald-guggenbichler	yv
+9409	Harri Koskinen	designer-harri-koskinen	yv
+9410	Harry Allen	designer-harry-allen	yv
+9411	Harry Bertoia	designer-harry-bertoia	yv
+9412	Heikki Orvola	designer-heikki-orvola	yv
+9413	Henk Stallinga	designer-henk-stallinga	yv
+9414	Henning Seidelin		
+9415	Henriette Melchiorsen	designer-henriette-melchiorsen	yv
+9416	Henrik Fisker	designer-henrik-fisker	yv
+9417	Henry Kloss	designer-henry-kloss	yv
+9418	Herbert Krenchel	designer-herbert-krenchel	yv
+9419	Herzog &amp; de Meuron	designer-herzog-de-meuron	yv
+9420	Hicham Lahlou	designer-hicham-lahlou	yb
+9421	Holmbacknordentoft	designer-holmback-nordentoft	yv
+9422	Ilaria Marelli	designer-ilaria-marelli	yv
+9423	Ilmari Tapiovaara	designer-ilmari-tapiovaara	yv
+9424	Industrial Facility		
+9425	Ineke Hans	designer-ineke-hans	yv
+9426	Inoda + Sveje	designer-inoda-and-sveje	yv
+9427	Isamu Noguchi	designer-isamu-noguchi	yv
+9428	Italo Pertichini		
+9429	Jacob Marks	designer-jacob-marks	yv
+9430	Jade Barnes Richardson	designer-jade-barnes-richardsons	yv
+9431	Jae Omar	designer-jae-omar	yb
+9432	Jakob Wagner	designer-jakob-wagner	yv
+9433	Jamie Mclellan	designer-jamie-mclellan	yv
+9434	Jan Hoekstra	designer-jan-hoekstra	yv
+9435	Jani Martikainen		
+9436	Jan Sabro	designer-jan-sabro	yv
+9437	Jason Whiteley	designer-jason-whiteley	yv
+9438	Javier Mariscal	designer-javier-mariscal	yv
+9439	Jean Nouvel	designer-jean-nouvel	yv
+9440	Jean Prouv&amp;eacute;	designer-jean-prouve	yv
+9441	Jeff Weber	designer-jeff-weber	yv
+9442	Jehs + Laub	designer-jehs-laub	yv
+9443	Jens Risom	designer-jens-risom	yv
+9444	Jens Vang	designer-jens-vang	yv
+9445	Liu Jiakun	designer-jiakun-liu	yv
+9446	Joaquim Ruiz Millet	designer-joaquim-ruiz-millet	yv
+9447	Johan Verde		
+9448	John Brauer	designer-john-brauer	yv
+9449	John Follis	designer-john-follis	yv
+9450	John Sebastian		
+9451	Jonas Damon	designer-jonas-damon	yv
+9452	Jonas Grundell	designer-jonas-grundell	yv
+9453	Jonathan Coppin	designer-jonathan-coppin	yv
+9454	Jon Eric Byers	designer-jon-eric-byers	yv
+9455	Jordi Miralbell	designer-jordi-miralbell	yv
+9456	Jorge Najer		
+9457	Jorge Najera		
+9459	Josef Albers	designer-josef-albers	yv
+9460	Jose Joaquim Ribeiro	designer-jose-joaquim-ribeiro	yv
+9461	Joseph Paul D&#039;Urso	designer-joseph-paul-durso	yv
+9462	Josh Jakus	designer-josh-jakus	yv
+9463	Jos Van Der Meulen	designer-jos-van-der-meulen	yv
+9464	Kaj Franck	designer-kaj-franck	yv
+9465	Kanae Tsukamoto	designer-kanae-tsukamoto	yv
+9466	Karen Gilbert	designer-karen-gilbert	yv
+9467	Karen Hestbeck		
+9468	Karl Malmvall		
+9469	Karl Zahn	designer-karl-zahn	yv
+9470	Kay Bojesen	designer-kay-bojesen	yv
+9471	Kazuhide Takahama	designer-kazuhide-takahama	yv
+9472	Kazuko Okamoto	designer-kazuka-okamoto	yv
+9473	Kazuyo Sejima		
+9474	Ke Zhang	designer-ke-zhang	yv
+9475	Kho Liang Ie	designer-kho-liang-ie	yv
+9476	Kiel Mead	designer-kiel-mead	yv
+9477	Kim Almsig	designer-kim-almsig	yv
+9478	Klaus Haapaniemi	designer-klaus-haapaniemi	yv
+9479	Klaus Rath	designer-klaus-rath	yv
+9480	La Gardo Tackett	designer-la-gardo-tackett	yv
+9481	Laura Partanen		
+9482	Laurens van Wieringen		
+9483	Lei Zhang	designer-lei-zhang	yv
+9484	Leonardo Dainelli	designer-leonardo-dainelli	yv
+9485	Leonardo Gerussi	designer-leonardo-gerussi	yv
+9486	Lievore Altherr Molina	designer-lievore-altherr-molina	yv
+9487	Lina Nordqvist	designer-lina-nordqvist	yv
+9488	Lin Utzon	designer-lin-utzon	yv
+9489	Lisa Albin	designer-lisa-albin	yv
+9490	Lisa Hilland	designer-lisa-hilland	yv
+9491	Lisa Vincitorio	designer-lisa-vincitorio	yv
+9492	Louis A. Lara	designer-louis-a-lara	yv
+9493	Louise B Helmersen		
+9494	Louise Christ	designer-louise-christ	yv
+9495	Lovorika Banovic	designer-lovorika-banovic	yv
+9496	Luca Pevere	designer-luca-pevere	yv
+9497	Lucci &amp; Orlandini	designer-lucci-orlandini	yv
+9498	Luciana Di Virgilio	designer-luciana-di-virgilio	yb
+9499	Ludwig Mies Van Der Rohe	designer-ludwig-mies-van-der-rohe	yv
+9500	Luigi Caccia Dominioni	designer-luigi-caccia-dominioni	yv
+9501	Lupo Design	designer-lupo-design	yv
+9502	Magnus Pettersen	designer-magnus-pettersen	yv
+9503	Malcolm Leland	designer-malcolm-leland	yv
+9504	Man Ray	designer-man-ray	yv
+9505	Mara Panizzo		
+9506	Marcel Breuer	designer-marcel-breuer	yv
+9507	Marcello Jori		
+9508	Marc Krusin	designer-marc-krusin	yv
+9510	Marco Bosisio	designer-marco-bosisio	yv
+9511	Marco Maran	designer-marco-maran	yv
+9512	Maria Bernsten	designer-maria-bernsten	yv
+9513	Marianne Britt Jorgensen	designer-marianne-britt-jorgensen	yv
+9514	Marie-Louise Gustafsson	designer-marie-louise-gustafsson	yv
+9515	Marie-Louise Rosholm	designer-marie-louise-rosholm	yv
+9516	Marijn Van Der Poll	designer-marijn-van-der-poll	yv
+9517	Mario Trimarchi	designer-mario-trimarchi	yv
+9518	Mark Goetz	designer-mark-goetz	yv
+9519	Markus Orthey	designer-markus-orthey	yv
+9520	Marti Guixe	designer-marti-guixe	yv
+9521	Martin Sonne	designer-martin-sonne	yv
+9522	Massimo and Lella Vignelli	designer-massimo-lella-vignelli	yv
+9523	Massimo Mariani		
+9524	Massimo Settimelli		
+9525	Matthew Hilton	designer-matthew-hilton	yv
+9526	Matthew Weatherly	designer-matthew-weatherly	yv
+9527	Mattias Stenberg	designer-mattias-stenberg	yv
+9528	Matti Klenell	designer-matti-klenell	yv
+9529	Maurice Scheltens	designer-maurice-scheltens	yv
+9530	Max + Linda Geiser	designer-max-and-linda-geiser	yv
+9531	Max Bill	designer-max-bill	yv
+9532	Maya Lin	designer-maya-lin	yv
+9533	Meneghello Paolelli Associati	designer-menghello-paolelli	yb
+9534	Michael Iannone	designer-michael-iannone	yv
+9535	Michael Lin	designer-michael-lin	yv
+9536	Michael Rosing	designer-michael-rosing	yv
+9537	Michael Schneider	designer-michael-schneider	yv
+9538	Michael Sodeau	designer-michael-sodeau	yv
+9539	Michael Young	designer-michael-young	yv
+9540	Michala Stigkjaer		
+9541	Michel Boucquillon	designer-michel-boucquillon	yb
+9542	Michiel Van Der Kley	designer-michiel-van-der-kley	yv
+9543	Mikaela Dorfel	designer-mikaela-dorfel	yv
+9544	Miki Astori		
+9545	Milo Baughman	designer-milo-baughman	yv
+9546	Milton Glaser	designer-milton-glaser	yv
+9547	Mr Smith Studio		
+9548	Murken-Hansen	designer-murken-hansen	yv
+9549	Museum Jorn		
+9550	Nani Marquina	designer-nani-marquina	yv
+9551	Nedda El-Asmar	designer-nedda-el-asmar	yv
+9552	Nel Colectivo	designer-nel-colectivo	yv
+9553	Nendo	designer-nendo	yv
+9554	Niels Bendtsen		
+9555	Niels Kjeldsen		
+9556	Niels Romer	designer-niels-romer	yv
+9557	Niels Van Eijk	designer-niels-van-eijk	yv
+9558	Nikolai Carels	designer-nikolai-carels	yv
+9559	Nina Farkache	designer-nina-farkache	yv
+9560	Nina Jobs	designer-nina-jobs	yv
+9561	Nitzan Cohen	designer-nitzan-cohen	yv
+9562	Nl Architects	designer-nl-architects	yv
+9563	Noah Packard	designer-noah-packard	yv
+9564	Noel Wiggins	designer-noel-wiggins	yv
+9565	Nolen Niu	designer-nolen-niu	yv
+9566	Norman Cherner	designer-norman-cherner	yv
+9567	Norm Architects	designer-norm-architects	yv
+9568	odosdesign		
+9569	Oesterlund	designer-oesterlund	yv
+9570	Officeoriginair	designer-officeoriginair	yv
+9571	Oiva Toikka	designer-oiva-toikka	yv
+9572	Olav Slingerland	designer-olav-slingerland	yv
+9573	Ole Flenstead		
+9574	Ole Flensted	designer-ole-flensted	yv
+9575	Ole Palsby	designer-ole-palsby	yv
+9576	Oliver Hemming	designer-oliver-hemming	yv
+9577	Orlandini &amp; Radice	designer-orlandini-radice	yv
+9578	Paola Navone		
+9579	Paolo Cattelan	designer-paolo-cattelan	yv
+9580	Paolo Gerosa	designer-paolo-gerosa	yv
+9581	Paolo Lucidi	designer-paolo-lucidi	yv
+9582	Paolo Ulian	designer-paolo-ulian	yv
+9583	Paolo Zani	designer-paolo-zani	yv
+9584	Pascal Mourgue	designer-pascal-mourgue	yv
+9585	Patrick Morris	designer-patrick-morris	yv
+9586	Patrick Townsend		
+9587	Paula Arntzen	designer-paula-arntzen	yv
+9588	Pauline Deltour	designer-pauline-deltour	yv
+9589	Paul Pavlak	designer-paul-pavlak	yv
+9590	Paul Smith	designer-paul-smith	yv
+9591	Pavel Hanousek	designer-pavel-hanousek	yv
+9592	Jean and Oliver Pelle	designer-pelle	yv
+9593	Pentagon Design	designer-pentagon-design	yv
+9594	Pepe Cortes	designer-pepe-cortes	yv
+9595	Pernille Vea	designer-pernille-vea	yv
+9596	Per Weiss	designer-per-weiss	yv
+9597	Peter Holmblad	designer-peter-holmblad	yv
+9598	Peter Maly	designer-peter-maly	yv
+9599	Peter Van Der Jagt	designer-peter-van-der-jagt	yv
+9600	Philip Jackson	designer-philip-jackson	yv
+9601	Piano Design		
+9602	Pierfrancesco Cravel	designer-pierfrancesco-cravel	yv
+9603	Pier Paolo Pitacco	designer-pier-paolo-pitacco	yv
+9604	Pierre Charpin	designer-pierre-charpin	yv
+9605	Pierre Paulin RDI	designer-pierre-paulin	yv
+9606	Pio Manzu	designer-pio-manzu	yv
+9607	Piotr Woronkowicz	designer-piotr-woronkowicz	yv
+9608	Peter Raake	designer-prof-peter-raake	yv
+9609	Quentin De Coster	designer-quentin-de-coster	yv
+9610	Ralph Kramer	designer-ralph-kramer	yv
+9611	Ralph Rapson	designer-ralph-rapson	yv
+9612	Reinhard Dienes	designer-reinhard-dienes	yv
+9613	Rene Holten	designer-rene-holten	yv
+9614	Renzo Piano	designer-renzo-piano	yv
+9615	Reverso	designer-reverso	yv
+9616	Richard Schultz	designer-richard-schultz	yv
+9617	Rikke Hagen	designer-rikke-hagen	yv
+9618	Rob Brandt		
+9619	Roberto Giacomucci	designer-roberto-giacomucci	yv
+9620	Rodolfo Bonetto		
+9621	Rodrigo Torres		
+9622	Roger Arquer	designer-roger-arquer	yv
+9623	Roland Kreiter	designer-roland-kreiter	yv
+9624	Rolf Sinnemark		
+9625	Roman Vrtiska	designer-roman-vrtiska	yv
+9626	Rosita Missoni	designer-rosita-missoni	yv
+9627	Ross Mcbride	designer-ross-mcbride	yv
+9628	Ryusaku Kawashima		
+9629	Sandra Figuerola	designer-sandra-figuerola	yv
+9630	Sarah Bottger	designer-sarah-bottger	yv
+9631	Sas Adriaenssens	designer-sas-adriaenssens	yv
+9632	Scholten And Baijings	designer-scholten-and-baijings	yv
+9633	Scott Dergance	designer-scott-dergance	yv
+9634	Scott Henderson	designer-scott-henderson	yv
+9635	Scott Wilson	designer-scott-wilson	yv
+9636	Sebastian Bergne	designer-sebastian-bergne	yv
+9637	Sebastian David Buescher	designer-sebastian-david-buescher	yv
+9638	Sergio Mian	designer-sergio-mian	yv
+9639	Setsu &amp; Shinobu Ito	designer-setsu-e-shinobu-ito	yv
+9640	Shelton Mindel	designer-shelton-mindel	yv
+9641	Shin Azumi	designer-shin-azumi	yv
+9642	Shu Wang	designer-shu-wang	yv
+9643	Simon James	designer-simon-james	yv
+9644	Simon Karkov	designer-simon-karkov	yv
+9645	Sir Terry Frost		
+9646	Slide Studio		
+9647	Soren Rose Studio	designer-soren-rose	yv
+9648	Sori Yanagi	designer-sori-yanagi	yv
+9649	Space	designer-space	yv
+9650	S.T.C.	designer-stc	yv
+9651	Stefan Diez		
+9652	Stefano Cavazzana, S.T.C.	designer-stefano-cavazzana	yv
+9653	Stefano Marzano		
+9654	Stephan Copeland	designer-stephan-copeland	yv
+9655	Stephen Johnson	designer-stephen-johnson	yv
+9656	Steuart Padwick	designer-steuart-padwick	yv
+9657	Steve McGugan	designer-steve-mcgugan	yv
+9658	Stig Ahlstrom	designer-stig-ahlstrom	yv
+9659	Studio 28	designer-studio-28	yv
+9660	Studio 7.5	designer-studio-7-5	yv
+9661	SAQ / Studio Arne Quinze	designer-studio-arne-quinze	yv
+9662	Studio Kronos	designer-studio-kronos	yv
+9663	Studio Murmur	designer-studio-murmur	yv
+9664	Studio Van Eijk &amp; Van Der Lubbe	designer-studio-van-eijk-and-van-der-lubbe	yv
+9665	Sybilla	designer-sybilla	yv
+9666	Takeshi Ishiguro		
+9667	Tassilo Von Grolman	designer-tassilo-von-grolman	yv
+9668	Terence Conran	designer-terence-conran	yv
+9669	Thea Mehl	designer-thea-mehl	yv
+9670	Thomas Paul	designer-thomas-paul	yv
+9671	Tias Eckhoff		
+9672	Timo Sarpaneva	designer-timo-sarpaneva	yv
+9673	Tofer Chin		
+9674	Tom Devesto	designer-tom-devesto	yv
+9675	Tom Newhouse	designer-tom-newhouse	yv
+9676	Tom Stepp	designer-tom-stepp	yv
+9677	Tools Design	designer-tools-design	yv
+9678	Torben Rasmussen		
+9679	Trine Andersen	designer-trine-andersen	yv
+9680	Trine Peter Find		
+9681	Ufficio Tecnico	designer-ufficio-tecnico	yv
+9682	Ulf Hanses	designer-ulf-hanses	yv
+9683	Ulik	designer-ulik	yv
+9684	Ulla Christiansson	designer-ulla-christiansson	yv
+9685	Donato D&#039;Urbino and Paolo Lomazzi	designer-urbano-lomazzi	yv
+9686	Ute Schniedermann	designer-ute-schniedermann	yv
+9687	Valerie Bergeron	designer-valerie-bergeron	yv
+9688	Van Keppel-Green	designer-van-keppel-green	yv
+9689	Veronique Maire	designer-veronique-maire	yv
+9690	Vicente Garcia Jiminez		
+9691	Vincent Van Duysen		
+9692	Vittorio Livi	designer-vittorio-livi	yv
+9693	Ward Bennett	designer-ward-bennett	yv
+9694	Warren Platner	designer-warren-platner	yv
+9695	Wendy Boudewijns	designer-wendy-boudewijns	yv
+9696	Wiebe Teertstra	designer-wiebe-teertstra	yv
+9697	Willem Noyons	designer-willem-noyons	yv
+9698	WilliamsSorel	designer-williams-sorel	yv
+9699	Wolfgang Sirch	designer-wolfgang-sirch	yv
+9700	Xano Armenter	designer-xano-armenter	yv
+9701	Xucla &amp; Alemany	designer-xucla-and-alemany	yv
+9702	Yan Song Ma	designer-yan-song-ma	yv
+9703	Yoji Ishii And Yasuyuki Ikeda	designer-yoji-ishii-and-yasuyuki-ikeda	yv
+9704	Yuen&#039;to Design		
+9705	Yung Ho Chang	designer-yung-ho-chang	yv
+9706	Zaha Hadid	designer-zaha-hadid	yv
+9707	Emma Woffenden	emma-woffenden	yv
+9709	Estudio Campana	estudio-campana	yv
+9710	Hella Jongerius	hella-jongerius	yv
+9712	Ronan Bouroullec		
+9713	Studio Tord Boontje	studio-tord-boontje	yv
+11166	Phoenix Design 	designer-phoenix-design	yb
+11236	Cecilie Manz		
+11243	Marco Bisenzi		
+11244	Jamie Beriestain		
+11245	Werner Aisslinger		
+12456	Pablo Studio		
+12615	Antonio Bongio		
+12616	Marco Poletti	designer-marco-poletti	yb
+12642	Yonoh Studio	designer-yonoh-studio	yv
+12764	Angelo Mangiarotti		
+12765	Barbara Maggiolo	designer-barbara-maggiolo	yl
+12766	Matthias Hickl		
+12767	Romani Saccani Architecture Association		
+12768	Luciano Vistosi		
+12769	Emmanuel Babled	designer-emmanuel-babled	yl
+14011	Michael Anastassiades		

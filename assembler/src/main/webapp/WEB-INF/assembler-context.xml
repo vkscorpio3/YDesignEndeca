@@ -1,845 +1,854 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
            http://www.springframework.org/schema/util
            http://www.springframework.org/schema/util/spring-util-3.0.xsd
        ">
 
-    <!-- Create a properties object -->
-    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="location" value="WEB-INF/assembler.properties" />
-    </bean>
-
-    <!-- Expose the properties object to spring -->
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="properties" ref="properties" /> 
-    </bean>
-
-    <import resource="endeca-seo-url-config.xml"/>
-    
-    <bean id="springUtility" class="com.endeca.infront.web.spring.SpringUtility" scope="singleton"/>
-
-    <!--
-        ########################################################################
-        # ASSEMBLER SERVLET RESPONSE WRITERS
-        #
-        # Each response writer is required if you wish to use the Assembler
-        # Servlet with the corresponding type of output (e.g., if you want to
-        # configure the servlet to output JSON, then you need to define the
-        # JsonResponseWriter here).
-        #
-    -->
-    <bean id="jsonResponseWriter" class="com.endeca.infront.assembler.servlet.JsonResponseWriter"
-          scope="singleton"/>
-
-    <bean id="xmlResponseWriter" class="com.endeca.infront.assembler.servlet.XmlResponseWriter"
-          scope="singleton"/>
-
-    <!--
-        ########################################################################
-        # ASSEMBLER FACTORY
-        #
-        # Required.
-        #
-        
-    -->
-    <bean id="assemblerFactory" class="com.endeca.infront.assembler.spring.SpringAssemblerFactory"
-          scope="singleton">
-        <constructor-arg>
-            <bean class="com.endeca.infront.assembler.AssemblerSettings">
-                <property name="previewEnabled" value="${preview.enabled}" />
-                <property name="previewModuleUrl" value="http://localhost:8006/ifcr" />
-            </bean>
-        </constructor-arg>
-        <constructor-arg>
-            <list>
-                <bean class="com.endeca.infront.logger.SLF4JAssemblerEventLogger" />
-                <bean class="com.endeca.infront.assembler.event.request.ContentItemAugmentAdapter">
-                    <constructor-arg ref="springUtility"/>
-                </bean>
-                <!-- Remove the following lines to disable logging to an Oracle Endeca Log Server -->
-                <bean class="com.endeca.infront.navigation.event.LogServerAdapter">
-                    <constructor-arg ref="springUtility"/>
-                    <constructor-arg value="${logserver.host}"/>
-                    <constructor-arg value="${logserver.port}"/>
-                    <constructor-arg value="${logserver.sslEnabled}"/>
-                </bean>
-                <!-- Remove up to here to disable logging to an Oracle Endeca Log Server -->
-                <bean class="com.endeca.infront.navigation.url.event.CanonicalLinkBuilder">
-                    <property name="objectLocator" ref="springUtility"/>
-                    <property name="recordStateId" value="recordState"/>
-                    <property name="navigationStateId" value="navigationState"/>
-                    <property name="siteStateId" value="siteState"/>
-                    <property name="includedParameters">
-                        <list>
-                            <value>R</value>
-                            <value>A</value>
-                            <value>N</value>
-                            <value>Ntt</value>
-                        </list>
-                    </property>
-                </bean>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <!--
-        ########################################################################
-        # CARTRIDGE SUPPORT
-        #
-        # The following section configures managers and other supporting objects.
-        #
-    -->
-    
-    <bean id="httpServletRequest" scope="request"
-          factory-bean="springUtility"
-          factory-method="getHttpServletRequest" />
-    
-    <bean id="mdexResource" scope="request"
-          class="com.endeca.infront.navigation.model.MdexResource">
-        <property name="host" value="${mdex.host}" />
-        <property name="port" value="${mdex.port}" />
-        <property name="sslEnabled" value="${mdex.sslEnabled}" />
-        <property name="recordSpecName" value="common.id" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Navigation state (including record state) and related config
-    -->
-
-    <bean id="defaultFilterState" scope="request"
-          class="com.endeca.infront.navigation.model.FilterState">
-        <!-- property name="rollupKey" value="product.code" / -->
-        <property name="autoPhraseEnabled" value="true" />
-        <!-- <property name="securityFilter" value="" /> -->
-        <!-- <property name="languageId" value="en" /> -->
-    </bean>
-
-    <bean id="navigationStateBuilder" scope="request"
-          class="com.ydg.endeca.navstate.YDGNavigationStateBuilder">
-        <property name="urlFormatter" ref="seoUrlFormatter" />
-        <property name="mdexRequestBroker" ref="mdexRequestBroker"/>
-        <property name="defaultSearchKey" value="AllC10" />
-        <property name="defaultMatchMode" value="ALLPARTIAL" />
-        <property name="defaultFilterState" ref="defaultFilterState" />
-        <property name="siteState" ref="siteState"/>
-        <property name="siteManager" ref="siteManager"/>
-        <property name="siteDirectory" ref="siteDirectory"/>
-        
-        <property name="removeAlways">
-            <list>
-                <value>contentText</value>
-                <value>Nty</value>
-                <value>Dy</value>
-                <value>collection</value>
-            </list>
-        </property>
-        <property name="removeOnUpdateFilterState">
-            <list>
-                <value>No</value>
-            </list>
-        </property>
-        <property name="removeOnClearFilterState">
-            <list>
-                <value>Ns</value>
-                <value>Nrpp</value>
-                <value>showMoreIds</value>
-                <value>Nrmc</value>
-            </list>
-        </property>
-        <property name="recordDetailsDimensionNames">
-            <list>
-                <value>product.category</value>
-            </list>
-        </property>
-    </bean>
-
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Changes to the bean id 'navigationState' will require an update to
-        ~ the canonical.tag as it references this bean by id.
-    -->
-    <bean id="navigationState"
-          scope="request"
-          factory-bean="navigationStateBuilder"
-          factory-method="parseNavigationState" >
-        <constructor-arg ref="httpServletRequest" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Changes to the bean id 'recordState' will require an update to
-        ~ the canonical.tag as it references this bean by id.
-    -->
-    <bean id="recordState"
-          scope="request"
-          factory-bean="navigationStateBuilder"
-          factory-method="parseRecordState" >
-        <constructor-arg ref="httpServletRequest" />
-    </bean>
-
-    <bean id="mdexRequestBroker" scope="request"
-          class="com.endeca.infront.navigation.MdexRequestBroker">
-        <constructor-arg ref="mdexResource" />
-        <!-- Debug Enabled Parameter. When set to true, allows debug information to be returned from the Assembler -->
-        <constructor-arg value="false"/>
-    </bean>
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ User Profiles
-    -->
-    <bean id="previewUserStateBuilder" class="com.endeca.infront.content.PreviewUserStateBuilder"
-            scope="singleton" />
-    
-    <bean id="previewUserState" scope="request"
-          factory-bean="previewUserStateBuilder"
-          factory-method="createUserState" >
-        <constructor-arg ref="httpServletRequest" />
-    </bean>
-    
-    <bean id="liveUserState" class="com.endeca.infront.navigation.UserState"
-          scope="request"/>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Administration Service.
-    -->
-    <bean id="adminService" class="com.endeca.infront.assembler.servlet.admin.AdministrationService">
-        <property name="storeFactory" ref="${store.factory}"/>
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Store Factories - Retrieve Content and Config.  Stores are constructed
-        ~ to store content and configuration specific to the application, and
-        ~ shared by multiple internal assembler services. Not for use in custom
-        ~ cartridge handlers. Internal use only.
-    -->
-    <bean id="fileStoreFactory" class="com.endeca.infront.content.source.FileStoreFactory"
-          init-method="init">
-        <property name="configurationPath" value="${repository.configuration.path}"/>
-    </bean>
-
-    <bean id="ecrStoreFactory" class="com.endeca.infront.content.source.EcrStoreFactory"
-          init-method="init" destroy-method="destroy">
-        <property name="isAuthoring" value="true"/>
-        <property name="appName" value="${workbench.app.name}" />
-        <property name="host" value="${workbench.host}" />
-        <property name="clientPort" value="${workbench.publishing.clientPort}"/>
-        <property name="serverPort" value="${workbench.publishing.serverPort}"/>
-    </bean>
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Content Sources
-    -->
-    <bean id="defaultSiteRootPath" class="java.lang.String">
-        <constructor-arg value="${defaultSiteRootPath}"/>
-    </bean>
-
-    <bean id="contentSource" class="com.endeca.infront.content.source.WorkbenchContentSource"
-          scope="singleton" init-method="init" destroy-method="destroy">
-        <property name="storeFactory" ref="${store.factory}"/>
-        <property name="defaultSiteRootPath" ref="defaultSiteRootPath" />
-        <property name="appName" value="${workbench.app.name}"/>
-        <property name="siteManager" ref="siteManager"/>
-    </bean>
-    
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ Media Sources
-    -->
-    <bean id="liveMediaSources" class="java.util.ArrayList" lazy-init="true">
-        <constructor-arg>
-            <list>
-                <bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
-                    <property name="sourceName" value="MediaSource" />
-                    <property name="sourceValue" value="/images/" />
-                </bean>
-                <bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
-                    <property name="sourceName" value="default" />
-                    <property name="sourceValue" value="/images/" />
-                </bean>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <bean id="authoringMediaSources" class="java.util.ArrayList" lazy-init="true">
-        <constructor-arg>
-            <list>
-                <bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
-                    <property name="sourceName" value="MediaSource" />
-                    <property name="sourceValue" value="http://192.168.245.128:8006/ifcr/sites/${workbench.app.name}/media/" />
-                </bean>
-                <bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
-                    <property name="sourceName" value="default" />
-                    <property name="sourceValue" value="http://192.168.245.128:8006/ifcr/sites/${workbench.app.name}/media/" />
-                </bean>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <!--
-        ########################################################################
-        # CARTRIDGE HANDLERS
-        #
-        # The following section contains registered cartridge handlers.
-        #
-        # CartridgeHandler instances are registered in this file with the
-        # following naming convention:
-        #
-        # CartridgeHandler_${CARTRIDGE_TYPE}
-        #
-        # Where ${CARTRIDGE_TYPE} refers to the 'template id' when constructing
-        # cartridge templates for Experience Manager.
-        #
-    -->
-
-    <bean id="NavigationCartridgeHandler" abstract="true">
-        <property name="navigationState" ref="navigationState" />
-        <property name="mdexRequestBroker" ref="mdexRequestBroker" />
-        <property name="actionPathProvider" ref="actionPathProvider"/>
-        <property name="siteState" ref="siteState"/>
-    </bean>
-
-    <bean id="actionPathProvider" scope="request" class="com.ydg.endeca.action.YDGActionPathProvider">
-        <constructor-arg index="0" ref="contentSource"/>
-        <constructor-arg index="1" ref="httpServletRequest"/>
-        <!-- navigationActionUriMap -->
-        <constructor-arg index="2">
-            <map>
-                <entry key="^/pages/[^/]*/mobile/detail$" value="/mobile/browse" />
-                <entry key="^/pages/[^/]*/services/recorddetails/.*$" value="/services/guidedsearch" />
-                <entry key="^/pages/[^/]*/detail$" value="/browse" />
-                <entry key="^/services/.*$" value="/services/guidedsearch" />
-            </map>
-        </constructor-arg>
-        <!-- recordActionUriMap -->
-        <constructor-arg index="3">
-            <map>
-                <entry key="^/pages/[^/]*/mobile/.*$" value="/mobile/detail" />
-                <entry key="^/pages/[^/]*/services/.*$" value="/services/recorddetails" />
-                <entry key="^/pages/[^/]*/.*$" value="/detail" />
-                <entry key="^/services/.*$" value="/recorddetails" />
-            </map>
-        </constructor-arg>
-        <constructor-arg index="4" ref="siteState"/>
-    </bean>
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_Breadcrumbs
-    -->
-    <bean id="CartridgeHandler_Breadcrumbs" class="com.endeca.infront.cartridge.BreadcrumbsHandler"
-          parent="NavigationCartridgeHandler" scope="prototype"/>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_ResultsList
-    -->
-    <bean id="resultsListDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.ResultsListConfig">
-        <!-- <property name="whyMatchEnabled" value="true"/> -->
-        <!-- <property name="whyRankEnabled" value="true"/> -->
-        <property name="fieldNames">
-            <list>
-                <value>name</value>
-                <value>description_short</value>
-                <value>Brand</value>
-                <value>price_retail</value>
-               <value>p_customer_ratings</value>
-            </list>
-        </property>
-        <property name="subRecordsPerAggregateRecord" value="ALL"/>
-        <property name="subRecordFieldNames">
-            <list>
-            </list>
-        </property>
-        <property name="sortOption">
-            <bean class="com.endeca.infront.navigation.model.SortOption">
-                <property name="label" value="Most Sales" />
-                <property name="sorts">
-                    <list>
-                    </list>
-                </property>
-            </bean>
-        </property>
-        <property name="relRankKey" value="All" />
-        <property name="relRankMatchMode" value="ALLPARTIAL" />
-        <property name="relRankStrategy" value="nterms,maxfield,exact,static(product.analytics.conversion_rate,descending)" />
-        <property name="recordsPerPage" value="12" />
-        <property name="recordDisplayFieldName" value="product.name" />
-    </bean>
-    
-   
-
-    <util:list id="resultsListSortOptions" scope="prototype">
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Relevance"/>
-            <property name="value" value=""/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Price (Ascending)"/>
-            <property name="value" value="price_sort_min|0"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Price (Descending)"/>
-            <property name="value" value="price_sort_max|1"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Rating (Ascending)"/>
-            <property name="value" value="p_customer_ratings|0"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Rating (Descending)"/>
-            <property name="value" value="p_customer_ratings|1"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Newest"/>
-            <property name="value" value="metric_days_on_site|0"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Name (Ascending)"/>
-            <property name="value" value="name|0"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Name (Descending)"/>
-            <property name="value" value="name|1"/>
-        </bean>
-        
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Best Sellers (Descending)"/>
-            <property name="value" value="placeholder|1"/>
-        </bean>
-        <bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-            <property name="label" value="Best Sellers (Ascending)"/>
-            <property name="value" value="placeholder|0"/>
-        </bean>
-    </util:list>
-
-    <bean id="resultsListRequestParamMarshaller" scope="prototype"
-          class="com.endeca.infront.cartridge.ResultsListRequestParamMarshaller">
-        <property name="httpServletRequest" ref="httpServletRequest" />
-    </bean>
-
-    <bean id="resultsListConfigInitializer" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer">
-        <property name="defaults" ref="resultsListDefaultConfig" />
-        <property name="requestParamMarshaller" ref="resultsListRequestParamMarshaller" />
-    </bean>
-    
-    <bean id="CartridgeHandler_ResultsList" class="com.ydg.endeca.cartridge.handler.YDGResultsListHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="resultsListConfigInitializer" />
-        <property name="sortOptions" ref="resultsListSortOptions" />
-    </bean>
-
-    <!-- BEGIN   Cartridge Results List Type Ahead/AutoSuggest -->
-     
-    <bean id="resultsListConfigInitializerAutoSuggest" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer">
-        <property name="defaults" ref="resultsListDefaultConfigAutoSuggest" />
-        <property name="requestParamMarshaller" ref="resultsListRequestParamMarshaller" />
-    </bean>
-    
-     <bean id="resultsListDefaultConfigAutoSuggest" scope="prototype"
-          class="com.endeca.infront.cartridge.ResultsListConfig">
-        <!-- <property name="whyMatchEnabled" value="true"/> -->
-        <!-- <property name="whyRankEnabled" value="true"/> -->
-        <property name="fieldNames">
-            <list>
-                <value>name</value>
-            </list>
-        </property>
-        <property name="subRecordsPerAggregateRecord" value="ALL"/>
-        <property name="subRecordFieldNames">
-            <list>
-            </list>
-        </property>
-        <property name="relRankKey" value="AllC10" />
-        <property name="relRankMatchMode" value="ALLPARTIAL" />
-<!--         <property name="relRankStrategy" value="nterms,maxfield,exact,static(product.analytics.conversion_rate,descending)" /> -->
-        <property name="recordsPerPage" value="12" />
-        <property name="recordDisplayFieldName" value="product.name" />
-    </bean>
-    <bean id="CartridgeHandler_ResultsListAutoSuggestItem" class="com.ydg.endeca.cartridge.handler.YDGResultsListAutoSuggestHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="resultsListConfigInitializerAutoSuggest" />
-    </bean>
-        
-    <!-- END  Cartridge Results List Type Ahead/AutoSuggest -->
-    
-
-    <bean id="CartridgeHandler_CrossSiteResultsList" class="com.ydg.endeca.cartridge.handler.CrossSitesResultsListHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="resultsListConfigInitializer" />
-        <property name="sortOptions" ref="resultsListSortOptions" />
-        <property name="siteDirectory" ref="siteDirectory"/>
-    </bean>
-
-
-    <!--
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         ~ BEAN: CartridgeHandler_RefinementMenu
-     -->
-    <bean id="refinementMenuDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.RefinementMenuConfig">
-        <property name="moreLinkText" value="More..."/>
-        <property name="lessLinkText" value="Less..."/>
-        <!-- <property name="whyPrecedenceRuleFired" value="true"/> -->
-    </bean>
-
-    <bean id="refinementMenuRequestParamMarshaller" scope="prototype"
-          class="com.endeca.infront.cartridge.RefinementMenuRequestParamMarshaller">
-        <property name="httpServletRequest" ref="httpServletRequest" />
-    </bean>
-
-    <bean id="refinementMenuConfigInitializer" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer">
-        <property name="defaults" ref="refinementMenuDefaultConfig" />
-        <property name="requestParamMarshaller" ref="refinementMenuRequestParamMarshaller" />
-    </bean>
-
-    <bean id="CartridgeHandler_RefinementMenu" class="com.endeca.infront.cartridge.RefinementMenuHandler"
-          scope="prototype" parent="NavigationCartridgeHandler">
-        <property name="contentItemInitializer" ref="refinementMenuConfigInitializer" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_DimensionSearchResults
-    -->
-    <bean id="dimensionSearchResultsDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.DimensionSearchResultsConfig">
-        <property name="relRankStrategy" value="exact,static(nbins,desc)" />
-        <property name="enabled" value="true" />
-        <property name="showCountsEnabled" value="true" />
-        <property name="dimensionList">
-            <list>
-                <value>100972</value> <!-- product.category -->
-                <value>20001</value>  <!-- product.brand.name -->
-                <value>100031</value> <!-- product.features -->
-            </list>
-        </property>
-    </bean>
-
-    <bean id="dimensionSearchResultsRequestParamMarchaller" scope="prototype"
-          class="com.endeca.infront.cartridge.DimensionSearchResultsRequestParamMarshaller">
-        <property name="httpServletRequest" ref="httpServletRequest"/>
-    </bean>
-
-    <bean id="DimensionSearchResultsConfigInitializer"
-          class="com.endeca.infront.cartridge.ConfigInitializer" scope="prototype">
-        <property name="defaults" ref="dimensionSearchResultsDefaultConfig" />
-        <property name="requestParamMarshaller" ref="dimensionSearchResultsRequestParamMarchaller" />
-    </bean>
-
-    <bean id="CartridgeHandler_DimensionSearchResults"
-          class="com.endeca.infront.cartridge.DimensionSearchResultsHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="DimensionSearchResultsConfigInitializer"/>
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_DimensionSearchAutoSuggestItem
-    -->
-    <bean id="CartridgeHandler_DimensionSearchAutoSuggestItem"
-          class="com.ydg.endeca.cartridge.handler.YDGDimensionSearchResultsHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="DimensionSearchResultsConfigInitializer"/>
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_ProductDetail
-    -->
-    <bean id="CartridgeHandler_ProductDetail" class="com.endeca.infront.cartridge.RecordDetailsHandler"
-          parent="NavigationCartridgeHandler" scope="prototype" >
-        <property name="recordState" ref="recordState" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_RecordSpotlight
-    -->
-    <bean id="recordSpotlightDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.RecordSpotlightConfig">
-        <property name="fieldNames">
-            <list>
-                <value>product.name</value>
-                <value>product.brand.name</value>
-                <value>product.price</value>
-                <value>product.min_price</value>
-                <value>product.max_price</value>
-                <value>product.img_url_thumbnail</value>
-                <value>product.review.avg_rating</value>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="recordSpotlightConfigInitializer" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer">
-        <property name="defaults" ref="recordSpotlightDefaultConfig" />
-    </bean>
-
-    <bean id="CartridgeHandler_RecordSpotlight" class="com.endeca.infront.cartridge.RecordSpotlightHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="recordSpotlightConfigInitializer" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_HorizontalRecordSpotlight
-    -->
-    <bean id="CartridgeHandler_HorizontalRecordSpotlight" parent="CartridgeHandler_RecordSpotlight"
-          scope="prototype"/>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_SearchAdjustments
-    -->
-    <bean id="searchAdjustmentsDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.SearchAdjustmentsConfig">
-        <!-- <property name="showWordInterp" value="true"/> -->
-    </bean>
-
-    <bean id="searchAdjustmentsRequestParamMarshaller" scope="prototype"
-          class="com.endeca.infront.cartridge.SearchAdjustmentsRequestParamMarshaller">
-        <property name="httpServletRequest" ref="httpServletRequest" />
-    </bean>
-
-    <bean id="searchAdjustmentsConfigInitializer" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer">
-        <property name="defaults" ref="searchAdjustmentsDefaultConfig" />
-        <property name="requestParamMarshaller" ref="searchAdjustmentsRequestParamMarshaller" />
-    </bean>
-
-    <bean id="CartridgeHandler_SearchAdjustments" class="com.endeca.infront.cartridge.SearchAdjustmentsHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="searchAdjustmentsConfigInitializer" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_MediaBanner
-    -->
-    <bean id="CartridgeHandler_MediaBanner" class="com.endeca.infront.cartridge.MediaBannerHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="mediaSourceList" ref="${media.sources.ref}"/>
-        <property name="navigationStateBuilder" ref="navigationStateBuilder"/>
-        <property name="contentSource" ref="contentSource"/>
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_NavigationContainer
-    -->
-    <bean id="navigationContainerDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.NavigationContainerConfig">
-        <property name="whyPrecedenceRuleFired" value="true"/>
-        <property name="moreLinkText" value="More..."/>
-        <property name="lessLinkText" value="Less..."/>
-    </bean>
-
-    <bean id="navigationContainerRequestParamMarshaller" scope="prototype"
-          class="com.endeca.infront.cartridge.NavigationContainerRequestParamMarshaller">
-        <property name="httpServletRequest" ref="httpServletRequest" />
-    </bean>
-
-    <bean id="navigationContainerConfigInitializer" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer">
-        <property name="defaults" ref="navigationContainerDefaultConfig" />
-        <property name="requestParamMarshaller" ref="navigationContainerRequestParamMarshaller" />
-    </bean>
-
-    <bean id="CartridgeHandler_NavigationContainer" class="com.endeca.infront.cartridge.NavigationContainerHandler"
-          parent="NavigationCartridgeHandler" scope="prototype">
-        <property name="contentItemInitializer" ref="navigationContainerConfigInitializer" />
-        <property name="refinementMenuType" value="RefinementMenu" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_ContentSlotList
-    -->
-    <bean id="contentSlotListDefaultConfig" scope="prototype"
-          class="com.endeca.infront.cartridge.ContentSlotListConfig">
-        <property name="contentSlotList">
-            <list>
-                <bean class="com.endeca.infront.cartridge.ContentSlotConfig">
-                    <property name="contentPaths">
-                        <list>
-                            <value>/content/Right Column Spotlights</value>
-                        </list>
-                    </property>
-                    <property name="templateTypes">
-                        <list>
-                            <value>RecordSpotlight</value>
-                        </list>
-                    </property>
-                    <property name="templateIds"><list/></property>
-                    <property name="ruleLimit" value="3"/>
-                </bean>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="contentSlotListConfigInitializer" scope="prototype"
-          class="com.endeca.infront.cartridge.ConfigInitializer" >
-        <property name="defaults" ref="contentSlotListDefaultConfig" />
-    </bean>
-
-    <bean id="CartridgeHandler_ContentSlotList" class="com.endeca.infront.cartridge.ContentSlotListHandler"
-          scope="prototype">
-        <property name="contentItemInitializer" ref="contentSlotListConfigInitializer" />
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_ContentInclude
-        ~ Used by the assembler service when keyword redirects are not enabled
-    -->
-    <bean id="CartridgeHandler_ContentInclude" class="com.endeca.infront.cartridge.ContentIncludeHandler"
-          scope="prototype">
-        <property name="contentSource" ref="contentSource" />
-        <property name="siteState" ref="siteState"/>
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_RedirectAwareContentInclude
-        ~ For root calls to the assembler when keyword redirects are desired
-    -->
-    <bean id="CartridgeHandler_RedirectAwareContentInclude" class="com.endeca.infront.cartridge.RedirectAwareContentIncludeHandler"
-          scope="prototype">
-        <property name="contentSource" ref="contentSource" />
-        <property name="contentBroker" ref="contentRequestBroker" />
-        <property name="navigationState" ref="navigationState" />
-        <property name="defaultFullAssembleOnRedirect" value="false"/>
-        <property name="siteState" ref="siteState"/>
-    </bean>
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: RootContentItem
-        ~ Specify the root content item to be processed for the Assembler service
-    -->
-    <bean id="rootContentItem" class="com.endeca.infront.cartridge.RedirectAwareContentInclude"
-          scope="request">
-    </bean>
-
-    <bean id="pathInfo" scope="request"
-          factory-bean="httpServletRequest"
-          factory-method="getPathInfo" />
-
-    <!--
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        ~ BEAN: CartridgeHandler_ContentSlot
-    -->
-
-    <bean id="contentRequestBroker" scope="request"
-          class="com.endeca.infront.content.MdexContentRequestBroker" >
-        <constructor-arg ref="mdexResource" />
-        <constructor-arg ref="navigationState" />
-        <constructor-arg ref="${user.state.ref}" />
-        <constructor-arg ref="siteState" />
-        <constructor-arg value="${preview.enabled}" />
-    </bean>
-
-    <bean id="CartridgeHandler_ContentSlot" class="com.endeca.infront.cartridge.ContentSlotHandler"
-          scope="prototype">
-        <property name="contentSource" ref="contentSource"/>
-        <property name="contentBroker" ref="contentRequestBroker" />
-    </bean>
-
-    <bean id="CartridgeHandler_ContentSlotHeader" parent="CartridgeHandler_ContentSlot"
-          scope="prototype"/>
-
-    <bean id="CartridgeHandler_ContentSlotSecondary" parent="CartridgeHandler_ContentSlot"
-          scope="prototype"/>
-
-    <bean id="CartridgeHandler_ContentSlotMain" parent="CartridgeHandler_ContentSlot"
-          scope="prototype"/>
-
-    <bean id="CartridgeHandler_PageSlot" parent="CartridgeHandler_ContentSlot"
-          scope="prototype"/>
-
-    <!-- Multisite Configuration -->
-    <bean id="siteManager" class="com.endeca.infront.site.SiteManager" scope="singleton">
-        <property name="storeFactory" ref="contentSource" />
-        <property name="defaultSiteRootPath" ref="defaultSiteRootPath"/>
-    </bean>
-
-    <bean id="siteStateBuilder" class="com.endeca.infront.site.SiteStateBuilder" scope="singleton">
-        <property name="siteManager" ref="siteManager" />
-        <property name="siteStateParsers">
-            <list>
-                <bean class="com.endeca.infront.site.UrlPatternParser" />
-                <bean class="com.endeca.infront.site.RequestParamParser">
-                    <property name="enabled" value="${preview.enabled}" />
-                </bean>
-            </list>
-        </property>
-        <property name="defaultSiteStateParser">
-            <bean class="com.endeca.infront.site.DefaultSiteParser"/>
-        </property>
-        <property name="contentPathTranslator" ref="contentPathTranslator"/>
-    </bean>
-
-    <bean id="siteState" scope="request"
-          factory-bean="siteStateBuilder"
-          factory-method="createSiteState" >
-        <constructor-arg ref="httpServletRequest" />
-    </bean>
-
-    <bean id="contentPathTranslator" class="com.endeca.infront.site.BasicContentPathTranslator" scope="singleton">
-        <!-- servletPathMap defines how servlet path should be translated to content path.
-             If the servletPath matches the key, we will use the value as the base of the content path.
-             The pathInfo if not null is appended to form the complete content path. --> 
-        <property name="servletPathMap">
-            <map>
-                <entry key="/servlet/admin" value=""/>
-                <entry key="/servlet/autosuggest.json" value=""/>
-                <entry key="/servlet/clicklog" value=""/>
-                <entry key="/servlet/link.json" value=""/>
-                <entry key="/servlet/sitemap" value=""/>
-            </map>
-        </property>
-        <!-- if no match was found in the the servletPathMap, we will next attempt to remove the defaultServletRoot
-             from the servletPath if the servlet path starts with the defaultServletRoot string.  The pathInfo if not
-             null is appended to the content path.  For example, if the servlet path is /servlet/browse (as is the case
-             in Discover GS), the content path will start with /browse.  If the servlet path is /servlet (as is the case
-             in Discover XMGR), nothing will be prefixed to the content path and the content path will only be the pathInfo.
-             If the servlet path is not in the servletPathMap and does not start with the defaultServletRoot (e.g. /json),
-             then the content path will just be the pathInfo. --> 
-        <property name="defaultServletRoot" value="/servlet"/>   
-    </bean>
-    
-     <bean id="siteDirectory" scope="singleton" init-method="init" class="com.ydg.endeca.site.SiteDirectory">        
-         <property name="sites">
-            <list>
-                <bean class="com.ydg.endeca.site.Site">
-                    <property name="id" value="yl"/>
-                    <property name="name" value="YLighting"/>
-                    <property name="contextPath" value="ylighting"/>
-                </bean>
-                <bean class="com.ydg.endeca.site.Site">
-                    <property name="id" value="yb"/>
-                    <property name="name" value="YBath"/>
-                    <property name="contextPath" value="ybath"/>
-                </bean>
-                <bean class="com.ydg.endeca.site.Site">
-                    <property name="id" value="yv"/>
-                    <property name="name" value="YLiving"/>
-                    <property name="contextPath" value="yliving"/>
-                </bean>
-            </list>
-        </property>
-    </bean>
+	<!-- Create a properties object -->
+	<bean id="properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="WEB-INF/assembler.properties" />
+	</bean>
+
+	<bean id="cartridgeShare" class="com.ydg.endeca.utils.CartridgeShare"
+		scope="request">
+	</bean>
+
+	<!-- Expose the properties object to spring -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="properties" />
+	</bean>
+
+	<import resource="endeca-seo-url-config.xml" />
+
+	<bean id="springUtility" class="com.endeca.infront.web.spring.SpringUtility"
+		scope="singleton" />
+
+	<!-- ######################################################################## 
+		# ASSEMBLER SERVLET RESPONSE WRITERS # # Each response writer is required 
+		if you wish to use the Assembler # Servlet with the corresponding type of 
+		output (e.g., if you want to # configure the servlet to output JSON, then 
+		you need to define the # JsonResponseWriter here). # -->
+	<bean id="jsonResponseWriter" class="com.endeca.infront.assembler.servlet.JsonResponseWriter"
+		scope="singleton" />
+
+	<bean id="xmlResponseWriter" class="com.endeca.infront.assembler.servlet.XmlResponseWriter"
+		scope="singleton" />
+
+	<!-- ######################################################################## 
+		# ASSEMBLER FACTORY # # Required. # -->
+	<bean id="assemblerFactory"
+		class="com.endeca.infront.assembler.spring.SpringAssemblerFactory"
+		scope="singleton">
+		<constructor-arg>
+			<bean class="com.endeca.infront.assembler.AssemblerSettings">
+				<property name="previewEnabled" value="${preview.enabled}" />
+				<property name="previewModuleUrl" value="http://localhost:8006/ifcr" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<bean class="com.endeca.infront.logger.SLF4JAssemblerEventLogger" />
+				<bean
+					class="com.endeca.infront.assembler.event.request.ContentItemAugmentAdapter">
+					<constructor-arg ref="springUtility" />
+				</bean>
+				<!-- Remove the following lines to disable logging to an Oracle Endeca 
+					Log Server -->
+				<bean class="com.endeca.infront.navigation.event.LogServerAdapter">
+					<constructor-arg ref="springUtility" />
+					<constructor-arg value="${logserver.host}" />
+					<constructor-arg value="${logserver.port}" />
+					<constructor-arg value="${logserver.sslEnabled}" />
+				</bean>
+				<!-- Remove up to here to disable logging to an Oracle Endeca Log Server -->
+				<bean class="com.endeca.infront.navigation.url.event.CanonicalLinkBuilder">
+					<property name="objectLocator" ref="springUtility" />
+					<property name="recordStateId" value="recordState" />
+					<property name="navigationStateId" value="navigationState" />
+					<property name="siteStateId" value="siteState" />
+					<property name="includedParameters">
+						<list>
+							<value>R</value>
+							<value>A</value>
+							<value>N</value>
+							<value>Ntt</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- ######################################################################## 
+		# CARTRIDGE SUPPORT # # The following section configures managers and other 
+		supporting objects. # -->
+
+	<bean id="httpServletRequest" scope="request" factory-bean="springUtility"
+		factory-method="getHttpServletRequest" />
+
+	<bean id="mdexResource" scope="request"
+		class="com.ydg.endeca.query.YDesignMdexResource">
+		<property name="host" value="${mdex.host}" />
+		<property name="port" value="${mdex.port}" />
+		<property name="sslEnabled" value="${mdex.sslEnabled}" />
+		<property name="recordSpecName" value="common.id" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Navigation state (including record state) and related config -->
+
+	<bean id="defaultFilterState" scope="request"
+		class="com.endeca.infront.navigation.model.FilterState">
+		<!-- property name="rollupKey" value="product.code" / -->
+		<property name="autoPhraseEnabled" value="true" />
+		<!-- <property name="securityFilter" value="" /> -->
+		<!-- <property name="languageId" value="en" /> -->
+	</bean>
+
+	<bean id="navigationStateBuilder" scope="request"
+		class="com.ydg.endeca.navstate.YDGNavigationStateBuilder">
+		<property name="urlFormatter" ref="seoUrlFormatter" />
+		<property name="mdexRequestBroker" ref="mdexRequestBroker" />
+		<property name="defaultSearchKey" value="AllC10" />
+		<property name="defaultMatchMode" value="ALLPARTIAL" />
+		<property name="defaultFilterState" ref="defaultFilterState" />
+		<property name="siteState" ref="siteState" />
+		<property name="siteManager" ref="siteManager" />
+		<property name="siteDirectory" ref="siteDirectory" />
+		<property name="httpServletRequest" ref="httpServletRequest" />
+
+		<property name="removeAlways">
+			<list>
+				<value>contentText</value>
+				<value>Nty</value>
+				<value>Dy</value>
+				<value>collection</value>
+			</list>
+		</property>
+		<property name="removeOnUpdateFilterState">
+			<list>
+				<value>No</value>
+			</list>
+		</property>
+		<property name="removeOnClearFilterState">
+			<list>
+				<value>Ns</value>
+				<value>Nrpp</value>
+				<value>showMoreIds</value>
+				<value>Nrmc</value>
+			</list>
+		</property>
+		<property name="recordDetailsDimensionNames">
+			<list>
+				<value>product.category</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Changes to the bean id 'navigationState' will require an update to ~ the 
+		canonical.tag as it references this bean by id. -->
+	<bean id="navigationState" scope="request" factory-bean="navigationStateBuilder"
+		factory-method="parseNavigationState">
+		<constructor-arg ref="httpServletRequest" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Changes to the bean id 'recordState' will require an update to ~ the canonical.tag 
+		as it references this bean by id. -->
+	<bean id="recordState" scope="request" factory-bean="navigationStateBuilder"
+		factory-method="parseRecordState">
+		<constructor-arg ref="httpServletRequest" />
+	</bean>
+
+	<bean id="mdexRequestBroker" scope="request"
+		class="com.endeca.infront.navigation.MdexRequestBroker">
+		<constructor-arg ref="mdexResource" />
+		<!-- Debug Enabled Parameter. When set to true, allows debug information 
+			to be returned from the Assembler -->
+		<constructor-arg value="false" />
+	</bean>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ User Profiles -->
+	<bean id="previewUserStateBuilder" class="com.endeca.infront.content.PreviewUserStateBuilder"
+		scope="singleton" />
+
+	<bean id="previewUserState" scope="request" factory-bean="previewUserStateBuilder"
+		factory-method="createUserState">
+		<constructor-arg ref="httpServletRequest" />
+	</bean>
+
+	<bean id="liveUserState" class="com.endeca.infront.navigation.UserState"
+		scope="request" />
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Administration Service. -->
+	<bean id="adminService"
+		class="com.endeca.infront.assembler.servlet.admin.AdministrationService">
+		<property name="storeFactory" ref="${store.factory}" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Store Factories - Retrieve Content and Config. Stores are constructed ~ 
+		to store content and configuration specific to the application, and ~ shared 
+		by multiple internal assembler services. Not for use in custom ~ cartridge 
+		handlers. Internal use only. -->
+	<bean id="fileStoreFactory" class="com.endeca.infront.content.source.FileStoreFactory"
+		init-method="init">
+		<property name="configurationPath" value="${repository.configuration.path}" />
+	</bean>
+
+	<bean id="ecrStoreFactory" class="com.endeca.infront.content.source.EcrStoreFactory"
+		init-method="init" destroy-method="destroy">
+		<property name="isAuthoring" value="true" />
+		<property name="appName" value="${workbench.app.name}" />
+		<property name="host" value="${workbench.host}" />
+		<property name="clientPort" value="${workbench.publishing.clientPort}" />
+		<property name="serverPort" value="${workbench.publishing.serverPort}" />
+	</bean>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Content Sources -->
+	<bean id="defaultSiteRootPath" class="java.lang.String">
+		<constructor-arg value="${defaultSiteRootPath}" />
+	</bean>
+
+	<bean id="contentSource"
+		class="com.endeca.infront.content.source.WorkbenchContentSource"
+		scope="singleton" init-method="init" destroy-method="destroy">
+		<property name="storeFactory" ref="${store.factory}" />
+		<property name="defaultSiteRootPath" ref="defaultSiteRootPath" />
+		<property name="appName" value="${workbench.app.name}" />
+		<property name="siteManager" ref="siteManager" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ Media Sources -->
+	<bean id="liveMediaSources" class="java.util.ArrayList" lazy-init="true">
+		<constructor-arg>
+			<list>
+				<bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
+					<property name="sourceName" value="MediaSource" />
+					<property name="sourceValue" value="/images/" />
+				</bean>
+				<bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
+					<property name="sourceName" value="default" />
+					<property name="sourceValue" value="/images/" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="authoringMediaSources" class="java.util.ArrayList"
+		lazy-init="true">
+		<constructor-arg>
+			<list>
+				<bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
+					<property name="sourceName" value="MediaSource" />
+					<property name="sourceValue"
+						value="http://192.168.245.128:8006/ifcr/sites/${workbench.app.name}/media/" />
+				</bean>
+				<bean class="com.endeca.infront.cartridge.model.MediaSourceConfig">
+					<property name="sourceName" value="default" />
+					<property name="sourceValue"
+						value="http://192.168.245.128:8006/ifcr/sites/${workbench.app.name}/media/" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- ######################################################################## 
+		# CARTRIDGE HANDLERS # # The following section contains registered cartridge 
+		handlers. # # CartridgeHandler instances are registered in this file with 
+		the # following naming convention: # # CartridgeHandler_${CARTRIDGE_TYPE} 
+		# # Where ${CARTRIDGE_TYPE} refers to the 'template id' when constructing 
+		# cartridge templates for Experience Manager. # -->
+
+	<bean id="NavigationCartridgeHandler" abstract="true">
+		<property name="navigationState" ref="navigationState" />
+		<property name="mdexRequestBroker" ref="mdexRequestBroker" />
+		<property name="actionPathProvider" ref="actionPathProvider" />
+		<property name="siteState" ref="siteState" />
+	</bean>
+
+	<bean id="actionPathProvider" scope="request"
+		class="com.endeca.infront.refapp.navigation.BasicActionPathProvider">
+		<constructor-arg index="0" ref="contentSource" />
+		<constructor-arg index="1" ref="httpServletRequest" />
+		<!-- navigationActionUriMap -->
+		<constructor-arg index="2">
+			<map>
+				<entry key="^/pages/[^/]*/mobile/detail$" value="/mobile/browse" />
+				<entry key="^/pages/[^/]*/services/recorddetails/.*$" value="/services/guidedsearch" />
+				<entry key="^/pages/[^/]*/detail$" value="/browse" />
+				<entry key="^/services/.*$" value="/services/guidedsearch" />
+			</map>
+		</constructor-arg>
+		<!-- recordActionUriMap -->
+		<constructor-arg index="3">
+			<map>
+				<entry key="^/pages/[^/]*/mobile/.*$" value="/mobile/detail" />
+				<entry key="^/pages/[^/]*/services/.*$" value="/services/recorddetails" />
+				<entry key="^/pages/[^/]*/.*$" value="/detail" />
+				<entry key="^/services/.*$" value="/recorddetails" />
+			</map>
+		</constructor-arg>
+		<constructor-arg index="4" ref="siteState" />
+	</bean>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_Breadcrumbs -->
+	<bean id="CartridgeHandler_Breadcrumbs" class="com.ydg.endeca.cartridge.handler.YDGBreadcrumbsHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="cartridgeShare" ref="cartridgeShare" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_ResultsList -->
+	<bean id="resultsListDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.ResultsListConfig">
+		<!-- <property name="whyMatchEnabled" value="true"/> -->
+		<!-- <property name="whyRankEnabled" value="true"/> -->
+		<property name="fieldNames">
+			<list>
+				<value>yl_image</value>
+				<value>yv_image</value>
+				<value>yb_image</value>
+				<value>name</value>
+				<value>price_retail</value>
+				<value>price_sale</value>
+				<value>price_sort_max</value>
+				<value>price_sort_min</value>
+				<value>reviews_star_rating</value>
+				<value>reviews_count</value>
+				<value>Brands</value>
+				<value>Is_free_shipping</value>
+				<value>Quick_ship</value>
+				<value>Lamp_type</value>
+				<value>Color</value>
+				<value>description_short</value>
+				<value>p_customer_ratings</value>
+				<value>unique_id</value>
+			</list>
+		</property>
+		<property name="subRecordsPerAggregateRecord" value="ALL" />
+		<property name="subRecordFieldNames">
+			<list>
+			</list>
+		</property>
+		<property name="sortOption">
+			<bean class="com.endeca.infront.navigation.model.SortOption">
+				<property name="label" value="Most Sales" />
+				<property name="sorts">
+					<list>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="relRankKey" value="All" />
+		<property name="relRankMatchMode" value="ALLPARTIAL" />
+		<property name="relRankStrategy"
+			value="nterms,maxfield,exact,static(product.analytics.conversion_rate,descending)" />
+		<property name="recordsPerPage" value="12" />
+		<property name="recordDisplayFieldName" value="product.name" />
+	</bean>
+
+
+
+	<util:list id="resultsListSortOptions" scope="prototype">
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Relevance" />
+			<property name="value" value="" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Price (Ascending)" />
+			<property name="value" value="price_sort_min|0" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Price (Descending)" />
+			<property name="value" value="price_sort_max|1" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Rating (Ascending)" />
+			<property name="value" value="p_customer_ratings|0" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Rating (Descending)" />
+			<property name="value" value="p_customer_ratings|1" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Newest" />
+			<property name="value" value="metric_days_on_site|0" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Name (Ascending)" />
+			<property name="value" value="name|0" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Name (Descending)" />
+			<property name="value" value="name|1" />
+		</bean>
+
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Best Sellers (Descending)" />
+			<property name="value" value="placeholder|1" />
+		</bean>
+		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
+			<property name="label" value="Best Sellers (Ascending)" />
+			<property name="value" value="placeholder|0" />
+		</bean>
+	</util:list>
+
+	<bean id="resultsListRequestParamMarshaller" scope="prototype"
+		class="com.endeca.infront.cartridge.ResultsListRequestParamMarshaller">
+		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+
+	<bean id="resultsListConfigInitializer" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="resultsListDefaultConfig" />
+		<property name="requestParamMarshaller" ref="resultsListRequestParamMarshaller" />
+	</bean>
+
+	<bean id="CartridgeHandler_ResultsList" class="com.ydg.endeca.cartridge.handler.YDGResultsListHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="resultsListConfigInitializer" />
+		<property name="sortOptions" ref="resultsListSortOptions" />
+		<property name="cartridgeShare" ref="cartridgeShare" />
+	</bean>
+
+	<bean id="CartridgeHandler_SearchInfo" class="com.ydg.endeca.cartridge.handler.SearchInfoHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="cartridgeShare" ref="cartridgeShare" />
+	</bean>
+
+	<bean id="CartridgeHandler_BrandLogo" class="com.ydg.endeca.cartridge.handler.BrandLogoHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+	</bean>
+
+	<bean id="CartridgeHandler_TwoColumnPage" class="com.ydg.endeca.cartridge.handler.TwoColumnPageHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="cartridgeShare" ref="cartridgeShare" />
+	</bean>
+
+
+	<!-- BEGIN Cartridge Results List Type Ahead/AutoSuggest -->
+
+	<bean id="resultsListConfigInitializerAutoSuggest" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="resultsListDefaultConfigAutoSuggest" />
+		<property name="requestParamMarshaller" ref="resultsListRequestParamMarshaller" />
+	</bean>
+
+	<bean id="resultsListDefaultConfigAutoSuggest" scope="prototype"
+		class="com.endeca.infront.cartridge.ResultsListConfig">
+		<!-- <property name="whyMatchEnabled" value="true"/> -->
+		<!-- <property name="whyRankEnabled" value="true"/> -->
+		<property name="fieldNames">
+			<list>
+				<value>name</value>
+			</list>
+		</property>
+		<property name="subRecordsPerAggregateRecord" value="ALL" />
+		<property name="subRecordFieldNames">
+			<list>
+			</list>
+		</property>
+		<property name="relRankKey" value="AllC10" />
+		<property name="relRankMatchMode" value="ALLPARTIAL" />
+		<!-- <property name="relRankStrategy" value="nterms,maxfield,exact,static(product.analytics.conversion_rate,descending)" 
+			/> -->
+		<property name="recordsPerPage" value="12" />
+		<property name="recordDisplayFieldName" value="product.name" />
+	</bean>
+	<bean id="CartridgeHandler_ResultsListAutoSuggestItem"
+		class="com.ydg.endeca.cartridge.handler.YDGResultsListAutoSuggestHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="resultsListConfigInitializerAutoSuggest" />
+	</bean>
+
+	<!-- END Cartridge Results List Type Ahead/AutoSuggest -->
+
+
+	<bean id="CartridgeHandler_CrossSiteResultsList"
+		class="com.ydg.endeca.cartridge.handler.CrossSitesResultsListHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="resultsListConfigInitializer" />
+		<property name="sortOptions" ref="resultsListSortOptions" />
+		<property name="siteDirectory" ref="siteDirectory" />
+	</bean>
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_RefinementMenu -->
+	<bean id="refinementMenuDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.RefinementMenuConfig">
+		<property name="moreLinkText" value="More..." />
+		<property name="lessLinkText" value="Less..." />
+		<!-- <property name="whyPrecedenceRuleFired" value="true"/> -->
+	</bean>
+
+	<bean id="refinementMenuRequestParamMarshaller" scope="prototype"
+		class="com.endeca.infront.cartridge.RefinementMenuRequestParamMarshaller">
+		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+
+	<bean id="refinementMenuConfigInitializer" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="refinementMenuDefaultConfig" />
+		<property name="requestParamMarshaller" ref="refinementMenuRequestParamMarshaller" />
+	</bean>
+
+	<bean id="CartridgeHandler_RefinementMenu" class="com.endeca.infront.cartridge.RefinementMenuHandler"
+		scope="prototype" parent="NavigationCartridgeHandler">
+		<property name="contentItemInitializer" ref="refinementMenuConfigInitializer" />
+	</bean>
+
+	<bean id="CartridgeHandler_SearchableRefinementMenu" class="com.endeca.infront.cartridge.RefinementMenuHandler"
+		scope="prototype" parent="NavigationCartridgeHandler">
+		<property name="contentItemInitializer" ref="refinementMenuConfigInitializer" />
+	</bean>
+	
+	
+	<bean id="CartridgeHandler_PriceSlider" class="com.ydg.endeca.cartridge.handler.PriceSliderHandler"
+		scope="prototype" parent="NavigationCartridgeHandler">
+		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+	
+	
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_DimensionSearchResults -->
+	<bean id="dimensionSearchResultsDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.DimensionSearchResultsConfig">
+		<property name="relRankStrategy" value="exact,static(nbins,desc)" />
+		<property name="enabled" value="true" />
+		<property name="showCountsEnabled" value="true" />
+		<property name="dimensionList">
+			<list>
+				<value>100972</value> <!-- product.category -->
+				<value>20001</value>  <!-- product.brand.name -->
+				<value>100031</value> <!-- product.features -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dimensionSearchResultsRequestParamMarchaller" scope="prototype"
+		class="com.endeca.infront.cartridge.DimensionSearchResultsRequestParamMarshaller">
+		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+
+	<bean id="DimensionSearchResultsConfigInitializer" class="com.endeca.infront.cartridge.ConfigInitializer"
+		scope="prototype">
+		<property name="defaults" ref="dimensionSearchResultsDefaultConfig" />
+		<property name="requestParamMarshaller" ref="dimensionSearchResultsRequestParamMarchaller" />
+	</bean>
+
+	<bean id="CartridgeHandler_DimensionSearchResults"
+		class="com.endeca.infront.cartridge.DimensionSearchResultsHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="DimensionSearchResultsConfigInitializer" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_DimensionSearchAutoSuggestItem -->
+	<bean id="CartridgeHandler_DimensionSearchAutoSuggestItem"
+		class="com.ydg.endeca.cartridge.handler.YDGDimensionSearchResultsHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="DimensionSearchResultsConfigInitializer" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_ProductDetail -->
+	<bean id="CartridgeHandler_ProductDetail" class="com.endeca.infront.cartridge.RecordDetailsHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="recordState" ref="recordState" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_RecordSpotlight -->
+	<bean id="recordSpotlightDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.RecordSpotlightConfig">
+		<property name="fieldNames">
+			<list>
+				<value>name</value>
+				<value>description_short</value>
+				<value>Brand</value>
+				<value>price_retail</value>
+				<value>p_customer_ratings</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="recordSpotlightConfigInitializer" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="recordSpotlightDefaultConfig" />
+	</bean>
+
+	<bean id="CartridgeHandler_RecordSpotlight" class="com.endeca.infront.cartridge.RecordSpotlightHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="recordSpotlightConfigInitializer" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_HorizontalRecordSpotlight -->
+	<bean id="CartridgeHandler_HorizontalRecordSpotlight" parent="CartridgeHandler_RecordSpotlight"
+		scope="prototype" />
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_SearchAdjustments -->
+	<bean id="searchAdjustmentsDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.SearchAdjustmentsConfig">
+		<!-- <property name="showWordInterp" value="true"/> -->
+	</bean>
+
+	<bean id="searchAdjustmentsRequestParamMarshaller" scope="prototype"
+		class="com.endeca.infront.cartridge.SearchAdjustmentsRequestParamMarshaller">
+		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+
+	<bean id="searchAdjustmentsConfigInitializer" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="searchAdjustmentsDefaultConfig" />
+		<property name="requestParamMarshaller" ref="searchAdjustmentsRequestParamMarshaller" />
+	</bean>
+
+	<bean id="CartridgeHandler_SearchAdjustments" class="com.endeca.infront.cartridge.SearchAdjustmentsHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="searchAdjustmentsConfigInitializer" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_MediaBanner -->
+	<bean id="CartridgeHandler_MediaBanner" class="com.endeca.infront.cartridge.MediaBannerHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="mediaSourceList" ref="${media.sources.ref}" />
+		<property name="navigationStateBuilder" ref="navigationStateBuilder" />
+		<property name="contentSource" ref="contentSource" />
+	</bean>
+
+	<bean id="CartridgeHandler_Banner" class="com.endeca.infront.cartridge.MediaBannerHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="mediaSourceList" ref="${media.sources.ref}" />
+		<property name="navigationStateBuilder" ref="navigationStateBuilder" />
+		<property name="contentSource" ref="contentSource" />
+	</bean>
+
+	<bean id="CartridgeHandler_Sale" class="com.endeca.infront.cartridge.MediaBannerHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="mediaSourceList" ref="${media.sources.ref}" />
+		<property name="navigationStateBuilder" ref="navigationStateBuilder" />
+		<property name="contentSource" ref="contentSource" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_NavigationContainer -->
+	<bean id="navigationContainerDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.NavigationContainerConfig">
+		<property name="whyPrecedenceRuleFired" value="true" />
+		<property name="moreLinkText" value="More..." />
+		<property name="lessLinkText" value="Less..." />
+	</bean>
+
+	<bean id="navigationContainerRequestParamMarshaller" scope="prototype"
+		class="com.endeca.infront.cartridge.NavigationContainerRequestParamMarshaller">
+		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+
+	<bean id="navigationContainerConfigInitializer" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="navigationContainerDefaultConfig" />
+		<property name="requestParamMarshaller" ref="navigationContainerRequestParamMarshaller" />
+	</bean>
+
+	<bean id="CartridgeHandler_NavigationContainer" class="com.endeca.infront.cartridge.NavigationContainerHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="contentItemInitializer" ref="navigationContainerConfigInitializer" />
+		<property name="refinementMenuType" value="RefinementMenu" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_ContentSlotList -->
+	<bean id="contentSlotListDefaultConfig" scope="prototype"
+		class="com.endeca.infront.cartridge.ContentSlotListConfig">
+		<property name="contentSlotList">
+			<list>
+				<bean class="com.endeca.infront.cartridge.ContentSlotConfig">
+					<property name="contentPaths">
+						<list>
+							<value>/content/Right Column Spotlights</value>
+						</list>
+					</property>
+					<property name="templateTypes">
+						<list>
+							<value>RecordSpotlight</value>
+						</list>
+					</property>
+					<property name="templateIds">
+						<list />
+					</property>
+					<property name="ruleLimit" value="3" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="contentSlotListConfigInitializer" scope="prototype"
+		class="com.endeca.infront.cartridge.ConfigInitializer">
+		<property name="defaults" ref="contentSlotListDefaultConfig" />
+	</bean>
+
+	<bean id="CartridgeHandler_ContentSlotList" class="com.endeca.infront.cartridge.ContentSlotListHandler"
+		scope="prototype">
+		<property name="contentItemInitializer" ref="contentSlotListConfigInitializer" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_ContentInclude ~ Used by the assembler service when 
+		keyword redirects are not enabled -->
+	<bean id="CartridgeHandler_ContentInclude" class="com.endeca.infront.cartridge.ContentIncludeHandler"
+		scope="prototype">
+		<property name="contentSource" ref="contentSource" />
+		<property name="siteState" ref="siteState" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_RedirectAwareContentInclude ~ For root calls to 
+		the assembler when keyword redirects are desired -->
+	<bean id="CartridgeHandler_RedirectAwareContentInclude"
+		class="com.endeca.infront.cartridge.RedirectAwareContentIncludeHandler"
+		scope="prototype">
+		<property name="contentSource" ref="contentSource" />
+		<property name="contentBroker" ref="contentRequestBroker" />
+		<property name="navigationState" ref="navigationState" />
+		<property name="defaultFullAssembleOnRedirect" value="false" />
+		<property name="siteState" ref="siteState" />
+	</bean>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: RootContentItem ~ Specify the root content item to be processed for 
+		the Assembler service -->
+	<bean id="rootContentItem"
+		class="com.endeca.infront.cartridge.RedirectAwareContentInclude"
+		scope="request">
+	</bean>
+
+	<bean id="pathInfo" scope="request" factory-bean="httpServletRequest"
+		factory-method="getPathInfo" />
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		~ BEAN: CartridgeHandler_ContentSlot -->
+
+	<bean id="contentRequestBroker" scope="request"
+		class="com.endeca.infront.content.MdexContentRequestBroker">
+		<constructor-arg ref="mdexResource" />
+		<constructor-arg ref="navigationState" />
+		<constructor-arg ref="${user.state.ref}" />
+		<constructor-arg ref="siteState" />
+		<constructor-arg value="${preview.enabled}" />
+	</bean>
+
+	<bean id="CartridgeHandler_ContentSlot" class="com.endeca.infront.cartridge.ContentSlotHandler"
+		scope="prototype">
+		<property name="contentSource" ref="contentSource" />
+		<property name="contentBroker" ref="contentRequestBroker" />
+	</bean>
+
+	<bean id="CartridgeHandler_ContentSlotHeader" parent="CartridgeHandler_ContentSlot"
+		scope="prototype" />
+
+	<bean id="CartridgeHandler_ContentSlotSecondary" parent="CartridgeHandler_ContentSlot"
+		scope="prototype" />
+
+	<bean id="CartridgeHandler_ContentSlotMain" parent="CartridgeHandler_ContentSlot"
+		scope="prototype" />
+
+	<bean id="CartridgeHandler_PageSlot" parent="CartridgeHandler_ContentSlot"
+		scope="prototype" />
+
+	<!-- Multisite Configuration -->
+	<bean id="siteManager" class="com.endeca.infront.site.SiteManager"
+		scope="singleton">
+		<property name="storeFactory" ref="contentSource" />
+		<property name="defaultSiteRootPath" ref="defaultSiteRootPath" />
+	</bean>
+
+	<bean id="siteStateBuilder" class="com.endeca.infront.site.SiteStateBuilder"
+		scope="singleton">
+		<property name="siteManager" ref="siteManager" />
+		<property name="siteStateParsers">
+			<list>
+				<bean class="com.endeca.infront.site.UrlPatternParser" />
+				<bean class="com.endeca.infront.site.RequestParamParser">
+					<property name="enabled" value="${preview.enabled}" />
+				</bean>
+			</list>
+		</property>
+		<property name="defaultSiteStateParser">
+			<bean class="com.endeca.infront.site.DefaultSiteParser" />
+		</property>
+		<property name="contentPathTranslator" ref="contentPathTranslator" />
+	</bean>
+
+	<bean id="siteState" scope="request" factory-bean="siteStateBuilder"
+		factory-method="createSiteState">
+		<constructor-arg ref="httpServletRequest" />
+	</bean>
+
+	<bean id="contentPathTranslator" class="com.endeca.infront.site.BasicContentPathTranslator"
+		scope="singleton">
+		<!-- servletPathMap defines how servlet path should be translated to content 
+			path. If the servletPath matches the key, we will use the value as the base 
+			of the content path. The pathInfo if not null is appended to form the complete 
+			content path. -->
+		<property name="servletPathMap">
+			<map>
+				<entry key="/servlet/admin" value="" />
+				<entry key="/servlet/autosuggest.json" value="" />
+				<entry key="/servlet/clicklog" value="" />
+				<entry key="/servlet/link.json" value="" />
+				<entry key="/servlet/sitemap" value="" />
+			</map>
+		</property>
+		<!-- if no match was found in the the servletPathMap, we will next attempt 
+			to remove the defaultServletRoot from the servletPath if the servlet path 
+			starts with the defaultServletRoot string. The pathInfo if not null is appended 
+			to the content path. For example, if the servlet path is /servlet/browse 
+			(as is the case in Discover GS), the content path will start with /browse. 
+			If the servlet path is /servlet (as is the case in Discover XMGR), nothing 
+			will be prefixed to the content path and the content path will only be the 
+			pathInfo. If the servlet path is not in the servletPathMap and does not start 
+			with the defaultServletRoot (e.g. /json), then the content path will just 
+			be the pathInfo. -->
+		<property name="defaultServletRoot" value="/servlet" />
+	</bean>
+
+	<bean id="siteDirectory" scope="singleton" init-method="init"
+		class="com.ydg.endeca.site.SiteDirectory">
+		<property name="sites">
+			<list>
+				<bean class="com.ydg.endeca.site.Site">
+					<property name="id" value="yl" />
+					<property name="name" value="YLighting" />
+					<property name="contextPath" value="ylighting" />
+				</bean>
+				<bean class="com.ydg.endeca.site.Site">
+					<property name="id" value="yb" />
+					<property name="name" value="YBath" />
+					<property name="contextPath" value="ybath" />
+				</bean>
+				<bean class="com.ydg.endeca.site.Site">
+					<property name="id" value="yv" />
+					<property name="name" value="YLiving" />
+					<property name="contextPath" value="yliving" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 </beans>

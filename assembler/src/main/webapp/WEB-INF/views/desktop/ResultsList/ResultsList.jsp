@@ -105,9 +105,11 @@
                                
                                         <!-- not aggregated record, just output price here -->
                                         <fmt:formatNumber
-                                            value="${record.attributes['price_retail'][0]}"
+                                            value="${record.attributes['price_sort_min'][0]}"
+                                            type="currency" /> - 
+                                            <fmt:formatNumber
+                                            value="${record.attributes['price_sort_max'][0]}"
                                             type="currency" />
-                                  
                             </div>
                             <c:if test="${record.numRecords eq 1}">
                                 <div class="addToCart">

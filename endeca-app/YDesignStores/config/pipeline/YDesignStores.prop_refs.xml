@@ -86,4 +86,20 @@
 
   <PROP_REF NAME="S_TA_20" TYPE="ALPHA"/>
 
+  <PROP_REF NAME="P_Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="category_name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yv_metric_total_detail_views" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yl_metric_total_detail_views" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="yb_metric_total_detail_views" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="brand_name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="collection_name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="designer_name" TYPE="ALPHA"/>
+
 </PROP_REFS>

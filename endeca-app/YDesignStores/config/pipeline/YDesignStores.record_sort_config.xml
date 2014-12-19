@@ -28,4 +28,10 @@
 
   <RECORD_SORT NAME="metric_days_on_site"/>
 
+  <RECORD_SORT NAME="yv_metric_total_detail_views"/>
+
+  <RECORD_SORT NAME="yl_metric_total_detail_views"/>
+
+  <RECORD_SORT NAME="yb_metric_total_detail_views"/>
+
 </RECORD_SORT_CONFIG>

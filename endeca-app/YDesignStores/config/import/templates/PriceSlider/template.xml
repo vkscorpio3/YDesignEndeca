@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008" 
+                 type="Navigation">
+    <Description>Price range selector</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+    <ContentItem>
+        <Name>Price Slider</Name>
+    </ContentItem>
+    <EditorPanel>
+        <BasicContentItemEditor />
+    </EditorPanel>
+</ContentTemplate>
