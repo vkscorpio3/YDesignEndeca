@@ -1,7 +1,7 @@
 {
     "recDisplayNameProp" : "name",
-    "recSpecProp": "unique_id",
-    "recAggregationKey": "",
+    "recSpecProp": "recordSpec",
+    "recAggregationKey": "rollupKey",
     "recFilter": "",
     "recImgUrlProp" : "",
     "recDisplayProps": [ "name", "price_retail", "description_short" ],

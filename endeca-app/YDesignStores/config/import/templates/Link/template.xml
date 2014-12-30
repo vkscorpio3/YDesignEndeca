@@ -7,18 +7,35 @@
     <ThumbnailUrl>thumbnail.jpg</ThumbnailUrl>
     <ContentItem>
         <Name>Link</Name>
-        <Property name="url">
-            <String></String>
+	 <Property name="link">
+          <Item class="com.endeca.infront.cartridge.model.LinkBuilder" xmlns="http://endeca.com/schema/xavia/2010">
+            <Property name="path"></Property>
+            <Property name="linkType"></Property>
+            <Property name="queryString"></Property>
+          </Item>
         </Property>
         <Property name="text">
             <String></String>
         </Property>
+        
+        <Property name="media">
+          <Item class="com.endeca.infront.cartridge.model.MediaObject" xmlns="http://endeca.com/schema/xavia/2010">
+            <Property name="uri"></Property>
+            <Property name="contentWidth"></Property>
+            <Property name="contentHeight"></Property>
+            <Property name="contentBytes"></Property>
+            <Property name="contentType"></Property>
+            <Property name="contentSrcKey"></Property>
+          </Item>
+        </Property>
+        
+        
     </ContentItem>
     <EditorPanel>
         <BasicContentItemEditor>
             <GroupLabel label="${group.config.label}"/>
-            <editors:StringEditor propertyName="url" label="${property.url.label}" enabled="true" height="72"/>
             <editors:StringEditor propertyName="text" label="${property.text.label}" enabled="true" height="72"/>
+            <editors:LinkBuilderEditor propertyName="link" label="Link" enabled="true"/> 
         </BasicContentItemEditor>
     </EditorPanel>
 </ContentTemplate>

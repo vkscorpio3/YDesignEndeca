@@ -333,7 +333,7 @@
 				<value>Lamp_type</value>
 				<value>Color</value>
 				<value>description_short</value>
-				<value>p_customer_ratings</value>
+				<value>reviews_star_rating</value>
 				<value>unique_id</value>
 			</list>
 		</property>
@@ -374,13 +374,13 @@
 			<property name="label" value="Price (Descending)" />
 			<property name="value" value="price_sort_max|1" />
 		</bean>
-		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-			<property name="label" value="Rating (Ascending)" />
-			<property name="value" value="p_customer_ratings|0" />
-		</bean>
+<!-- 		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig"> -->
+<!-- 			<property name="label" value="Rating (Ascending)" /> -->
+<!-- 			<property name="value" value="reviews_star_rating|0" /> -->
+<!-- 		</bean> -->
 		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
 			<property name="label" value="Rating (Descending)" />
-			<property name="value" value="p_customer_ratings|1" />
+			<property name="value" value="reviews_star_rating|1" />
 		</bean>
 		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
 			<property name="label" value="Newest" />
@@ -397,12 +397,12 @@
 
 		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
 			<property name="label" value="Best Sellers (Descending)" />
-			<property name="value" value="placeholder|1" />
+			<property name="value" value="net_bookings|1" />
 		</bean>
-		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig">
-			<property name="label" value="Best Sellers (Ascending)" />
-			<property name="value" value="placeholder|0" />
-		</bean>
+<!-- 		<bean class="com.endeca.infront.cartridge.model.SortOptionConfig"> -->
+<!-- 			<property name="label" value="Best Sellers (Ascending)" /> -->
+<!-- 			<property name="value" value="net_bookings|0" /> -->
+<!-- 		</bean> -->
 	</util:list>
 
 	<bean id="resultsListRequestParamMarshaller" scope="prototype"
@@ -431,6 +431,18 @@
 	<bean id="CartridgeHandler_BrandLogo" class="com.ydg.endeca.cartridge.handler.BrandLogoHandler"
 		parent="NavigationCartridgeHandler" scope="prototype">
 	</bean>
+	
+	<bean id="CartridgeHandler_CategoryHeading" class="com.ydg.endeca.cartridge.handler.CategoryHeadingHandler"
+	parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="cartridgeShare" ref="cartridgeShare" />
+		<property name="templateId" value="CategoryHeading" />	
+	</bean>
+
+	<bean id="CartridgeHandler_CategoryText" class="com.ydg.endeca.cartridge.handler.CategoryHeadingHandler"
+	parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="cartridgeShare" ref="cartridgeShare" />
+		<property name="templateId" value="CategoryText" />	
+	</bean>	
 
 	<bean id="CartridgeHandler_TwoColumnPage" class="com.ydg.endeca.cartridge.handler.TwoColumnPageHandler"
 		parent="NavigationCartridgeHandler" scope="prototype">
@@ -505,20 +517,27 @@
 		<property name="requestParamMarshaller" ref="refinementMenuRequestParamMarshaller" />
 	</bean>
 
-	<bean id="CartridgeHandler_RefinementMenu" class="com.endeca.infront.cartridge.RefinementMenuHandler"
-		scope="prototype" parent="NavigationCartridgeHandler">
+	<bean id="CartridgeHandler_RefinementMenu" class="com.ydg.endeca.cartridge.handler.YDGRefinementMenuHandler"
+		scope="prototype" parent="NavigationCartridgeHandler">		
 		<property name="contentItemInitializer" ref="refinementMenuConfigInitializer" />
+		<property name="cartridgeShare" ref="cartridgeShare" />		
 	</bean>
 
-	<bean id="CartridgeHandler_SearchableRefinementMenu" class="com.endeca.infront.cartridge.RefinementMenuHandler"
+	<bean id="CartridgeHandler_SearchableRefinementMenu" class="com.ydg.endeca.cartridge.handler.YDGRefinementMenuHandler"
 		scope="prototype" parent="NavigationCartridgeHandler">
 		<property name="contentItemInitializer" ref="refinementMenuConfigInitializer" />
+		<property name="cartridgeShare" ref="cartridgeShare" />				
 	</bean>
 	
 	
 	<bean id="CartridgeHandler_PriceSlider" class="com.ydg.endeca.cartridge.handler.PriceSliderHandler"
 		scope="prototype" parent="NavigationCartridgeHandler">
 		<property name="httpServletRequest" ref="httpServletRequest" />
+	</bean>
+	
+	<bean id="CartridgeHandler_GuidedNavigation" class="com.ydg.endeca.cartridge.handler.GuidedNavigationHandler"
+		scope="prototype" parent="NavigationCartridgeHandler">		
+		<property name="cartridgeShare" ref="cartridgeShare" />		
 	</bean>
 	
 	
@@ -579,9 +598,9 @@
 			<list>
 				<value>name</value>
 				<value>description_short</value>
-				<value>Brand</value>
+				<value>Brands</value>
 				<value>price_retail</value>
-				<value>p_customer_ratings</value>
+				<value>reviews_star_rating</value>
 			</list>
 		</property>
 	</bean>
@@ -634,6 +653,13 @@
 	</bean>
 
 	<bean id="CartridgeHandler_Banner" class="com.endeca.infront.cartridge.MediaBannerHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="mediaSourceList" ref="${media.sources.ref}" />
+		<property name="navigationStateBuilder" ref="navigationStateBuilder" />
+		<property name="contentSource" ref="contentSource" />
+	</bean>
+	
+	<bean id="CartridgeHandler_Link" class="com.endeca.infront.cartridge.MediaBannerHandler"
 		parent="NavigationCartridgeHandler" scope="prototype">
 		<property name="mediaSourceList" ref="${media.sources.ref}" />
 		<property name="navigationStateBuilder" ref="navigationStateBuilder" />
@@ -770,7 +796,10 @@
 		scope="prototype" />
 
 	<bean id="CartridgeHandler_PageSlot" parent="CartridgeHandler_ContentSlot"
-		scope="prototype" />
+		scope="prototype" class="com.ydg.endeca.cartridge.handler.YDGPageSlotHandler">
+		<property name="cartridgeShare" ref="cartridgeShare" />	
+		<property name="assemblerFactory" ref="assemblerFactory" />	
+	</bean>
 
 	<!-- Multisite Configuration -->
 	<bean id="siteManager" class="com.endeca.infront.site.SiteManager"

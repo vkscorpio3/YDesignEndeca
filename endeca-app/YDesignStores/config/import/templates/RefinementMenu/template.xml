@@ -38,6 +38,9 @@
         <Property name="buryRefinements">
             <xavia:List/>
         </Property>
+        <Property name="enableInlineCrumbs">
+	        <Boolean>false</Boolean>        
+        </Property>
     </ContentItem>
     <EditorPanel>
         <BasicContentItemEditor>
@@ -51,12 +54,15 @@
             <editors:BoostBuryEditor propertyName="boostRefinements" buryProperty="buryRefinements" label="${property.boostBury.label}" dimensionIdProperty="dimensionId" enabled="true"/>
             <GroupLabel label="${group.size.label}"/>
             <editors:NumericStepperEditor propertyName="numRefinements" label="${property.numRefinements.label}" maxValue="10000" enabled="true"/>
+			<GroupLabel label="Multiselect Advanced Options"/>
+             <editors:BooleanEditor propertyName="enableInlineCrumbs" label="Enable Inline Breadcrumb Checkbox" enabled="true"/>
             <GroupLabel label="${group.moreLink.label}"/>
             <editors:BooleanEditor propertyName="showMoreLink" label="${property.showMoreLink.label}" enabled="true"/>
             <editors:StringEditor propertyName="moreLinkText" label="${property.moreLinkText.label}" enabled="true"/>
             <editors:StringEditor propertyName="lessLinkText" label="${property.lessLinkText.label}" enabled="true"/>
             <!-- TODO: Determine a way to make this limitless -->
             <editors:NumericStepperEditor propertyName="maxNumRefinements" label="${property.maxNumRefinements.label}" maxValue="100000" enabled="true"/>
+            
         </BasicContentItemEditor>
     </EditorPanel>
 </ContentTemplate>

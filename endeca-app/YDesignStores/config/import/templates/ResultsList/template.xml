@@ -38,21 +38,13 @@
         </Property>
          <Property name="crossSiteResults">
             <ContentItemList type="ResultsList" />
-        </Property>   
-        
-        <Property name="bestSellerSort">
-        	<String>yl_metric_net_bookings</String>
-        </Property>    
+        </Property>
+  
     </ContentItem>
     
     
     <EditorPanel>
         <BasicContentItemEditor>
-	         <editors:ChoiceEditor propertyName="bestSellerSort" label="Best Seller Sort by ">
-                <choice label="YLighting Net Bookings" value="yl_metric_net_bookings" />
-                <choice label="YLiving Net Bookings" value="yv_metric_net_bookings" />
-				<choice label="YBath Net Bookings" value="yb_metric_net_bookings" />
-            </editors:ChoiceEditor>
             
             <GroupLabel label="Results"/>            
             <editors:NumericStepperEditor label="${property.recordsPerPage.label}" propertyName="recordsPerPage" minValue="10" maxValue="100">

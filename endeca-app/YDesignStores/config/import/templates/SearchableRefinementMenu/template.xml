@@ -38,6 +38,9 @@
         <Property name="buryRefinements">
             <xavia:List/>
         </Property>
+        <Property name="enableInlineCrumbs">
+	        <Boolean>false</Boolean>        
+        </Property>
     </ContentItem>
     <EditorPanel>
         <BasicContentItemEditor>
@@ -51,7 +54,9 @@
             <editors:BoostBuryEditor propertyName="boostRefinements" buryProperty="buryRefinements" label="${property.boostBury.label}" dimensionIdProperty="dimensionId" enabled="true"/>
             <GroupLabel label="${group.size.label}"/>
             <editors:NumericStepperEditor propertyName="numRefinements" label="${property.numRefinements.label}" maxValue="20000" enabled="false"/>
-            
+          	<GroupLabel label="Multiselect Advanced Options"/>
+             <editors:BooleanEditor propertyName="enableInlineCrumbs" label="Enable Inline Breadcrumb Checkbox" enabled="true"/>
+              
         </BasicContentItemEditor>
     </EditorPanel>
 </ContentTemplate>

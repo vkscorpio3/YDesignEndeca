@@ -17,7 +17,6 @@
 		<module>assembler</module>
 		<module>java-manipulators</module>
 		<module>endeca-app</module>
-		<module>dev</module>
-		<module>dev-orend10</module>
+		<module>environments</module>
 	</modules>
 </project>

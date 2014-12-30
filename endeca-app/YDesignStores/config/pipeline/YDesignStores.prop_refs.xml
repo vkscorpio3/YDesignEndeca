@@ -2,8 +2,6 @@
 <!DOCTYPE PROP_REFS SYSTEM "prop_refs.dtd">
 <PROP_REFS>
 
-  <PROP_REF NAME="record_spec" TYPE="ALPHA"/>
-
   <PROP_REF NAME="PropertyName" TYPE="ALPHA"/>
 
   <PROP_REF NAME="PropertyValue" TYPE="ALPHA"/>
@@ -32,8 +30,6 @@
 
   <PROP_REF NAME="sort_default" TYPE="INTEGER"/>
 
-  <PROP_REF NAME="sort_rating" TYPE="INTEGER"/>
-
   <PROP_REF NAME="keyword" TYPE="ALPHA"/>
 
   <PROP_REF NAME="model_nos" TYPE="ALPHA"/>
@@ -50,13 +46,7 @@
 
   <PROP_REF NAME="price_sort_max" TYPE="DOUBLE"/>
 
-  <PROP_REF NAME="p_customer_ratings" TYPE="DOUBLE"/>
-
-  <PROP_REF NAME="yb_metric_net_bookings" TYPE="ALPHA"/>
-
-  <PROP_REF NAME="yl_metric_net_bookings" TYPE="ALPHA"/>
-
-  <PROP_REF NAME="yv_metric_net_bookings" TYPE="ALPHA"/>
+  <PROP_REF NAME="reviews_star_rating" TYPE="DOUBLE"/>
 
   <PROP_REF NAME="metric_days_on_site" TYPE="INTEGER"/>
 
@@ -90,16 +80,24 @@
 
   <PROP_REF NAME="category_name" TYPE="ALPHA"/>
 
-  <PROP_REF NAME="yv_metric_total_detail_views" TYPE="ALPHA"/>
-
-  <PROP_REF NAME="yl_metric_total_detail_views" TYPE="ALPHA"/>
-
-  <PROP_REF NAME="yb_metric_total_detail_views" TYPE="ALPHA"/>
-
   <PROP_REF NAME="brand_name" TYPE="ALPHA"/>
 
   <PROP_REF NAME="collection_name" TYPE="ALPHA"/>
 
   <PROP_REF NAME="designer_name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="net_bookings" TYPE="DOUBLE"/>
+
+  <PROP_REF NAME="net_bookings_qty" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="pageviews" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="recordSpec" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="p_store_id" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="reviews_count" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="rollupKey" TYPE="ALPHA"/>
 
 </PROP_REFS>

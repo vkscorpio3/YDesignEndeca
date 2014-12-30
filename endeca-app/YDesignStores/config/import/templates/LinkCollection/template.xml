@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+    xmlns:editors="editors" type="MainContent">
+    <Description>A collection of links</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+    <ContentItem>
+        <Name>Link Collection</Name>
+        <Property name="title">
+            <String></String>
+        </Property>
+        <Property name="links">
+            <ContentItemList type="LinkContent" />
+        </Property>
+    </ContentItem>
+
+    <EditorPanel>
+        <BasicContentItemEditor>
+            <editors:StringEditor propertyName="title" label="Title" enabled="true" />
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>

@@ -16,17 +16,11 @@
         <Property name="metaDescription">
             <String>Oracle Commerce reference application.</String>
         </Property>
-        <Property name="navContent">
-            <ContentItemList type="navContent" />
-        </Property>
         <Property name="headerContent">
             <ContentItemList type="HeaderContent" />
         </Property>
-        <Property name="mainContent">
-            <ContentItemList type="MainContent" />
-        </Property>
-        <Property name="mainContent">
-            <ContentItemList type="MainContent" />
+        <Property name="secondaryContent">
+            <ContentItemList type="SecondaryContent" />
         </Property>
         <Property name="mainContent">
             <ContentItemList type="MainContent" />

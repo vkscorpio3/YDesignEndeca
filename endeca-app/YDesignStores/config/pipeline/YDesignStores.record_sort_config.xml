@@ -12,26 +12,20 @@
 
   <RECORD_SORT NAME="sort_default"/>
 
-  <RECORD_SORT NAME="sort_rating"/>
-
   <RECORD_SORT NAME="price_sort_min"/>
 
   <RECORD_SORT NAME="price_sort_max"/>
 
-  <RECORD_SORT NAME="p_customer_ratings"/>
-
-  <RECORD_SORT NAME="yb_metric_net_bookings"/>
-
-  <RECORD_SORT NAME="yl_metric_net_bookings"/>
-
-  <RECORD_SORT NAME="yv_metric_net_bookings"/>
+  <RECORD_SORT NAME="reviews_star_rating"/>
 
   <RECORD_SORT NAME="metric_days_on_site"/>
 
-  <RECORD_SORT NAME="yv_metric_total_detail_views"/>
+  <RECORD_SORT NAME="net_bookings"/>
 
-  <RECORD_SORT NAME="yl_metric_total_detail_views"/>
+  <RECORD_SORT NAME="net_bookings_qty"/>
 
-  <RECORD_SORT NAME="yb_metric_total_detail_views"/>
+  <RECORD_SORT NAME="pageviews"/>
+
+  <RECORD_SORT NAME="reviews_count"/>
 
 </RECORD_SORT_CONFIG>

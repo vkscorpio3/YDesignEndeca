@@ -12,8 +12,13 @@ public class CartridgeShare extends BasicContentItem{
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
+	public static String SHARED_PROPERTY_BREADCRUMB = "breadcrumb";
+	public static String SHARED_PROPERTY_RESULTS_LIST = "resultsList";
+
+	
 	/** The post process cartridges. */
 	private List<PostprocessCartridgeHandler> postProcessCartridges = new ArrayList<PostprocessCartridgeHandler>();
+	
 	
 	/**
 	 * Gets the post process cartridges.

@@ -9,7 +9,7 @@
 	<c:choose>
 		<c:when test="${requestScope['localHorizontalSpotlightCounter'] eq null}">
 			<c:set var="localHorizontalSpotlightCounter" scope="page" value="1"/>
-		</c:when>
+		</c:when> 
 		<c:otherwise>
 		   	<c:set var="localHorizontalSpotlightCounter" scope="page" value="${localHorizontalSpotlightCounter+1}"/>
 		</c:otherwise>
@@ -83,7 +83,7 @@
 						<div>
 							<c:forEach begin="0" end="4" varStatus="status">
 								 <c:choose>
-									 <c:when test="${(record.attributes['p_customer_ratings'][0] + 0.5) ge (status.index + 1.0)}">
+									 <c:when test="${(record.attributes['reviews_star_rating'][0] + 0.5) ge (status.index + 1.0)}">
 									   <img alt="" src="<c:url value="/images/yellowstar.gif"/>">
 									 </c:when>
 									 <c:otherwise>

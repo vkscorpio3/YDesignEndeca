@@ -153,7 +153,7 @@
                                     <c:forEach begin="0" end="4" varStatus="i">
                                         <c:choose>
                                             <c:when
-                                                test="${(record.attributes['p_customer_ratings'][0] + 0.5) ge (i.index + 1.0)}">
+                                                test="${(record.attributes['reviews_star_rating'][0] + 0.5) ge (i.index + 1.0)}">
                                                 <img alt="" src="<c:url value="/images/yellowstar.gif"/>">
                                             </c:when>
                                             <c:otherwise>

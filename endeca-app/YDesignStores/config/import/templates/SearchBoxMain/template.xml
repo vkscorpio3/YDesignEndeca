@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
+                 xmlns:xavia="http://endeca.com/schema/xavia/2010"
+                 xmlns:editors="editors" 
+                 type="MainContent">
+    <Description>${template.description}</Description>
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
+    <ContentItem>
+        <Name>Search Box</Name>
+        <Property name="contentPaths"><xavia:List/></Property>
+        <Property name="templateTypes">
+            <xavia:List>
+                <xavia:String>AutoSuggestPanel</xavia:String>
+            </xavia:List>
+        </Property>
+        <Property name="templateIds"><xavia:List/></Property>
+        <Property name="minAutoSuggestInputLength">
+            <String>1</String>
+        </Property>
+        <Property name="ruleLimit">
+            <String>1</String>
+        </Property>
+    </ContentItem>
+    <EditorPanel>
+        <BasicContentItemEditor>
+            <GroupLabel label="${group.autoSuggestConfig.label}"/>
+            <editors:DynamicSlotEditor/>
+            <editors:NumericStepperEditor propertyName="minAutoSuggestInputLength" 
+                label="${property.minAutoSuggestInputLength.label}" 
+                enabled="true"/>
+        </BasicContentItemEditor>
+    </EditorPanel>
+</ContentTemplate>

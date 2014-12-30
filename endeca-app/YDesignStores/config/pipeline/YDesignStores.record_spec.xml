@@ -2,6 +2,6 @@
 <!DOCTYPE RECORD_SPEC SYSTEM "record_spec.dtd">
 <RECORD_SPEC>
 
-  <PROPNAME>unique_id</PROPNAME>
+  <PROPNAME>recordSpec</PROPNAME>
 
 </RECORD_SPEC>
