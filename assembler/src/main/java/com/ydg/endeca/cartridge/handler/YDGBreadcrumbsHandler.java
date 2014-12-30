@@ -33,3 +33,4 @@ public class YDGBreadcrumbsHandler extends BreadcrumbsHandler{
 		this.cartridgeShare = cartridgeShare;
 	}
 }
+  

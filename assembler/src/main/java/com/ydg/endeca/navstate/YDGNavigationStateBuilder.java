@@ -30,7 +30,7 @@ public class YDGNavigationStateBuilder extends UrlNavigationStateBuilder {
 		NavigationState ret = super.parseNavigationState(queryString, pathInfo,
 				characterEncoding);
 		ret = addSiteFilters(ret, pathInfo);
-		ret = addPriceSliderFilters(ret);
+		ret = addPriceSliderFilters(ret);  
 		return ret;
 	}
 

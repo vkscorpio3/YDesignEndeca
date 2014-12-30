@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>endeca-app</module>
+		<module>assembler</module>
 	</modules>
 	
 </project>
