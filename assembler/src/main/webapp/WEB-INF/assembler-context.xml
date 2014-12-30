@@ -308,6 +308,12 @@
 		parent="NavigationCartridgeHandler" scope="prototype">
 		<property name="cartridgeShare" ref="cartridgeShare" />
 	</bean>
+	
+	<bean id="CartridgeHandler_BreadBox" class="com.ydg.endeca.cartridge.handler.YDGBreadboxHandler"
+		parent="NavigationCartridgeHandler" scope="prototype">
+		<property name="cartridgeShare" ref="cartridgeShare" />
+	</bean>
+	
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 		~ BEAN: CartridgeHandler_ResultsList -->
