@@ -1,67 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008"
-                 xmlns:xavia="http://endeca.com/schema/xavia/2010"
-                 xmlns:editors="editors"
+<ContentTemplate xmlns="http://endeca.com/schema/content-template/2008" 
                  type="Navigation">
     <Description>${template.description}</Description>
-    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>   
+    <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
     <ContentItem>
-        <Name>Dimension Navigation</Name>
-        <Property name="dimensionName">
-            <String/>
-        </Property>
-        <Property name="dimensionId">
-            <String/>
-        </Property>
-        <Property name="sort">
-            <String>default</String>
-        </Property>
-        <Property name="showMoreLink">
-            <Boolean>false</Boolean>
-        </Property>
-        <Property name="moreLinkText">
-            <String>Show More Refinements...</String>
-        </Property>
-        <Property name="lessLinkText">
-            <String>Show Less Refinements...</String>
-        </Property>
-        <Property name="numRefinements">
-            <String>10</String> 
-        </Property>
-        <Property name="maxNumRefinements">
-            <String>200</String>
-        </Property>
-        <Property name="boostRefinements">
-            <xavia:List/>
-        </Property>
-        <Property name="buryRefinements">
-            <xavia:List/>
-        </Property>
-        <Property name="enableInlineCrumbs">
-	        <Boolean>false</Boolean>        
-        </Property>
+        <Name>ColorRefinementMenu</Name>
     </ContentItem>
+    
     <EditorPanel>
-        <BasicContentItemEditor>
-            <editors:DimensionSelectorEditor propertyName="dimensionName" idProperty="dimensionId" label="${property.dimensionName.label}" enabled="true"/>
-            <GroupLabel label="${group.order.label}"/>
-            <editors:ChoiceEditor label="${property.sort.label}" propertyName="sort">
-                <choice label="${property.sort.default.label}" value="default"/>
-                <choice label="${property.sort.static.label}" value="static"/>
-                <choice label="${property.sort.dynRank.label}" value="dynRank"/>
-            </editors:ChoiceEditor>
-            <editors:BoostBuryEditor propertyName="boostRefinements" buryProperty="buryRefinements" label="${property.boostBury.label}" dimensionIdProperty="dimensionId" enabled="true"/>
-            <GroupLabel label="${group.size.label}"/>
-            <editors:NumericStepperEditor propertyName="numRefinements" label="${property.numRefinements.label}" maxValue="10000" enabled="true"/>
-			<GroupLabel label="Multiselect Advanced Options"/>
-             <editors:BooleanEditor propertyName="enableInlineCrumbs" label="Enable Inline Breadcrumb Checkbox" enabled="true"/>
-            <GroupLabel label="${group.moreLink.label}"/>
-            <editors:BooleanEditor propertyName="showMoreLink" label="${property.showMoreLink.label}" enabled="true"/>
-            <editors:StringEditor propertyName="moreLinkText" label="${property.moreLinkText.label}" enabled="true"/>
-            <editors:StringEditor propertyName="lessLinkText" label="${property.lessLinkText.label}" enabled="true"/>
-            <!-- TODO: Determine a way to make this limitless -->
-            <editors:NumericStepperEditor propertyName="maxNumRefinements" label="${property.maxNumRefinements.label}" maxValue="100000" enabled="true"/>
-            
-        </BasicContentItemEditor>
+        <BasicContentItemEditor />
     </EditorPanel>
 </ContentTemplate>

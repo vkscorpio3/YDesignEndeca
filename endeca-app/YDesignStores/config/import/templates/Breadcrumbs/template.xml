@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <ContentTemplate xmlns="http://endeca.com/schema/content-template/2008" 
-                 type="SecondaryContent">
+                 type="HeaderContent">
     <Description>${template.description}</Description>
     <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
     <ContentItem>
