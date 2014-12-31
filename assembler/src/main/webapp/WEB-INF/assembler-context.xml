@@ -535,6 +535,11 @@
 		<property name="cartridgeShare" ref="cartridgeShare" />				
 	</bean>
 	
+	<bean id="CartridgeHandler_ColorRefinementMenu" class="com.ydg.endeca.cartridge.handler.YDGRefinementMenuHandler"
+		scope="prototype" parent="NavigationCartridgeHandler">		
+		<property name="contentItemInitializer" ref="refinementMenuConfigInitializer" />
+		<property name="cartridgeShare" ref="cartridgeShare" />		
+	</bean>
 	
 	<bean id="CartridgeHandler_PriceSlider" class="com.ydg.endeca.cartridge.handler.PriceSliderHandler"
 		scope="prototype" parent="NavigationCartridgeHandler">

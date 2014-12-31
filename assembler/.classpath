@@ -19,5 +19,5 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-core-3.0.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-expression-3.0.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-web-3.0.1.RELEASE.jar"/>
-	<classpathentry kind="output" path="target/assembler/WEB-INF/classes"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!DOCTYPE DVAL_RANKS SYSTEM "dval_ranks.dtd">
-<DVAL_RANKS/>
+<DVAL_RANKS>
+
+  <DVAL_RANK ID="5014021" RANK="1"/>
+
+  <DVAL_RANK ID="5014020" RANK="2"/>
+
+  <DVAL_RANK ID="5014018" RANK="4"/>
+
+  <DVAL_RANK ID="5014019" RANK="3"/>
+
+</DVAL_RANKS>
