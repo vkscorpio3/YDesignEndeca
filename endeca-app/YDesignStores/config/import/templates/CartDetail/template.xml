@@ -4,7 +4,7 @@
     <Description>${template.description}</Description>
     <ThumbnailUrl>thumbnail.png</ThumbnailUrl>
     <ContentItem>
-        <Name>Info Detail</Name>
+        <Name>Cart Detail</Name>
     </ContentItem>
 
     <EditorPanel>
