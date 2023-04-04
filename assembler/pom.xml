@@ -38,7 +38,7 @@
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/endeca_navigation-6.5.1.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
+			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.12</version>
 			<scope>system</scope>
